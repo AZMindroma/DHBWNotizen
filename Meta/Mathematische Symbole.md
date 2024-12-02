@@ -5,7 +5,13 @@
 
 ⊆ Teilmenge
 ⊂ Echte Teilmenge (?)
+⊈ Keine Teilmenge
 ⊄ Keine (echte) Teilmenge
+
+⊇ Obermenge
+⊃ Echte Obermenge
+⊉ Keine Obermenge
+⊋ Keine (echte) Obermenge
 
 ∈ Element von
 ∉ Kein Element von
