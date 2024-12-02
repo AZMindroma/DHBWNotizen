@@ -4,7 +4,8 @@
 ℝ Reelle Zahlen
 
 ⊆ Teilmenge
-⊄ Keine Teilmenge
+⊂ Echte Teilmenge (?)
+⊄ Keine (echte) Teilmenge
 
 ∈ Element von
 ∉ Kein Element von
