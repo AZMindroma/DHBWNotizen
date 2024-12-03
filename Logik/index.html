@@ -10,24 +10,8 @@
     </script>
 </head>
 <body>
-    <div id="content"></div>
-
-    <script>
-        async function loadMarkdown() {
-            try {
-                const response = await fetch('02.12.2024 Vorbereitung.md'); 
-                if (!response.ok) {
-                    console.error('Failed to fetch file:', response.status);
-                    return;
-                }
-                const text = await response.text();
-                document.getElementById('content').innerHTML = marked.parse(text); 
-            } catch (error) {
-                console.error('Error loading markdown:', error);
-            }
-        }
-
-        loadMarkdown();
-    </script>
+    <p>Inline equation: \( x^2 + y^2 = z^2 \)</p>
+    <p>Display equation:</p>
+    <p>$$E = mc^2$$</p>
 </body>
 </html>
