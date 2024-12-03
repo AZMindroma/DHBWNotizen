@@ -107,12 +107,6 @@ Alle Zahlen, die eine gerade Anzahl von Teilern haben
 4: 1, 2, 4
 16: 1, 2, 4, 8, 16
 --> Alle Quadratzahlen haben eine ungerade Anzahl an Teilern, alle Zahlen, die nicht Quadratzahlen sind haben sie aber!
-$$
-\begin{flalign}
-&C = \{n|n \in \mathbb{N}, \sqrt{n} ∉ \mathbb{N}\}\\
-&C = \left\{ x | Dx = \left\{ \frac{x}{t} \in N \right\},|Dx| mod2 = 0 \right\}&
-\end{flalign}
-$$
 |Dx| bezeichnet die Mächtigkeit von Dx (also die Anzahl der Elemente in Dx, ALSO die Teiler)
 ## In der Vorlesung
 
