@@ -66,20 +66,34 @@ M1 ⊃ M2 gdw. M2 ⊂ M1
 M1 ist eine echte Obermenge von M2, da M2 eine echte Teilmenge von M1 ist.
 
 ### Wichtige Mengen
-Leere Menge = { }, Symbol: ∅
---> ∅ ⊆ M (alle Mengen M) (Teilmenge, keine echte Teilmenge, denn ∅ ⊆ ∅, aber ∅ = ∅, also ∅ ⊄ ∅)
-ℕ = {0, 1, 2, 3, ...} MIT 0
-ℝ Reelle Zahlen
-
 $$
 \begin{flalign}
-&lalala\\
+&\text{Leere Menge = { }, Symbol: ∅}\\
+&\text{--> ∅ ⊆ M (alle Mengen M) (Teilmenge, keine echte Teilmenge, denn ∅ ⊆ ∅, aber ∅ = ∅, also ∅ ⊄ ∅)}\\
+&\text{ℕ = {0, 1, 2, 3, ...} MIT 0}\\
+&ℕ^≥¹ = \{1, 2, 3, ...\}\text{ OHNE 0}\\
+&ℤ = \{..., -2, -1, 0, 1, 2, ...\}\\
+&Q = \left\{ \frac{p}{q} | p ∈ ℤ, q ∈ ℕ^≥¹\right\}\\
+&\text{ℝ Reelle Zahlen}\\
+&\mathbb{B} = \{0, 1\} \text{, die Boole'sche Menge}&
 \end{flalign}
 $$
 ## Übung 2.6
 **Wichtig: Zahlen sind Teilmengen der natürlichen Zahlen!**
 Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)
+$$
+\begin{flalign}
+&A= \{2x |x \in \mathbb{N}\}\\
+&A=\left\{ \frac{x}{2} \in \mathbb{N}\right\}&
+\end{flalign}
+$$
 Quadratzahlen: Zahl, die durch das Quadrieren einer natürlichen Zahl entsteht 
+$$
+\begin{flalign}
+&B=\{x² | x \in \mathbb{N}\}\\
+&B=\{\sqrt{x }|\sqrt{x } \in \mathbb{N}\}&
+\end{flalign}
+$$
 Alle Zahlen, die eine gerade Anzahl von Teilern haben 
 -> Primzahlen haben eine gerade Anzahl, da sie nur durch 1 und sich selber teilbar sind. 
 10: 1, 2, 5, 10
@@ -89,6 +103,12 @@ Alle Zahlen, die eine gerade Anzahl von Teilern haben
 4: 1, 2, 4
 16: 1, 2, 4, 8, 16
 --> Alle Quadratzahlen haben eine ungerade Anzahl an Teilern, alle Zahlen, die nicht Quadratzahlen sind haben sie aber!
+$$
+\begin{flalign}
+&C = \{n|n \in \mathbb{N}, \sqrt{n} ∉ \mathbb{N}\}\\
+&C = \left\{ x | Dx = \left\{ \frac{x}{t} \in N \right\},|Dx| mod2 = 0 \right\}&
+\end{flalign}
+$$
 |Dx| bezeichnet die Mächtigkeit von Dx (also die Anzahl der Elemente in Dx, ALSO die Teiler)
 ## In der Vorlesung
 
@@ -165,3 +185,15 @@ Gültig:
 Nicht gültig:
 3, 5, 6, 10, 12
 
+$$
+\begin{flalign}
+&\text{Warum ist } A \setminus ¬B = A \cap B?\\
+&A \setminus B = A \cap ¬B\\
+&\text{Also:}\\ 
+&A \setminus ¬B =A \cap ¬(¬B) = A \cap B&
+\end{flalign}
+$$
+Vorrang und Assoziativität der Junktoren
+- Äußerste Klammern um eine Formel können weggelassen werden
+- Gleiche Junktoren werden links-assoziativ gelesen.
+A -> B -> C = (A -> B) -> C
