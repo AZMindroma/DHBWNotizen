@@ -7,7 +7,7 @@ Einige Abschnitte der Notizen werden in LaTeX geschrieben, welches ermöglicht, 
 Da Obsidian und GitHub verschiedene Markdown-"Dialekte" nutzen (oder so glaube ich jedenfalls), ist es leider aus dem oder anderen Gründen nicht wirklich möglich, die LaTeX-Sektionen richtig funktionierend auf GitHub-Previews darzustellen.
 
 **Als Lösung erstelle ich PDFs, die korrekte LaTeX-Formatierung beinhalten. Diese können unter dem "PDFs"-Unterordner vom jeweiligen Ordner mit dem Fach aufgerufen werden. Ich kann es aber auch verschlafen, also gerne mir Bescheid sagen wenn es nicht aktuell ist! :)**
-### Obsidian-Einrichtung, falls gewünscht
+## Obsidian-Einrichtung, falls gewünscht
 Falls es gewollt ist, die rohen .md-Dateien mit funktionierender LaTeX-Formatierung aufzurufen, empfehle ich, einfach dasselbe Programm wie ich zu nutzen: [Obsidian](https://obsidian.md/). 
 
 Schritte zum Einrichten meines Obsidian-Notizblocks auf deinem PC:
