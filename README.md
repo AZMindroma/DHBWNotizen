@@ -195,6 +195,7 @@ $$
 &A \setminus ¬B =A \cap ¬(¬B) = A \cap B&
 \end{flalign}
 $$
+
 Vorrang und Assoziativität der Junktoren
 - Äußerste Klammern um eine Formel können weggelassen werden
 - Gleiche Junktoren werden links-assoziativ gelesen.
