@@ -72,7 +72,7 @@ Leere Menge = { }, Symbol: ∅
 ℝ Reelle Zahlen
 $$
 \begin{flalign}
-&\mathbb{B} = \{0, 1\} \text{, die Boole'sche Menge}&
+& \text{, die Boole'sche Menge}&
 \end{flalign}
 $$
 ## Übung 2.6
