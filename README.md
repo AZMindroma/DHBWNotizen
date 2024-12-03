@@ -80,11 +80,11 @@ $$
 $$
 ## Übung 2.6
 **Wichtig: Zahlen sind Teilmengen der natürlichen Zahlen!**
-Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)
-### Test
+Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)<br>
 $$
 \begin{flalign}
-lol
+&A= \{2x |x \in \mathbb{N}\}\\
+&A=\left\lbrace  \frac{x}{2} \in \mathbb{N}\right\rbrace&
 \end{flalign}
 $$
 
@@ -95,6 +95,7 @@ $$
 &B=\{\sqrt{x }|\sqrt{x } \in \mathbb{N}\}&
 \end{flalign}
 $$
+
 Alle Zahlen, die eine gerade Anzahl von Teilern haben 
 -> Primzahlen haben eine gerade Anzahl, da sie nur durch 1 und sich selber teilbar sind. 
 10: 1, 2, 5, 10
