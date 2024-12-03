@@ -70,6 +70,7 @@ Leere Menge = { }, Symbol: ∅
 --> ∅ ⊆ M (alle Mengen M) (Teilmenge, keine echte Teilmenge, denn ∅ ⊆ ∅, aber ∅ = ∅, also ∅ ⊄ ∅)
 ℕ = {0, 1, 2, 3, ...} MIT 0
 ℝ Reelle Zahlen
+
 $$
 \begin{flalign}
 &lalala\\
