@@ -84,8 +84,7 @@ Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)
 ### Test
 $$
 \begin{flalign}
-&A= \{2x |x \in \mathbb{N}\}\\
-&A=\left\lbrace  \frac{x}{2} \in \mathbb{N}\right\rbrace&
+lol
 \end{flalign}
 $$
 Quadratzahlen: Zahl, die durch das Quadrieren einer natürlichen Zahl entsteht<br>
