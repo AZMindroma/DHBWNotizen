@@ -97,50 +97,55 @@ $$
 \end{flalign}
 $$
 |Dx| bezeichnet die Mächtigkeit von Dx (also die Anzahl der Elemente in Dx, ALSO die Teiler)
-## In der Vorlesung
-
+### MUI-System
+Es gilt:
+- Jede Ableitung beginnt mit MI
+- Ableitungsregeln:
 1. xI -> xIU
 2. xIIIy -> xUy
 3. xUUy -> xy
 4. Mx -> Mxx
 
-1
+### Übung 1.2
+Geben Sie, falls möglich, für die folgenden Wörter Ableitungen an:
+
+**MUIU**
 M I ->4 M II
 M II ->4 M IIII
 M III I ->2 M U I
 MU I ->1 MU IU
 
-**Ab hier nacharbeiten!**
-2
+**MIIIII**
 M I ->4 M II
 M II ->4 M IIII
 M IIII ->4 M IIIIIIII
-M IIIIIIII ->1 M IIIIIIIIU (!)
-M IIIIIIIIU ->2 MIIIIIUU
-MIIIIIUU ->3 MIIIII
+M IIIIIII I ->1 M IIIIIII IU (!)
+MIIIII III U ->2 MIIIII U U
+MIIIII UU ->3 MIIIII
 
-3
+**MUUUI**
 M I ->4 M II
 M II ->4 M IIII
 M IIII ->4 M IIIIIIII
 M IIIIII II ->2 M UU II
 M UUII ->4 M UUIIUUII
-M UUIIUUII ->3 M UUIII I
-M UUIII I ->2 M UUU I
+M UUII UU II ->3 MUUII II
+MUU III I ->2 MUU U I
 
-4
+**MU**
 MI -> nicht möglich!
 
-Invariante: Anzahl der I's
--> Vermutung: Die Anzahl der I's ist die ohne Rest durch 3 teilbar
-Beobachtung: 
+**Warum?**
+**Invariante:** Die Anzahl der I's ist nie ohne Rest durch 3 teilbar
+### Nochmal wegen Invariante fragen!
+**Beobachtung:** 
 1. Am Anfang ein I (nicht durch 3 teilbar)
 2. Mit Regel 4 wird es verdoppelt (auch nicht durch 3 teilbar)
 3. Mit Regel 2 wird die Anzahl um 3 verringert, und das Abziehen einer Zahl, die nicht durch 3 teilbar ist, macht es trotzdem nicht teilbar durch 3.
 4. Regel 1 ändert die Anzahl der I's nicht.
 5. Regel 3 ändert sie auch nicht.
--> Die Anzahl der I's ist nie durch 3 teilbar.
-
+-> Die Anzahl der I's ist nie durch 3 teilbar, egal was man tut.
+**Deutung:**
 -> Es ist nicht möglich, aus MI ein MU zu machen, da man 3 I's braucht, was aber wegen der Tatsache, dass die Anzahl der I's nie durch 3 teilbar sein kann, kann 4 nie gehen!
 
 Anwendung: Die Compiler validieren z.B. print-Funktionen oder andere Funktionen mit Parametern mithilfe dieser Systeme.
@@ -149,14 +154,15 @@ Validierung wichtig, damit es andernsfalls terminieren kann, und nicht extrem la
 ## Mengenoperationen
 Teilmenge = Menge, von denen die Mengen darunter Teil dieser Menge sein müssen, d.h. T = N bedeutet dass alle Mengen die das als Teilmenge haben natürliche Zahlen haben
 
-1
+### Übung 2.7
+**Teilaufgabe 1**
 a) {1,2,3,4,5,6,7,8,10,12}
 b) {2,4,6,8}
 c) {1,3,5,7}
 d) {9,10,11,12}
 e) {1,3,5,7,9,11}
 
-2
+**Teilaufgabe 2**
 a) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
 b) Alle geraden Zahlen, die durch 3 geteilt werden können.
 c) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
