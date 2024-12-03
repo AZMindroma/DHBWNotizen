@@ -69,13 +69,6 @@ M1 ist eine echte Obermenge von M2, da M2 eine echte Teilmenge von M1 ist.
 Leere Menge = { }, Symbol: ∅
 --> ∅ ⊆ M (alle Mengen M) (Teilmenge, keine echte Teilmenge, denn ∅ ⊆ ∅, aber ∅ = ∅, also ∅ ⊄ ∅)
 ℕ = {0, 1, 2, 3, ...} MIT 0
-$$
-\begin{flalign}
-&ℕ^≥¹ = \{1, 2, 3, ...\}\text{ OHNE 0}\\
-&ℤ = \{..., -2, -1, 0, 1, 2, ...\}\\
-&Q = \left\{ \frac{p}{q} | p ∈ ℤ, q ∈ ℕ^≥¹\right\}&
-\end{flalign}
-$$
 ℝ Reelle Zahlen
 $$
 \begin{flalign}
