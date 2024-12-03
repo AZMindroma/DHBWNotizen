@@ -1,1 +1,26 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        async function loadMarkdown() {
+            const response = await fetch('02.12.2024 Vorbereitung.md'); 
+            const text = await response.text();
+            document.getElementById('content').innerHTML = marked(text);
+        }
+
+        loadMarkdown();
+    </script>
+</body>
+</html>
