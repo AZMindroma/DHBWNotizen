@@ -84,7 +84,7 @@ Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)<b
 $$
 \begin{flalign}
 &A= \{2x |x \in \mathbb{N}\}\\
-&A=\left\lbrace  \frac{x}{2} \in \mathbb{N}\right\rbrace&
+&A=\left\lbrace  \frac{x}{2} \in \mathbb{N}\right\rbrace &
 \end{flalign}
 $$
 
