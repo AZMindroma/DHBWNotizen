@@ -81,6 +81,7 @@ $$
 ## Übung 2.6
 **Wichtig: Zahlen sind Teilmengen der natürlichen Zahlen!**
 Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)
+
 $$
 \begin{flalign}
 &A= \{2x |x \in \mathbb{N}\}\\
