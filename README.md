@@ -89,6 +89,7 @@ $$
 \end{flalign}
 $$
 Quadratzahlen: Zahl, die durch das Quadrieren einer natürlichen Zahl entsteht 
+
 $$
 \begin{flalign}
 &B=\{x² | x \in \mathbb{N}\}\\
