@@ -73,7 +73,7 @@ $$
 &\text{ℕ = {0, 1, 2, 3, ...} MIT 0}\\
 &ℕ^≥¹ = \{1, 2, 3, ...\}\text{ OHNE 0}\\
 &ℤ = \{..., -2, -1, 0, 1, 2, ...\}\\
-&Q = \left\lbrace \frac{p}{q} | p ∈ ℤ, q ∈ ℕ^≥¹\right\}\\
+&Q = \left\lbrace \frac{p}{q} | p ∈ ℤ, q ∈ ℕ^≥¹\right\rbrace\\
 &\text{ℝ Reelle Zahlen}\\
 &\mathbb{B} = \{0, 1\} \text{, die Boole'sche Menge}&
 \end{flalign}
