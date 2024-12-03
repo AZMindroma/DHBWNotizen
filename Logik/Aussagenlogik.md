@@ -1,3 +1,4 @@
+**Eigenschaften**
 Aussagenvariablen werden durch Großbuchstaben repräsentiert
 Aussagen sind valide, wenn gültige aussagenlogische Formeln und gültige Operationen vorhanden sind.
 ### Übung 3.6

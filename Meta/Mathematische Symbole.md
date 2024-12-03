@@ -19,3 +19,9 @@
 = Gleich
 ≠ Ungleich
 
+⋂ Durchschnitt
+⋃ Vereinigung
+
+⋀ Logisches Und
+⋁ Logisches Oder
+¬ Nicht

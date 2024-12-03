@@ -65,7 +65,7 @@ $$
 &\mathbb{B} = \{0, 1\} \text{, die Boole'sche Menge}&\\
 \end{flalign}
 $$
-## Übung 2.6
+### Übung 2.6
 **Wichtig: Zahlen sind Teilmengen der natürlichen Zahlen!**
 Gerade Zahlen: Zahlen, die durch 2 teilbar sind (in der Logik wird 2n benutzt)
 $$
@@ -152,21 +152,52 @@ Anwendung: Die Compiler validieren z.B. print-Funktionen oder andere Funktionen 
 Validierung wichtig, damit es andernsfalls terminieren kann, und nicht extrem lang compiled.
 
 ## Mengenoperationen
-Teilmenge = Menge, von denen die Mengen darunter Teil dieser Menge sein müssen, d.h. T = N bedeutet dass alle Mengen die das als Teilmenge haben natürliche Zahlen haben
+**Teilmenge = Menge, von denen die Mengen darunter Teil dieser Menge sein müssen.**
+d.h. T = ℕ bedeutet dass alle Mengen die das als Teilmenge haben natürliche Zahlen haben.
+#### Vereinigung
+M1 ⋃ M2 = {x | x ∈ M1 *oder* x ∈ M2}
+**x ∈ M1 ⋃ M2** gdw. x ∈ M1 *oder* x ∈ M2
+#### Schnitt
+M1 ⋂ M2 = {x | x ∈ M1 *und* x ∈ M2}
+**x ∈ M1 ⋂ M2** gdw. x ∈ M1 *und* x ∈ M2
+#### Differenz
+M1 \ M2 = {x | x ∈ M1 und x ∉ M2}
+x ∈ M1 \ M2 gdw. x ∈ M1 und x ∉ M2
 
+**Wichtig!**
+$$
+\begin{flalign}
+&\text{d.h. } M_{1} \setminus M_{2} = M_{1} ⋂ \overline{M_{2}}&\\
+\end{flalign}
+$$
+#### Komplement
+$$
+\begin{flalign}
+&\overline{M_{1}} =\{x|x∉M_{1}\}&\\
+&x \in \overline{M_{1}} \text{ gdw. } x∉M_{1}&\\
+\end{flalign}
+$$
 ### Übung 2.7
 **Teilaufgabe 1**
-a) {1,2,3,4,5,6,7,8,10,12}
-b) {2,4,6,8}
-c) {1,3,5,7}
-d) {9,10,11,12}
-e) {1,3,5,7,9,11}
+T = {1,2,3,4,5,6,7,8,9,10,11,12}
+M1 = {1,2,3,4,5,6,7,8}
+M2 = {2,4,6,8,10,12}
+
+a) M1 ⋃ M2 = {1,2,3,4,5,6,7,8,10,12}
+b) M1 ⋂ M2 = {2,4,6,8}
+c) M1 \ M2 = {1,3,5,7}
+d) M̅1̅ = {9,10,11,12}
+e) M̅2̅ = {1,3,5,7,9,11}
 ![[VennDiagrammUebung271.jpg]]
 
 **Teilaufgabe 2**
-a) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
-b) Alle geraden Zahlen, die durch 3 geteilt werden können.
-c) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
+T = ℕ, M1 = {3i | i ∈ ℕ}, M2 = {2i + 1 | i ∈ ℕ}
+M1 = {0, 3, 6, 9, 12, 15, ...}
+M2 = {1, 3, 5, 7, 9, 11, 13, 15, ...}
+
+a) M1 ⋂ M2: Alle ungeraden Zahlen, die durch 3 geteilt werden können.
+b) M1 \ M2: Alle geraden Zahlen, die durch 3 geteilt werden können.
+c) M1 \ M̅2̅: Alle ungeraden Zahlen, die durch 3 geteilt werden können.*
 ![[VennDiagrammUebung272.jpg]]
 $$
 \begin{flalign}
@@ -177,9 +208,9 @@ $$
 $$
 $$
 \begin{flalign}
-&\text{Warum ist } A \setminus ¬B = A \cap B?\\
-&A \setminus B = A \cap ¬B\\
+&\text{*Warum ist } M_{1} \setminus \overline{M_{2}} = M_{1} \cap M_{2}?\\
+&M_{1} \setminus M_{2} = M_{1} \cap \overline{M_{2}}\\
 &\text{Also:}\\ 
-&A \setminus ¬B =A \cap ¬(¬B) = A \cap B&
+&M_{1} \setminus \overline{M_{2}} =M_{1} \cap \overline{\overline{M_{2}}} = M_{1} \cap M_{2}&
 \end{flalign}
 $$
