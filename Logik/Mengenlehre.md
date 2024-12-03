@@ -161,9 +161,25 @@ b) {2,4,6,8}
 c) {1,3,5,7}
 d) {9,10,11,12}
 e) {1,3,5,7,9,11}
+![[VennDiagrammUebung271.jpg]]
 
 **Teilaufgabe 2**
 a) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
 b) Alle geraden Zahlen, die durch 3 geteilt werden können.
 c) Alle ungeraden Zahlen, die durch 3 geteilt werden können.
-**Visualisierung und die Notationen im Blatt, später nachtragen!**
+![[VennDiagrammUebung272.jpg]]
+$$
+\begin{flalign}
+&A = \{6i+3|i\in\mathbb{N}\}&\\
+&B = \{6i|i\in\mathbb{N}\}&\\
+&C = \{6i+3|i\in\mathbb{N}\}&\\
+\end{flalign}
+$$
+$$
+\begin{flalign}
+&\text{Warum ist } A \setminus ¬B = A \cap B?\\
+&A \setminus B = A \cap ¬B\\
+&\text{Also:}\\ 
+&A \setminus ¬B =A \cap ¬(¬B) = A \cap B&
+\end{flalign}
+$$

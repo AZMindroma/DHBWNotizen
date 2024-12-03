@@ -7,14 +7,6 @@ Gültig:
 Nicht gültig:
 3, 5, 6, 10, 12
 
-$$
-\begin{flalign}
-&\text{Warum ist } A \setminus ¬B = A \cap B?\\
-&A \setminus B = A \cap ¬B\\
-&\text{Also:}\\ 
-&A \setminus ¬B =A \cap ¬(¬B) = A \cap B&
-\end{flalign}
-$$
 Vorrang und Assoziativität der Junktoren
 - Äußerste Klammern um eine Formel können weggelassen werden
 - Gleiche Junktoren werden links-assoziativ gelesen.
