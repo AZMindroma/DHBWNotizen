@@ -161,4 +161,4 @@ $$
 $$
 
 **Beispiele von der Folie weil ich faul bin:**
-![[LineareAlgebra_Foliensammlung.pdf#page=24]]
+![[page_24.png]]
