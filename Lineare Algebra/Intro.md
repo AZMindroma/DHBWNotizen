@@ -19,7 +19,7 @@ Definitionszeichen
 := oder =:
 z.B. n! != 1 x 2 x 3 x 4 x ...
 
-...
+... (Im Notiz S.2)
 
 Mathematische Aussagen sind entweder wahr oder falsch
 Aussagen können verknüpft werden
@@ -46,3 +46,19 @@ Bei Termen kann es zu Missverständnissen kommen, was auch schlecht ist.
 -> Summennotation
 
 Blatt 2
+
+Mengenlehre
+Was ist eine Menge?
+
+Mengenname (M) ist oft in Großbuchstaben
+M = {A, %, 1, Ü, a, T, l}
+Alles geht!
+
+Bedeutung **Bestimmt**: Ist Element in der Menge oder nicht
+Bedueutung **Wohlunterschieden**: Jedes Element ist nur einmal in der Menge
+{1,2,2,3} NICHT, aber {1,2,3}!
+Reihenfolge egal!
+{1,2,3} = {3,2,1}
+
+Runde Klammern -> Reihenfolge wichtig!
+Geschweifte Klammern -> Reihenfolge egal!
