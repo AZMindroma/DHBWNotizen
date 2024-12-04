@@ -35,11 +35,11 @@ Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teil
 ...so wie 3 < 4 = 3 <= 4
 (die Relation der Zahlen muss noch untersucht werden, deswegen wird nicht gesagt, dass keine echte Teilmenge bedeutet, dass die beiden Mengen gleich sind.)
 
+### Lösungsmenge: 
+**Zusammenfassung aller Elemente, die die Gleichung erfüllen.**
 
-
-Lösungsmenge: Zusammenfassung aller Elemente, die die Gleichung erfüllen.
-
-x E N keine Lösung für x + 1 = 0, also L = {}
+Für **x ∈ ℕ** keine Lösung für x + 1 = 0, also L = ∅ 
+-> Erweiterung Zahlenbereich 
 
 N Teilmenge von Z Teilmenge von Z Teilmenge von Q Teilmenge von R Teilmenge von C
 

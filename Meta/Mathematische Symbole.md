@@ -2,9 +2,13 @@
 ℤ Ganze Zahlen
 ℚ Rationale Zahlen
 ℝ Reelle Zahlen
+ℂ Komplexe Zahlen
+𝔹 Boole'sche Menge
 
 ∀ Allquantor
 ∃ Existenzquantor
+
+∅ Leere Menge
 
 ⊆ Teilmenge
 ⊂ Echte Teilmenge (?)
