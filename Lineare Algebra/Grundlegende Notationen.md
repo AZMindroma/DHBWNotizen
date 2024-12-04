@@ -62,18 +62,61 @@ $$
 Wenn die Laufindexe der beiden Summen gleich sind, können sie so addiert und subtrahiert werden:
 $$
 \begin{flalign}
-&\sum_{k = 1}^{n}a_{k} \pm \sum_{k = 1}^{n}b_{k} = \sum_{k = 1}^{n} (a_{k} \pm b_{k})&\\
-&(a_{1}+a_{2}+\dots+a_{n}) + (b_{1}+b_{2}+\dots+b_{n}) = (a_{1}+b_{1}) + (a_{2}+b_{2})+\dots+(a_{n}+b_{n})&\\ 
+& \sum_{k = 1}^{n}a_{k} \pm \sum_{k = 1}^{n}b_{k} = \sum_{k = 1}^{n} (a_{k} \pm b_{k}) &\\
+& (a_{1}+a_{2}+\dots+a_{n}) + (b_{1}+b_{2}+\dots+b_{n}) = (a_{1}+b_{1}) + (a_{2}+b_{2})+\dots+(a_{n}+b_{n}) &\\ 
 \end{flalign}
 $$
 (Technisch gesehen ist es auch mit verschiedenen Laufindexen zu machen, nur bleiben dann einige Indexe übrig... oder sowas)
 #### Ausmultiplizieren und Ausklammern
 $$
 \begin{flalign}
-&c\sum_{k = 1}^{n}a_{k} = \sum_{k = 1}^{n} (c * a_{k})&\\
-&c*(a_{1}+a_{2}+\dots+a_{n}) = c * a_{1} + c*a_{2} + \dots + c*a_{n}&\\ 
+& c\sum_{k = 1}^{n}a_{k} = \sum_{k = 1}^{n} (c * a_{k}) &\\
+& c*(a_{1}+a_{2}+\dots+a_{n}) = c * a_{1} + c*a_{2} + \dots + c*a_{n} &\\ 
 \end{flalign}
 $$
 Mehr oder weniger analog zur Integralregel :)
 #### Summentrennung
+$$
+\begin{flalign}
+& \sum_{k=1}^{n}a_{k} = \sum_{k=1}^{l}a_{k} + \sum_{k=l+1}^{n}a_{k} &\\
+\end{flalign}
+$$
+Hier ist l ein **Index** zwischen k und n. z.B.
+1 2 3 4 5 6 7 8 9 
+k              l        n
+**Also wird von 1 bis 5 (k zu l) und dann von 6 zu 9 (l + 1 zu n) gezählt. Logisch, oder?**
+#### Indexverschiebung
+$$
+\begin{flalign}
+& \sum_{k = m}^{n}a_{k} = \sum_{k = m - l}^{n - l} a_{k+l} &\\
+\end{flalign}
+$$
+Man kann erkennen, dass der Start- und Index um l subtrahiert werden, während bei der Funktion der Index um l addiert wird. Dies wird später noch präziser veranschaulicht.
+#### Summe von Produkten ≠ Produkte von Summen!!!
+$$
+\begin{flalign}
+& \sum_{k = m}^{n} (a_{k} * b_{k}) ≠ \left(\sum_{k = m}^{n} (a_{k})\right) * \left(\sum_{k = m}^{n} (b_{k})\right) &\\
+\end{flalign}
+$$
+### Beispiele
+$$
+\begin{flalign}
+& \sum_{k = 3}^{27} = 3 + 4 + 5 + \dots + 27 &\\
+& \left( \frac{4}{7} \right)^2 + \left( \frac{5}{7} \right)^2 + \left( \frac{6}{7} \right)^2 + \dots + \left( \frac{n}{7} \right)^2 = \sum_{j=4}^{n} \left( \frac{j}{7} \right)^2 = \left( \frac{1}{7} \right)^2 \sum_{j=4}^{n} j^2 &\\ 
+\end{flalign}
+$$
+Am Ende wird ausmultipliziert :)
 
+Sei x eine reelle Zahl. Die sogenannte **geometrische Summe** ist
+$$
+\begin{flalign}
+&1 + x + x^2 + x^3 + x^4 + \dots + x^n = \sum_{k=0}^{n}x^k&\\
+\end{flalign}
+$$
+**Indexverschiebung**
+$$
+\begin{flalign}
+& (4 + 5 + 6 + \dots + n) + (5^4 + 6^5 + 7^6 + \dots + (n+1)^n) &\\
+& = \\
+\end{flalign}
+$$(4 + 5 + 6 + \dots + n) + (5^4 + 6^5 + 7^6 + \dots + (n+1)^n)
