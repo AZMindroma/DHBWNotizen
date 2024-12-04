@@ -117,6 +117,45 @@ $$
 $$
 \begin{flalign}
 & (4 + 5 + 6 + \dots + n) + (5^4 + 6^5 + 7^6 + \dots + (n+1)^n) &\\
-& = \\
+& = \sum_{k = 4}^{n}k + \sum_{k = 5}^{n+1}k^{k-1} &\\
+& \text{Indexverschiebung an der rechten Summe, um beide auf k=4 zu bringen:} &\\
+& = \sum_{k = 4}^{n}k + \sum_{k = 5-1}^{(n+1)-1}(k+1)^{(k+1)-1} &\\
+& = \sum_{k = 4}^{n}k + \sum_{k = 4}^{n}(k+1)^{k} &\\
+& = \sum_{k = 4}^{n}(k+(k+1)^k)
 \end{flalign}
-$$(4 + 5 + 6 + \dots + n) + (5^4 + 6^5 + 7^6 + \dots + (n+1)^n)
+$$
+## Produktnotation
+![[Produktnotation04122024.jpg]]
+Ebenfalls darf hier nur aufgezählt, nicht heruntergezählt werden. 
+Falls m > n ist, wird das **leere Produkt** so definiert:
+$$
+\begin{flalign}
+& \prod_{k=m}^{n}a_{k} := 1 &\\ 
+\end{flalign}
+$$
+### Rechenregeln Summennotation
+#### Produkt von Produkten
+$$
+\begin{flalign}
+& \prod_{k = m}^{n}a_{k} * \prod_{k = m}^{n}b_{k} = \prod_{k = m}^{n} (a_{k} * b_{k}) &\\
+\end{flalign}
+$$
+#### Ausklammern
+$$
+\begin{flalign}
+& \prod_{k = 1}^{n}c*a_{k} = c^n\prod_{k = 1}^{n} a_{k} &\\
+\end{flalign}
+$$
+"c wird n mal nach vorne geschoben" (?)
+#### Quotient von Produkten
+$$
+\begin{flalign}
+& \frac{\prod_{k = m}^{n}a_{k}}{\prod_{k = m}^{n}b_{k}}   = \prod_{k = m}^{n} \frac{a_{k}}{b_{k}} &\\
+\end{flalign}
+$$
+#### Indexverschiebung
+$$
+\begin{flalign}
+& \prod_{k = m}^{n}a_{k} = \prod_{k = m - l}^{n - l} a_{k+l} &\\
+\end{flalign}
+$$
