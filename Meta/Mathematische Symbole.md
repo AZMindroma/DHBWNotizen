@@ -3,6 +3,9 @@
 ℚ Rationale Zahlen
 ℝ Reelle Zahlen
 
+∀ Allquantor
+∃ Existenzquantor
+
 ⊆ Teilmenge
 ⊂ Echte Teilmenge (?)
 ⊈ Keine Teilmenge
