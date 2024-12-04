@@ -159,3 +159,6 @@ $$
 & \prod_{k = m}^{n}a_{k} = \prod_{k = m - l}^{n - l} a_{k+l} &\\
 \end{flalign}
 $$
+
+**Beispiele von der Folie weil ich faul bin:**
+![[LineareAlgebra_Foliensammlung.pdf#page=24]]
