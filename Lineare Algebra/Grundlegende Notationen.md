@@ -55,31 +55,30 @@ z.B. 1, 2, 3, ...
 -> Wenn m (Startindex) > n (Endindex) gilt, also es versucht wird, absteigend zu zählen, wird die **leere Summe** definiert:
 $$
 \begin{flalign}
-&\sum_{k = m}^{n}a_{k} := 0&\\
+\sum_{k = m}^{n}a_{k} := 0
 \end{flalign}
 $$
 ### Rechenregeln Summennotation
 Wenn die Laufindexe der beiden Summen gleich sind, können sie so addiert und subtrahiert werden:
 $$
-\begin{flalign}
-& \sum_{k = 1}^{n}a_{k} \pm \sum_{k = 1}^{n}b_{k} = \sum_{k = 1}^{n} (a_{k} \pm b_{k}) &\\
-& (a_{1}+a_{2}+\dots+a_{n}) + (b_{1}+b_{2}+\dots+b_{n}) = (a_{1}+b_{1}) + (a_{2}+b_{2})+\dots+(a_{n}+b_{n}) &\\ 
-\end{flalign}
+\begin{gather*}
+\sum_{k = 1}^{n}a_{k} \pm \sum_{k = 1}^{n}b_{k} = \sum_{k = 1}^{n} (a_{k} \pm b_{k})\\
+(a_{1}+a_{2}+\dots+a_{n}) + (b_{1}+b_{2}+\dots+b_{n}) = (a_{1}+b_{1}) + (a_{2}+b_{2})+\dots+(a_{n}+b_{n})
+\end{gather*}
+
 $$
 (Technisch gesehen ist es auch mit verschiedenen Laufindexen zu machen, nur bleiben dann einige Indexe übrig... oder sowas)
 #### Ausmultiplizieren und Ausklammern
 $$
-\begin{flalign}
-& c\sum_{k = 1}^{n}a_{k} = \sum_{k = 1}^{n} (c * a_{k}) &\\
-& c*(a_{1}+a_{2}+\dots+a_{n}) = c * a_{1} + c*a_{2} + \dots + c*a_{n} &\\ 
-\end{flalign}
+\begin{gather*}
+c\sum_{k = 1}^{n}a_{k} = \sum_{k = 1}^{n} (c * a_{k}) \\
+c*(a_{1}+a_{2}+\dots+a_{n}) = c * a_{1} + c*a_{2} + \dots + c*a_{n} 
+\end{gather*}
 $$
 Mehr oder weniger analog zur Integralregel :)
 #### Summentrennung
 $$
-\begin{flalign}
-& \sum_{k=1}^{n}a_{k} = \sum_{k=1}^{l}a_{k} + \sum_{k=l+1}^{n}a_{k} &\\
-\end{flalign}
+\sum_{k=1}^{n}a_{k} = \sum_{k=1}^{l}a_{k} + \sum_{k=l+1}^{n}a_{k}
 $$
 Hier ist l ein **Index** zwischen k und n. z.B.
 1 2 3 4 5 6 7 8 9 
@@ -87,16 +86,12 @@ k              l        n
 **Also wird von 1 bis 5 (k zu l) und dann von 6 zu 9 (l + 1 zu n) gezählt. Logisch, oder?**
 #### Indexverschiebung
 $$
-\begin{flalign}
-& \sum_{k = m}^{n}a_{k} = \sum_{k = m - l}^{n - l} a_{k+l} &\\
-\end{flalign}
+\sum_{k = m}^{n}a_{k} = \sum_{k = m - l}^{n - l} a_{k+l}
 $$
 Man kann erkennen, dass der Start- und Index um l subtrahiert werden, während bei der Funktion der Index um l addiert wird. Dies wird später noch präziser veranschaulicht.
 #### Summe von Produkten ≠ Produkte von Summen!!!
 $$
-\begin{flalign}
-& \sum_{k = m}^{n} (a_{k} * b_{k}) ≠ \left(\sum_{k = m}^{n} (a_{k})\right) * \left(\sum_{k = m}^{n} (b_{k})\right) &\\
-\end{flalign}
+\sum_{k = m}^{n} (a_{k} * b_{k}) ≠ \left(\sum_{k = m}^{n} (a_{k})\right) * \left(\sum_{k = m}^{n} (b_{k})\right)
 $$
 ### Beispiele
 $$
@@ -129,35 +124,25 @@ $$
 Ebenfalls darf hier nur aufgezählt, nicht heruntergezählt werden. 
 Falls m > n ist, wird das **leere Produkt** so definiert:
 $$
-\begin{flalign}
-& \prod_{k=m}^{n}a_{k} := 1 &\\ 
-\end{flalign}
+\prod_{k=m}^{n}a_{k} := 1
 $$
 ### Rechenregeln Summennotation
 #### Produkt von Produkten
 $$
-\begin{flalign}
-& \prod_{k = m}^{n}a_{k} * \prod_{k = m}^{n}b_{k} = \prod_{k = m}^{n} (a_{k} * b_{k}) &\\
-\end{flalign}
+\prod_{k = m}^{n}a_{k} * \prod_{k = m}^{n}b_{k} = \prod_{k = m}^{n} (a_{k} * b_{k})
 $$
 #### Ausklammern
 $$
-\begin{flalign}
-& \prod_{k = 1}^{n}c*a_{k} = c^n\prod_{k = 1}^{n} a_{k} &\\
-\end{flalign}
+\prod_{k = 1}^{n}c*a_{k} = c^n\prod_{k = 1}^{n} a_{k}
 $$
 "c wird n mal nach vorne geschoben" (?)
 #### Quotient von Produkten
 $$
-\begin{flalign}
-& \frac{\prod_{k = m}^{n}a_{k}}{\prod_{k = m}^{n}b_{k}}   = \prod_{k = m}^{n} \frac{a_{k}}{b_{k}} &\\
-\end{flalign}
+\frac{\prod_{k = m}^{n}a_{k}}{\prod_{k = m}^{n}b_{k}}   = \prod_{k = m}^{n} \frac{a_{k}}{b_{k}}
 $$
 #### Indexverschiebung
 $$
-\begin{flalign}
-& \prod_{k = m}^{n}a_{k} = \prod_{k = m - l}^{n - l} a_{k+l} &\\
-\end{flalign}
+\prod_{k = m}^{n}a_{k} = \prod_{k = m - l}^{n - l} a_{k+l} 
 $$
 
 **Beispiele von der Folie weil ich faul bin:**
