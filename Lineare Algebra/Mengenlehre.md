@@ -28,7 +28,6 @@ M2 := {x ∈ X | x besitzt die Eigenschaften E1, E2, ..., Em}
 hier ist X eine Übermenge / größere Menge (größer als M2)
 
 *Übung: Formulieren sie Q in Symbolschreibweise.*
-
 #### Zu Teilmengen
 Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teilmenge, und nicht gleich...? Wegen präventiven Gründen.
 
@@ -39,9 +38,9 @@ Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teil
 **Zusammenfassung aller Elemente, die die Gleichung erfüllen.**
 
 Für **x ∈ ℕ** keine Lösung für x + 1 = 0, also L = ∅ 
--> Erweiterung Zahlenbereich 
+-> Erweiterung des Zahlenbereichs nötig, damit die Gleichung gelöst werden kann (Zu ℤ)
 
-N Teilmenge von Z Teilmenge von Z Teilmenge von Q Teilmenge von R Teilmenge von C
+ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 
 Unterschiedliche Klammerschreibweisen sind OK, aber ich sollte mich zu der in der Präsentation angewöhnen.
 
