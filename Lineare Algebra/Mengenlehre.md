@@ -69,7 +69,7 @@ z.B.
 A = {1,2,3} und B = {4,5,6}
 A ⋂ B = {1, 2, 3} ⋂ {4, 5, 6} = ∅
 
-**Wenn** eine Menge disjunkt ist, dann ist die Vereinigung dann mit einem Punkt (kein Fehler in der Folie):
+**Wenn** eine Menge disjunkt ist, dann ist die Vereinigung dann mit einem Punkt:
 $$
 \begin{flalign}
 A \dot{\cup}B = \{1, 2, 3, 4, 5, 6\}
@@ -77,12 +77,14 @@ A \dot{\cup}B = \{1, 2, 3, 4, 5, 6\}
 $$
 ### Kartesisches Produkt (A x B)
 Das Produkt ist durch die **2-Tupel** (a, b) mit a ∈ A und b ∈ B gegeben:
-
-
+$$
+A \times B = \{(a,b)|a \in A \wedge b \in B \}
+$$
+z.B.
 A = {1; 3}
 B = {2; 4; 7}
-A x B = {(1;2); (1;4); (1;7);
-		(3,2); (3;4); (3;7)}
+A x B =   {(1;2); (1;4); (1;7);
+        (3,2); (3;4); (3;7)}
 
 Mächtigkeit oder: A und B, aber da gibt es die Schnittmenge, was abgezogen werden muss!
 
