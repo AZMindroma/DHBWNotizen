@@ -11,7 +11,7 @@
 ∅ Leere Menge
 
 ⊆ Teilmenge
-⊂ Echte Teilmenge (?)
+⊂ Echte Teilmenge
 ⊈ Keine Teilmenge
 ⊄ Keine (echte) Teilmenge
 

@@ -1,6 +1,6 @@
-## Größtenteils analog zu [[Logik/Mengenlehre]]
+## Größtenteils analog zu [[Logik/Mengenlehre|Logik->Mengenlehre]], aber hat (Stand jetzt) mehr Inhalt
 
-## Darstellung von Mengen
+## 2.1 Darstellung von Mengen
 Mengennamen (M) sind in der Regel in **Großbuchstaben** geschrieben:
 **M** = {A, %, 1, Ü, a, T, l}
 Eine Menge kann mehr oder weniger alles enthalten, sogar andere Mengen in der Menge!
@@ -17,7 +17,6 @@ Die Reihenfolge ist in der Notation der Menge egal:
 **Zum Merken :)**
 Runde Klammern -> Reihenfolge **wichtig**!
 Geschweifte Klammern -> Reihenfolge **egal**!
-
 ### Darstellungsweisen
 Menge in **aufzählender** Darstellung:
 M1 := {a1, a2, ... an}
@@ -28,52 +27,77 @@ M2 := {x ∈ X | x besitzt die Eigenschaften E1, E2, ..., Em}
 hier ist X eine Übermenge / größere Menge (größer als M2)
 
 *Übung: Formulieren sie Q in Symbolschreibweise.*
-
 #### Zu Teilmengen
 Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teilmenge, und nicht gleich...? Wegen präventiven Gründen.
 
 ...so wie 3 < 4 = 3 <= 4
 (die Relation der Zahlen muss noch untersucht werden, deswegen wird nicht gesagt, dass keine echte Teilmenge bedeutet, dass die beiden Mengen gleich sind.)
-
 ### Lösungsmenge: 
 **Zusammenfassung aller Elemente, die die Gleichung erfüllen.**
 
 Für **x ∈ ℕ** keine Lösung für x + 1 = 0, also L = ∅ 
--> Erweiterung Zahlenbereich 
+-> Erweiterung des Zahlenbereichs nötig, damit die Gleichung gelöst werden kann (Zu ℤ)
 
-N Teilmenge von Z Teilmenge von Z Teilmenge von Q Teilmenge von R Teilmenge von C
+Es gilt:
+$$
+ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
+$$
+### Intervallschreibweise
+**\[ \]** - Beinhaltet diesen Wert
+**( )** - Beinhaltet diesen Wert nicht
+Es wird auch alternativ zum Nichtbeinhalten eines Wertes **\] \[** verwendet 
+(Das Verwenden davon ist erlaubt, aber ich sollte mich zu der in der Präsentation angewöhnen)
+### Potenzmengen
+Eine Potenzmenge P(X) ist die Menge aller Teilmengen von X. 
+Verwirrend. Deswegen hier ein Beispiel:
 
-Unterschiedliche Klammerschreibweisen sind OK, aber ich sollte mich zu der in der Präsentation angewöhnen.
+X = {1, 5, 7}
+P(X) = {∅, {1}, {5}, {7}, {1, 5}, {1, 7}, {5, 7}, {1, 5, 7}}
 
-Potenzmengen aufschreiben! Ist ein neues Ding.
+Die leere Menge und Menge X selbst sind **triviale Teilmengen**.
+In der Potenzmenge muss die Menge X **selbst** dabei sein.
+### Mächtigkeit (erklärt in [[Logik/Mengenlehre#Definition 2.2 (Mächtigkeit)|Logik->Mengenlehre->Definition 2.2 (Mächtigkeit)]])
+*Einige zusätzliche Funfacts:*
+**|ℕ|** ist unendlich. (Alle natürlichen Zahlen)
+**|{ℕ}|** ist 1, da ℕ ein Element in einer Menge ist, nicht die Menge!
 
-Leere Menge und Menge X selbst sind triviale Teilmengen.
-In der Potenzmenge muss die Menge X selbst dabei sein.
+|A ⋃ B| = |A| + |B| - |(A ⋂ B)|
+Um die Mächtigkeit der Menge A ⋃ B zu bekommen, kann man die Mächtigkeiten von A und B addieren, muss dann aber die Mächtigkeit der Schnittmenge abziehen, da es sonst 2x gezählt wird. 
+|A̅| = |X| - |A| 
 
-|N| ist unendlich.
-|{N}| ist 1, da N ein Element ist, nicht die Menge.
+Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.
+### (B gehört nicht zur Grundmenge, oder? Also geht das nur, wenn es A und die Schnittmenge gibt?)
 
-### Mengenoperationen
-Analog zur Logik.
+|A x B| = |A| \* |B|
+## 2.2 Mengenoperationen
+Analog zu [[Logik/Mengenlehre#Mengenoperationen|Logik->Mengenlehre->Mengenoperationen]]
 
-Disjunkte Mengen, wenn A geschnitten (und) B = Leere Menge ist.
-z.B. A = {1,2,3} B = {4,5,6}
-Dann ist die Vereinigung dann mit einem Punkt (kein Fehler in der Folie):
-A V(mit Punkt) B = {1,2,3,4,5,6}
-(auch nicht schlimm, wenn es fehlt)
+**Zusätzlich:**
+Man nennt Mengen **disjunkte Mengen**, wenn **A ⋂ B = ∅** ist.
+z.B. 
+A = {1,2,3} und B = {4,5,6}
+A ⋂ B = {1, 2, 3} ⋂ {4, 5, 6} = ∅
 
-Kartesische Produkt (A x B)
+**Wenn** eine Menge disjunkt ist, dann ist die Vereinigung dann mit einem Punkt:
+$$
+\begin{flalign}
+A \dot{\cup}B = \{1, 2, 3, 4, 5, 6\}
+\end{flalign}
+$$
+### Kartesisches Produkt (A x B)
+Das Produkt ist durch die **2-Tupel** (a, b) mit a ∈ A und b ∈ B gegeben:
+$$
+A \times B = \{(a,b)|a \in A \wedge b \in B \}
+$$
+z.B.
 A = {1; 3}
 B = {2; 4; 7}
-A x B = {(1;2); (1;4); (1;7);
-		(3,2); (3;4); (3;7)}
-
-Mächtigkeit oder: A und B, aber da gibt es die Schnittmenge, was abgezogen werden muss!
+A x B =   {(1;2); (1;4); (1;7);
+        (3,2); (3;4); (3;7)}
 
 ### Binäre Relation
 ~ -> Steht in Relation zu
-Aber auch eine Menge!
-(Analog zu Proportionalität in Physik)
+Aber gleichzeitig steht dieses Symblol für eine Menge!
 
 Beispiel mithilfe der selben Menge oben: A ~ B <-> x+y ist gerade 
 ~ = {(1;7);(3;7)}
