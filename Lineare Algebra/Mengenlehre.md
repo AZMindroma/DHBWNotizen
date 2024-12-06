@@ -97,8 +97,7 @@ A x B =   {(1;2); (1;4); (1;7);
 
 ### Binäre Relation
 ~ -> Steht in Relation zu
-Aber auch eine Menge!
-(Analog zu Proportionalität in Physik)
+Aber gleichzeitig steht dieses Symblol für eine Menge!
 
 Beispiel mithilfe der selben Menge oben: A ~ B <-> x+y ist gerade 
 ~ = {(1;7);(3;7)}
