@@ -60,6 +60,15 @@ In der Potenzmenge muss die Menge X **selbst** dabei sein.
 *Einige zusätzliche Funfacts:*
 **|ℕ|** ist unendlich. (Alle natürlichen Zahlen)
 **|{ℕ}|** ist 1, da ℕ ein Element in einer Menge ist, nicht die Menge!
+
+|A ⋃ B| = |A| + |B| - |(A ⋂ B)|
+Um die Mächtigkeit der Menge A ⋃ B zu bekommen, kann man die Mächtigkeiten von A und B addieren, muss dann aber die Mächtigkeit der Schnittmenge abziehen, da es sonst 2x gezählt wird. 
+|A̅| = |X| - |A| 
+
+Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.
+### (B gehört nicht zur Grundmenge, oder? Also geht das nur, wenn es A und die Schnittmenge gibt?)
+
+|A x B| = |A| \* |B|
 ## 2.2 Mengenoperationen
 Analog zu [[Logik/Mengenlehre#Mengenoperationen|Logik->Mengenlehre->Mengenoperationen]]
 
@@ -85,8 +94,6 @@ A = {1; 3}
 B = {2; 4; 7}
 A x B =   {(1;2); (1;4); (1;7);
         (3,2); (3;4); (3;7)}
-
-Mächtigkeit oder: A und B, aber da gibt es die Schnittmenge, was abgezogen werden muss!
 
 ### Binäre Relation
 ~ -> Steht in Relation zu

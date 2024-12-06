@@ -116,6 +116,7 @@ $$
 & \text{Indexverschiebung an der rechten Summe, um beide auf k=4 zu bringen:} &\\
 & = \sum_{k = 4}^{n}k + \sum_{k = 5-1}^{(n+1)-1}(k+1)^{(k+1)-1} &\\
 & = \sum_{k = 4}^{n}k + \sum_{k = 4}^{n}(k+1)^{k} &\\
+& \text{Zusammenfassen mit Rechenregeln:} &\\
 & = \sum_{k = 4}^{n}(k+(k+1)^k)
 \end{flalign}
 $$
