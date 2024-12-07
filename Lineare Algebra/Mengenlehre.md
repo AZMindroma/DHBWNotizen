@@ -97,12 +97,27 @@ A x B =   {(1;2); (1;4); (1;7);
 
 ### Binäre Relation
 ~ -> Steht in Relation zu
-Aber gleichzeitig steht dieses Symblol für eine Menge!
+Aber gleichzeitig steht dieses Symbol auch für die Menge, die für eine bestimmte Relation gilt!
 
-Beispiel mithilfe der selben Menge oben: A ~ B <-> x+y ist gerade 
-~ = {(1;7);(3;7)}
+Beispiel mithilfe der selben Menge oben: 
+**A ~ B <-> x+y ist gerade** (~ ist hier die Relation zwischen A und B)
+**~ = {(1;7);(3;7)}** (~ ist hier die Menge, für welche die Relation zutrifft.)
+### Äquivalenzrelation
+Wir schauen uns folgende Menge an:
+**A = {1; 2}**
+A x A = {(1, 1); (1, 2); (2, 1); (2, 2)}
+~ = {(1, 1); (2, 2)}
 
-A = {1; 2}
+Für die Relation ~ (hier **x + y ist gerade**) in A x A gilt:
+
+**Reflexiv: x ~ x für alle x∈A** 
+für x = 1: 1 + 1 ist 2 -> gerade
+für x = 2: 2 + 2 ist 4 -> gerade
+-> Die Relation ist reflexiv.
+
+**Transitiv: x ~ y -> y ~ x**
+
+
 Reflexiv, da hier z.B. 1+1 = 2 = gerade ist und 2+2 = 4 = gerade ist.
 Transitiv: Kleiner als Relation.
 
