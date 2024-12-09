@@ -115,7 +115,7 @@ für x = 1: 1 + 1 ist 2 -> gerade
 für x = 2: 2 + 2 ist 4 -> gerade
 -> Die Relation ist reflexiv.
 
-**Transitiv: x ~ y -> y ~ x**
+**Symmetrisch: x ~ y -> y ~ x**
 **Wenn x + y gerade ist, ist auch y + x gerade.**
 Für (1, 1): 
 x + y = 1 + 1 -> gerade
@@ -123,12 +123,26 @@ y + x = 1 + 1 -> gerade
 Für (2, 2):
 x + y = 2 + 2 -> gerade
 y + x = 2 + 2 -> gerade
+-> Die Relation ist symmetrisch.
 
+**Transitiv: x ~ y ⋀ y ~ z -> x ~ z**
+**Wenn x + y gerade ist UND y und z gerade ist, ist x und z auch gerade.**
+Für (1, 1):
+x + y = 1 + 1 -> gerade
+y + z = 1 + (2n+1) -> gerade
+x + z = 1 + (2n+1) -> auch gerade
+*2n+1 steht für eine ungerade Zahl. 1 + eine beliebige ungerade Zahl ergibt eine gerade Zahl.*
 
-Reflexiv, da hier z.B. 1+1 = 2 = gerade ist und 2+2 = 4 = gerade ist.
-Transitiv: Kleiner als Relation.
+Für (2, 2):
+x + y = 2 + 2 -> gerade
+y + z = 2 + (2n) -> gerade
+x + z = 2 + (2n) -> auch gerade
+*2n steht für eine gerade Zahl. 2 + eine beliebige gerade Zahl ergibt eine gerade Zahl.*
 
-Wenn alle 3 in der Folie genannten Relationstypen zustimmen, wird sie Äquivalenzrelation genannt.
+-> Die Relation ist transitiv.
+
+**Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
+-> Diese Relation ist eine Äquivalenzrelation.**
 
 Bei Aufgabe 10 wäre x ~ y wäre z z.B. x Stuttgart y Berlin und z München, dass man auch über München von Stuttgart nach München gehen kann.
 
