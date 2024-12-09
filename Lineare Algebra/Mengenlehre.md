@@ -116,6 +116,13 @@ für x = 2: 2 + 2 ist 4 -> gerade
 -> Die Relation ist reflexiv.
 
 **Transitiv: x ~ y -> y ~ x**
+**Wenn x + y gerade ist, ist auch y + x gerade.**
+Für (1, 1): 
+x + y = 1 + 1 -> gerade
+y + x = 1 + 1 -> gerade
+Für (2, 2):
+x + y = 2 + 2 -> gerade
+y + x = 2 + 2 -> gerade
 
 
 Reflexiv, da hier z.B. 1+1 = 2 = gerade ist und 2+2 = 4 = gerade ist.
