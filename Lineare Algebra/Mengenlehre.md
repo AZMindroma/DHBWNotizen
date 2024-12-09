@@ -144,7 +144,11 @@ x + z = 2 + (2n) -> auch gerade
 **Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
 -> Diese Relation ist eine Äquivalenzrelation.**
 
-Bei Aufgabe 10 wäre x ~ y wäre z z.B. x Stuttgart y Berlin und z München, dass man auch über München von Stuttgart nach München gehen kann.
+### Mögliche Hilfen, um es klarer zu machen.
+![[Aufgabe10Aufgabenkatalog.png]]
+**Beispiel für Transitivität:**
+Wenn **Stadt x** Stuttgart ist und **Stadt y** Berlin ist, dann kann **Stadt z** z.B. München sein.
+**Wenn man also von Stuttgart nach München und von München nach Berlin fahren kann, kann man auch von Stuttgart nach Berlin fahren.**
 
 Reflexiv: Für jedes Element mit sich selber prüfen
 Symmetrisch: Ob von x, y auch y, x folt
