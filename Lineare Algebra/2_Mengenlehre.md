@@ -176,7 +176,7 @@ x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
 
 Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
 
-S.60 bedeutung: x - y ist durch 3 teilbar
+S.60 Bedeutung: x - y ist durch 3 teilbar
 Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
 (Hier am besten nochmal nachfragen)
 
@@ -194,28 +194,20 @@ die jedem a ∈ A *genau* ein Element aus B zuordnet.
 
 Wertebereich muss aber nicht dem Bild entsprechen, da nicht alles im Wertebereich im Bild sein muss!
 
-Künftig immer Definitionsbereich und Zielbereich aufschreiben bei einer Funktion!
-
+Künftig immer Definitionsbereich und Zielbereich aufschreiben bei einer Funktion! Ist wichtig.
 ### Definitionen
 Eine Abbildung f von einer Menge A nach B kann folgende Eigenschaften haben:
 #### Injektivität
+Jedes b in B wird höchstens 1x getroffen (kann also entweder nicht oder getroffen werden, aber nicht 2x)
+d.h. jedes b in B besitzt mindestens 1 Urbild (mindestens einen a aus A oder mehrere)
+#### Surjektivität
+Jedes b in B wird mindestens 1x getroffen (muss also getroffen werden, aber kann auch mehr als einmal getroffen werden)
+d.h. jedes b in B besitzt höchstens 1 Urbild (kein a aus A oder eins)
+#### Bijektivität
+Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijektiv.
 
-
-injektiv, wenn ALLES aus A auf genau EINS (und auch ALLES in B) auf B zeigt.
-surjektiv, wenn 
-
-injektiv: Jedes b in B wird höchstens 1x getroffen
-jedes b in B besitzt mindestens 1 Urbild
-surjektiv: Jedes b in B wird mindestens 1x
-jedes b in B besitzt höchstens 1 Urbild
-
-bijektiv: injektiv und surjektiv zusammen.
-bijekiv: Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
-
-Das Angeben vom Definitions- und Wertebereich ist deswegen wichtig, um zu sehen, was auf die Funktion gilt.
-
-
-...
+**Merkmal:** 
+Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
 
 Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
 
