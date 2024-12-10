@@ -200,9 +200,11 @@ Eine Abbildung f von einer Menge A nach B kann folgende Eigenschaften haben:
 #### Injektivität
 Jedes b in B wird höchstens 1x getroffen (kann also entweder nicht oder getroffen werden, aber nicht 2x)
 d.h. jedes b in B besitzt mindestens 1 Urbild (mindestens einen a aus A oder mehrere)
+(Bild einfügen)
 #### Surjektivität
 Jedes b in B wird mindestens 1x getroffen (muss also getroffen werden, aber kann auch mehr als einmal getroffen werden)
 d.h. jedes b in B besitzt höchstens 1 Urbild (kein a aus A oder eins)
+(Bild einfügen)
 #### Bijektivität
 Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijektiv.
 
