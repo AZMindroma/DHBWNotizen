@@ -69,6 +69,8 @@ Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) i
 ### (B gehört nicht zur Grundmenge, oder? Also geht das nur, wenn es A und die Schnittmenge gibt?)
 
 |A x B| = |A| \* |B|
+
+---
 ## 2.2 Mengenoperationen
 Analog zu [[Logik/Mengenlehre#Mengenoperationen|Logik->Mengenlehre->Mengenoperationen]]
 
@@ -95,6 +97,7 @@ B = {2; 4; 7}
 A x B =   {(1;2); (1;4); (1;7);
         (3,2); (3;4); (3;7)}
 
+---
 ## 2.3 Binäre Relationen
 ~ -> Steht in Relation zu
 Aber gleichzeitig steht dieses Symbol auch für die Menge, die für eine bestimmte Relation gilt!
@@ -176,10 +179,13 @@ x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
 
 Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
 
+---
+
 S.60 Bedeutung: x - y ist durch 3 teilbar
 Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
 (Hier am besten nochmal nachfragen)
 
+---
 ## 2.4 Abbildungen
 *Mehr oder weniger Funktionen (Zuweisung eines Wertes zu einem anderen Wert)*
 
@@ -210,6 +216,8 @@ Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijekt
 
 **Merkmal:** 
 Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
+
+---
 
 Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
 
