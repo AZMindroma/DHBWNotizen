@@ -16,6 +16,6 @@ Für ein besseren Stand der Stützen hab die Idee, den unteren Teil (ugf. 1-2cm)
 ### Umsetzung
 Die Stabilität der Stützen war wie vermutet gegeben und kollabierte nicht. Da die Stützen nicht viel Tesa zum Befestigen benötigen, haben wir weniger Tesa als vermutet verbraucht.
 
-Die Böden zwischen den Ebenen wurden entfernt, da das Wickeln von den Zylindern mit einem Blattstreifen die nötige Stabilität gibt.
+Die Böden zwischen den Ebenen wurden entfernt, da das Wickeln von den Zylindern mit einem Blattstreifen die nötige Stabilität gibt. Die Ebenen wurden aber wieder hinzugefügt, da wir genügend Blätter übrig hatten.
 
 Das Schneiden der unteren Teile und Anknüpfen an den Boden wurde als unnötig und zu riskant angesehen, weswegen nun die Zylinder ohne eine spezifische Befestung auf den Boden hinaufgestellt werden. Da sich die Stabilität nicht beeinträchtigt und es erlaubt ist, den Turm modular aufzubauen, war diese Entscheidung auch der Aufgabenstellung gemäß.
