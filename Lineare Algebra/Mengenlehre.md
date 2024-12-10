@@ -95,14 +95,14 @@ B = {2; 4; 7}
 A x B =   {(1;2); (1;4); (1;7);
         (3,2); (3;4); (3;7)}
 
-## 2.3 Binäre Relationen
+### Binäre Relation
 ~ -> Steht in Relation zu
 Aber gleichzeitig steht dieses Symbol auch für die Menge, die für eine bestimmte Relation gilt!
 
 Beispiel mithilfe der selben Menge oben: 
 **A ~ B <-> x+y ist gerade** (~ ist hier die Relation zwischen A und B)
 **~ = {(1;7);(3;7)}** (~ ist hier die Menge, für welche die Relation zutrifft.)
-### Äquivalenzrelationen
+### Äquivalenzrelation
 Wir schauen uns folgende Menge an:
 **A = {1; 2}**
 A x A = {(1, 1); (1, 2); (2, 1); (2, 2)}
@@ -115,7 +115,7 @@ für x = 1: 1 + 1 ist 2 -> gerade
 für x = 2: 2 + 2 ist 4 -> gerade
 -> Die Relation ist reflexiv.
 
-**Symmetrisch: x ~ y -> y ~ x**
+**Transitiv: x ~ y -> y ~ x**
 **Wenn x + y gerade ist, ist auch y + x gerade.**
 Für (1, 1): 
 x + y = 1 + 1 -> gerade
@@ -123,33 +123,20 @@ y + x = 1 + 1 -> gerade
 Für (2, 2):
 x + y = 2 + 2 -> gerade
 y + x = 2 + 2 -> gerade
--> Die Relation ist symmetrisch.
+(Hier sind x und y gleich, aber auch z.B. bei x=4 und y=2 würde es gehen. Also 4 + 2 -> gerade, 2 + 4 -> gerade)
 
-**Transitiv: x ~ y ⋀ y ~ z -> x ~ z**
-**Wenn x + y gerade ist UND y und z gerade ist, ist x und z auch gerade.**
-Für (1, 1):
-x + y = 1 + 1 -> gerade
-y + z = 1 + (2n+1) -> gerade
-x + z = 1 + (2n+1) -> auch gerade
-*2n+1 steht für eine ungerade Zahl. 1 + eine beliebige ungerade Zahl ergibt eine gerade Zahl.*
 
-Für (2, 2):
-x + y = 2 + 2 -> gerade
-y + z = 2 + (2n) -> gerade
-x + z = 2 + (2n) -> auch gerade
-*2n steht für eine gerade Zahl. 2 + eine beliebige gerade Zahl ergibt eine gerade Zahl.*
+Reflexiv, da hier z.B. 1+1 = 2 = gerade ist und 2+2 = 4 = gerade ist.
+Transitiv: Kleiner als Relation.
 
--> Die Relation ist transitiv.
+Wenn alle 3 in der Folie genannten Relationstypen zustimmen, wird sie Äquivalenzrelation genannt.
 
-**Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
--> Diese Relation ist eine Äquivalenzrelation.**
+Bei Aufgabe 10 wäre x ~ y wäre z z.B. x Stuttgart y Berlin und z München, dass man auch über München von Stuttgart nach München gehen kann.
 
-### Mögliche Hilfen, um es klarer zu machen.
-![[Aufgabe10Aufgabenkatalog.png]]
-**Beispiel für Transitivität:**
-Wenn **Stadt x** Stuttgart ist und **Stadt y** Berlin ist, dann kann **Stadt z** z.B. München sein.
-**Wenn man also von Stuttgart nach München und von München nach Berlin fahren kann, kann man auch von Stuttgart nach Berlin fahren.**
-#### Paar weitere Beispiele
+Reflexiv: Für jedes Element mit sich selber prüfen
+Symmetrisch: Ob von x, y auch y, x folt
+Transitiv: Wenn x,y und x,z ist, auch x(in der Folie nachlesen!)
+
 x ~ y <-> x = y
 x = x und y = y -> Reflexiv!
 Wenn x = y, dann auch y = x -> Transitiv!
@@ -165,41 +152,25 @@ x >= x und y >= y -> Reflexiv!
 Wenn x >= y, dann auch y >= x -> Falsch! Nicht transitiv!
 Wenn x >= y und y >= z, dann auch auch x >= z -> Transitiv!
 
-### Äquivalenzklassen
-**Aufteilung einer Menge in verschiedene Äquivalenzklassen mithilfe von Äquivalenzrelationen**
-
-z.B. 
-Menge ist ℤ (Ganze Zahlen)
+### Äquivalentklasse
+Aufteilung einer Menge in verschiedene Klassen
+z.B. Menge ist Z
 x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
-ℤ wird aufgeteilt (**disjunkt**) in die beiden Äquivalenzklassen der geraden Zahlen 2ℤ bzw. der ungeraden Zahlen 2ℤ+1
-**Repräsentant** für 2ℤ ist z.B. 14, **Repräsentant** 2ℤ+1 ist z.B. 17
+Z wid aufgeteilt in die geraden Zahlen 2Z und 2Z+1
+Repräsentant für 2Z ist z.B. 14, 2Z+1 ist z.B. 17
 
-Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
+Partitionierung, es überlappen sich die Äquivalenzklassen NICHT.
 
 S.60 bedeutung: x - y ist durch 3 teilbar
 Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
-(Hier am besten nochmal nachfragen)
 
-## 2.4 Abbildungen
-*Mehr oder weniger Funktionen (Zuweisung eines Wertes zu einem anderen Wert)*
-
-Bei den Mengen A und B, die nicht leer sind, ist eine Abbildung f von A nach B eine Vorschrift
-**f: A -> B, a ↦ b = f(a)**
-die jedem a ∈ A *genau* ein Element aus B zuordnet.
-
-**Informationen:**
-- b = f(a) wird **Funktionswert** oder **Bild** von a unter f genannt.
-- Die Menge A wird **Definitionsbereich** genannt und die Menge B wird **Zielbereich** genannt
-- Der Eingabewert a nennt man das **Urbild** von b unter f
-
+### Abbildungen
+Mehr oder weniger Funktionen (Zuweisung EINES Wertes zu einem anderen Wert)
+Von 2 verschiedenen Mengen, Menge A ist Definitionsbereich und Menge B ist Zielbereich
 Wertebereich muss aber nicht dem Bild entsprechen, da nicht alles im Wertebereich im Bild sein muss!
+Eingabewert a ist das Urbild von b unter f
 
 Künftig immer Definitionsbereich und Zielbereich aufschreiben bei einer Funktion!
-
-### Definitionen
-Eine Abbildung f von einer Menge A nach B kann folgende Eigenschaften haben:
-#### Injektivität
-
 
 injektiv, wenn ALLES aus A auf genau EINS (und auch ALLES in B) auf B zeigt.
 surjektiv, wenn 
