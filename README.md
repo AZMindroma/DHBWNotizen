@@ -23,6 +23,7 @@ Schritte zum Einrichten meines Obsidian-Notizblocks auf deinem PC:
 git clone https://github.com/AZMindroma/DHBWNotizen.git
 ```
 Dies sollte das Repository klonen und in einem Ordner namens DHBWNotizen ablegen.
+
 6. Öffne diesen Ordner in Obsidian.
 7. Wenn es gewünscht ist, eine aktuellere Version der Repository zu bekommen, unter `Open Git source control` auf`Pull` drücken.
 (Eine detailliertere Anleitung kommt bald!)
