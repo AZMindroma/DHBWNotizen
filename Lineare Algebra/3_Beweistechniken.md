@@ -7,16 +7,19 @@
 2. Indirekter Beweis
 3. Beweis durch vollständige Induktion
 
-**Beispiel Direkter Beweis:**
+#### Beispiele indirekter Beweis
+**Beispiel 1**
 Wenn n² gerade sein soll, muss sie durch 2 teilbar sein, also in dessen Primfaktorzerlegung sein, und das selbe muss dann auch für n gelten, aber n ist ungerade, deswegen kann es nicht sein, dass n² gerade ist.
 
-Evtl mal versuchen, einen Indirekten Beweis mit 2 anstatt von sqrt(2) durchzuführen (keine Aufgabe, von mir selber)
-Indirekten Beweis nochmal selber durchführen.
+**Beispiel 2**
+Zeigen Sie, dass x² + 4 keine Nullstellen in ℝ besitzt.
 
-Exkurs: Zeigen Sie, dass x² + 4 keine Nullstellen in R besitzt.
+Beweis: 
+Angenommen, f(x) = x² + 4 besitzt Nullstellen.
+Dann muss es ein x ∈ ℝ geben, sodass x² + 4 = 0 <-> x² = -4 GEHT NICHT weil x² >= 0 für alle x ∈ ℝ
 
-Beweis: Angenommen, f(x) = x² + 4 besitzt Nullstellen.
-Dann muss es ein x E R geben, sodass x² + 4 = 0 <-> x² = -4 GEHT NICHT weil x² >= 0 für alle x E R
+*Evtl mal versuchen, einen Indirekten Beweis mit 2 anstatt von sqrt(2) durchzuführen (keine Aufgabe, von mir selber)
+Indirekten Beweis nochmal selber durchführen.*
 
 ## Vollständige Induktion
 Das Induktionsaxiom ist die Basis, um das Dominoprinzip für die natürlichen Zahlen anzuwenden.

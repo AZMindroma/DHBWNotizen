@@ -179,8 +179,6 @@ x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
 
 Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
 
----
-
 S.60 Bedeutung: x - y ist durch 3 teilbar
 Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
 (Hier am besten nochmal nachfragen)
@@ -191,7 +189,7 @@ Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
 
 Bei den Mengen A und B, die nicht leer sind, ist eine Abbildung f von A nach B eine Vorschrift
 **f: A -> B, a ↦ b = f(a)**
-die jedem a ∈ A *genau* ein Element aus B zuordnet.
+<u>die jedem a ∈ A *genau* ein Element aus B zuordnet.</u>
 
 **Informationen:**
 - b = f(a) wird **Funktionswert** oder **Bild** von a unter f genannt.
@@ -216,8 +214,9 @@ Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijekt
 
 **Merkmal:** 
 Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
-
----
+#### Überblick:
+![[InjektivSurjektivBijektiv.png]]
+Quelle: https://docs.lucanoahcaprez.ch/books/semester-1/page/funktionen
 
 Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
 
