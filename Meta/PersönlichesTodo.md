@@ -1,2 +1,3 @@
 - Bezüglich Freistellung für dem Termin für Wissenschaftliches Arbeiten fragen (10.3.25 13:00 - 18:00 oder 20.3.25 15:30 - 20:30 ?)
 - Bis 18. Dezember persönliches Video machen (siehe Intercultural Communication)
+- Git-Repository korrigieren (Sachen ausgepusht oopsie)
