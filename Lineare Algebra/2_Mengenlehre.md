@@ -24,6 +24,8 @@ M1 := {a1, a2, ... an}
 Menge in **beschreibender** Darstellung:
 M2 := {x ∈ X | x besitzt die Eigenschaften E1, E2, ..., Em}
 
+*Die Beschreibung sind je Situation anders praktisch*
+
 hier ist X eine Übermenge / größere Menge (größer als M2)
 
 *Übung: Formulieren sie Q in Symbolschreibweise.*
@@ -48,6 +50,8 @@ $$
 Es wird auch alternativ zum Nichtbeinhalten eines Wertes **\] \[** verwendet 
 (Das Verwenden davon ist erlaubt, aber ich sollte mich zu der in der Präsentation angewöhnen)
 ### Potenzmengen
+*Bei Stochastik wird es wahrscheinlich nötig sein*
+
 Eine Potenzmenge P(X) ist die Menge aller Teilmengen von X. 
 Verwirrend. Deswegen hier ein Beispiel:
 
@@ -63,12 +67,15 @@ In der Potenzmenge muss die Menge X **selbst** dabei sein.
 
 |A ⋃ B| = |A| + |B| - |(A ⋂ B)|
 Um die Mächtigkeit der Menge A ⋃ B zu bekommen, kann man die Mächtigkeiten von A und B addieren, muss dann aber die Mächtigkeit der Schnittmenge abziehen, da es sonst 2x gezählt wird. 
-|A̅| = |X| - |A| 
+|A̅| = |X| - |A| (hier ist A und X, kein B)
 
 Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.
-### (B gehört nicht zur Grundmenge, oder? Also geht das nur, wenn es A und die Schnittmenge gibt?)
 
 |A x B| = |A| \* |B|
+
+anzählbar unendlich < überabzählbar unendlich
+N, Z, Q < R, C
+Obwohl alle unendlich groß sind, sind manche größer unendlich.
 
 ---
 ## 2.2 Mengenoperationen
@@ -147,6 +154,8 @@ x + z = 2 + (2n) -> auch gerade
 **Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
 -> Diese Relation ist eine Äquivalenzrelation.**
 
+**Oft gibt es Fehler, da man versucht, etwas zu beweisen mithilfe von Tests mit 2, 3 Werten. Aber man muss es allgemein, also für alle Werte beweisen.**
+
 ### Mögliche Hilfen, um es klarer zu machen.
 ![[Aufgabe10Aufgabenkatalog.png]]
 **Beispiel für Transitivität:**
@@ -170,6 +179,7 @@ Wenn x >= y und y >= z, dann auch auch x >= z -> Transitiv!
 
 ### Äquivalenzklassen
 **Aufteilung einer Menge in verschiedene Äquivalenzklassen mithilfe von Äquivalenzrelationen**
+Alle Elemente in einer Äquivalenzrelation sind gleichberechtigt, und sind Repräsentanten von der Äquivalenzklasse
 
 z.B. 
 Menge ist ℤ (Ganze Zahlen)
@@ -204,16 +214,15 @@ Eine Abbildung f von einer Menge A nach B kann folgende Eigenschaften haben:
 #### Injektivität
 Jedes b in B wird höchstens 1x getroffen (kann also entweder nicht oder getroffen werden, aber nicht 2x)
 d.h. jedes b in B besitzt mindestens 1 Urbild (mindestens einen a aus A oder mehrere)
-(Bild einfügen)
 #### Surjektivität
 Jedes b in B wird mindestens 1x getroffen (muss also getroffen werden, aber kann auch mehr als einmal getroffen werden)
 d.h. jedes b in B besitzt höchstens 1 Urbild (kein a aus A oder eins)
-(Bild einfügen)
 #### Bijektivität
 Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijektiv.
 
 **Merkmal:** 
 Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
+Bei Bijektivität kann man die Funktion umkehren.
 #### Überblick:
 ![[InjektivSurjektivBijektiv.png]]
 Quelle: https://docs.lucanoahcaprez.ch/books/semester-1/page/funktionen
@@ -223,3 +232,5 @@ Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
 S.69 wichtig!
 
 Kapitel II in den Übungen durchmachen ;)
+
+

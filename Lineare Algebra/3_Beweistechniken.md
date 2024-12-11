@@ -7,6 +7,7 @@
 2. Indirekter Beweis
 3. Beweis durch vollständige Induktion
 
+Alle 3 kommen in den Klausuren dran, aber Direkte und Indirekte Beweise sind oft Learning by doing, während Vollständige Induktion eher separat ist und auch gelernt werden muss.
 #### Beispiele indirekter Beweis
 **Beispiel 1**
 Wenn n² gerade sein soll, muss sie durch 2 teilbar sein, also in dessen Primfaktorzerlegung sein, und das selbe muss dann auch für n gelten, aber n ist ungerade, deswegen kann es nicht sein, dass n² gerade ist.
