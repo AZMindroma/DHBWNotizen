@@ -62,4 +62,13 @@ Formel, die in jeder Interpretation wahr ist.
 Eine Interpretation ist ein Modell für eine Formel, wenn sie 1 ist
 I = {A -> 1, B -> 0} ist ein Modell für A v B, aber nicht für A ^ B
 
+Eine Formel ist erfüllbar, wenn sie ein Modell hat, sonst unerfülbar.
 Tautologien sind gültig
+### Logische Implikation
+Wenn links wahr ist, muss rechts wahr sein
+Wenn links falsch ist, ist es egal
+### Logische Äquivalenz
+Wenn jede Interpretation beiden Formeln denselben Wahrheitwert zuordner
+Beide müssen gleich sein.
+### Rechenregeln
+(Rechenregeln aufschreiben insbesondere Distributivgesetze)
