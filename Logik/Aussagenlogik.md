@@ -64,6 +64,7 @@ I = {A -> 1, B -> 0} ist ein Modell für A v B, aber nicht für A ^ B
 
 Eine Formel ist erfüllbar, wenn sie ein Modell hat, sonst unerfülbar.
 Tautologien sind gültig
+(Bild aus Heft einfügen)
 ### Logische Implikation
 Wenn links wahr ist, muss rechts wahr sein
 Wenn links falsch ist, ist es egal
@@ -71,4 +72,9 @@ Wenn links falsch ist, ist es egal
 Wenn jede Interpretation beiden Formeln denselben Wahrheitwert zuordner
 Beide müssen gleich sein.
 ### Rechenregeln
-(Rechenregeln aufschreiben insbesondere Distributivgesetze)
+(Rechenregeln aufschreiben insbesondere Distributivgesetze und De Morgan)
+
+## Schlussfolgerungsverfahren
+**Äquivalenzumformungen** (Reduction ad Absurdum)
+Vom Blatt einfügen :)
+**Wahrheitstabellen**
