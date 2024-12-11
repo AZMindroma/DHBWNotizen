@@ -12,3 +12,14 @@ Vorrang und Assoziativität der Junktoren
 - Äußerste Klammern um eine Formel können weggelassen werden
 - Gleiche Junktoren werden links-assoziativ gelesen.
 A -> B -> C = (A -> B) -> C
+
+**Reihenfolge:**
+¬ (Negation) 
+⋀ (Konjunktion)
+⋁ (Disjunktion)
+-> (Implikation)
+<-> (Äquivalenz)
+
+1 A ⋀ B ⋁ C ⋀ D -> A ⋁ C
+2 A ⋀ ((B ⋁ C) ⋀ D -> A) ⋁ C
+3 A ⋀ (B ⋁ C ⋀ (D -> A ⋁ C))
