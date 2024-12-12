@@ -40,7 +40,7 @@ Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teil
 Für **x ∈ ℕ** keine Lösung für x + 1 = 0, also L = ∅ 
 -> Erweiterung des Zahlenbereichs nötig, damit die Gleichung gelöst werden kann (Zu ℤ)
 
-Es gilt:
+Es gilt die (echte) Inklusionskette:
 $$
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 $$
@@ -67,15 +67,14 @@ In der Potenzmenge muss die Menge X **selbst** dabei sein.
 
 |A ⋃ B| = |A| + |B| - |(A ⋂ B)|
 Um die Mächtigkeit der Menge A ⋃ B zu bekommen, kann man die Mächtigkeiten von A und B addieren, muss dann aber die Mächtigkeit der Schnittmenge abziehen, da es sonst 2x gezählt wird. 
-|A̅| = |X| - |A| (hier ist A und X, kein B)
+|A̅| = |X| - |A| (hier ist A und X vorhanden, kein B)
 
-Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.
+*Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.*
 
 |A x B| = |A| \* |B|
 
 anzählbar unendlich < überabzählbar unendlich
-N, Z, Q < R, C
-Obwohl alle unendlich groß sind, sind manche größer unendlich.
+ℕ, ℤ, ℚ < ℝ, ℂ
 
 ---
 ## 2.2 Mengenoperationen
@@ -154,8 +153,7 @@ x + z = 2 + (2n) -> auch gerade
 **Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
 -> Diese Relation ist eine Äquivalenzrelation.**
 
-**Oft gibt es Fehler, da man versucht, etwas zu beweisen mithilfe von Tests mit 2, 3 Werten. Aber man muss es allgemein, also für alle Werte beweisen.**
-
+**Oft gibt es in Klausuren Fehler, da man versucht, etwas zu beweisen mithilfe von Tests mit 2, 3 Werten. Aber man muss es allgemein, also für alle Werte beweisen.**
 ### Mögliche Hilfen, um es klarer zu machen.
 ![[Aufgabe10Aufgabenkatalog.png]]
 **Beispiel für Transitivität:**
@@ -179,7 +177,7 @@ Wenn x >= y und y >= z, dann auch auch x >= z -> Transitiv!
 
 ### Äquivalenzklassen
 **Aufteilung einer Menge in verschiedene Äquivalenzklassen mithilfe von Äquivalenzrelationen**
-Alle Elemente in einer Äquivalenzrelation sind gleichberechtigt, und sind Repräsentanten von der Äquivalenzklasse
+Alle Elemente in einer Äquivalenzrelation sind **gleichberechtigt**, und sind Repräsentanten von der Äquivalenzklasse.
 
 z.B. 
 Menge ist ℤ (Ganze Zahlen)
@@ -188,10 +186,6 @@ x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
 **Repräsentant** für 2ℤ ist z.B. 14, **Repräsentant** 2ℤ+1 ist z.B. 17
 
 Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
-
-S.60 Bedeutung: x - y ist durch 3 teilbar
-Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
-(Hier am besten nochmal nachfragen)
 
 ---
 ## 2.4 Abbildungen
@@ -226,11 +220,15 @@ Bei Bijektivität kann man die Funktion umkehren.
 #### Überblick:
 ![[InjektivSurjektivBijektiv.png]]
 Quelle: https://docs.lucanoahcaprez.ch/books/semester-1/page/funktionen
+### Komposition von Abbildungen (auch Verkettung genannt)
+Wenn es zwei Abbildungen (mit 3 Mengen A, B und C) gibt, die so definiert sind:
+**f: A -> B und g: B -> C**
+Dann ist deren Komposition von f mit g, geschrieben **g ◦ f** ("g nach f") definiert durch:
+**g ◦ f: A -> C, a ↦ (g ◦ f)(a) := g(f(a))**
 
-Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
+Beispiel aus der Schule mit klassischen Funktionen
+f(x) = x²
+g(x) = 2x + 1
 
-S.69 wichtig!
-
-Kapitel II in den Übungen durchmachen ;)
-
-
+(g ◦ f)(x) = 2 \* f(x) + 1 = 2x²+1
+*(g ◦ f)(0) = 2 \* 0² + 1 = 1*
