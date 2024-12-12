@@ -24,6 +24,8 @@ M1 := {a1, a2, ... an}
 Menge in **beschreibender** Darstellung:
 M2 := {x ∈ X | x besitzt die Eigenschaften E1, E2, ..., Em}
 
+*Die Beschreibung sind je Situation anders praktisch*
+
 hier ist X eine Übermenge / größere Menge (größer als M2)
 
 *Übung: Formulieren sie Q in Symbolschreibweise.*
@@ -38,7 +40,7 @@ Warum auch immer ist eine Teilmenge, wenn sie keine Teilmenge ist, nur eine Teil
 Für **x ∈ ℕ** keine Lösung für x + 1 = 0, also L = ∅ 
 -> Erweiterung des Zahlenbereichs nötig, damit die Gleichung gelöst werden kann (Zu ℤ)
 
-Es gilt:
+Es gilt die (echte) Inklusionskette:
 $$
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 $$
@@ -48,6 +50,8 @@ $$
 Es wird auch alternativ zum Nichtbeinhalten eines Wertes **\] \[** verwendet 
 (Das Verwenden davon ist erlaubt, aber ich sollte mich zu der in der Präsentation angewöhnen)
 ### Potenzmengen
+*Bei Stochastik wird es wahrscheinlich nötig sein*
+
 Eine Potenzmenge P(X) ist die Menge aller Teilmengen von X. 
 Verwirrend. Deswegen hier ein Beispiel:
 
@@ -63,12 +67,14 @@ In der Potenzmenge muss die Menge X **selbst** dabei sein.
 
 |A ⋃ B| = |A| + |B| - |(A ⋂ B)|
 Um die Mächtigkeit der Menge A ⋃ B zu bekommen, kann man die Mächtigkeiten von A und B addieren, muss dann aber die Mächtigkeit der Schnittmenge abziehen, da es sonst 2x gezählt wird. 
-|A̅| = |X| - |A| 
+|A̅| = |X| - |A| (hier ist A und X vorhanden, kein B)
 
-Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.
-### (B gehört nicht zur Grundmenge, oder? Also geht das nur, wenn es A und die Schnittmenge gibt?)
+*Die Mächtigkeit vom Komplement von A (was einfach alles ist, das nicht A ist) ist die Mächtigkeit der Grundmenge X abzezogen von der Mächtigkeit von A, was dann alles außer die Elemente von A beinhaltet.*
 
 |A x B| = |A| \* |B|
+
+anzählbar unendlich < überabzählbar unendlich
+ℕ, ℤ, ℚ < ℝ, ℂ
 
 ---
 ## 2.2 Mengenoperationen
@@ -147,6 +153,7 @@ x + z = 2 + (2n) -> auch gerade
 **Wenn alle 3 Relationstypen für eine Relation zustimmen (die Relation ist reflexiv, symmetrisch und transitiv), wird sie Äquivalenzrelation genannt.
 -> Diese Relation ist eine Äquivalenzrelation.**
 
+**Oft gibt es in Klausuren Fehler, da man versucht, etwas zu beweisen mithilfe von Tests mit 2, 3 Werten. Aber man muss es allgemein, also für alle Werte beweisen.**
 ### Mögliche Hilfen, um es klarer zu machen.
 ![[Aufgabe10Aufgabenkatalog.png]]
 **Beispiel für Transitivität:**
@@ -170,6 +177,7 @@ Wenn x >= y und y >= z, dann auch auch x >= z -> Transitiv!
 
 ### Äquivalenzklassen
 **Aufteilung einer Menge in verschiedene Äquivalenzklassen mithilfe von Äquivalenzrelationen**
+Alle Elemente in einer Äquivalenzrelation sind **gleichberechtigt**, und sind Repräsentanten von der Äquivalenzklasse.
 
 z.B. 
 Menge ist ℤ (Ganze Zahlen)
@@ -178,10 +186,6 @@ x ~ y <-> "x und y haben denselben Rest bei Division durch 2"
 **Repräsentant** für 2ℤ ist z.B. 14, **Repräsentant** 2ℤ+1 ist z.B. 17
 
 Jedes Element liegt in genau einer Äquivalenzklasse, d.h. durch die Äquivalenzrelation wird die Menge **partitioniert.**
-
-S.60 Bedeutung: x - y ist durch 3 teilbar
-Restklassen: Sie haben den gleichen Rest bei Division (hier durch 3)
-(Hier am besten nochmal nachfragen)
 
 ---
 ## 2.4 Abbildungen
@@ -204,22 +208,36 @@ Eine Abbildung f von einer Menge A nach B kann folgende Eigenschaften haben:
 #### Injektivität
 Jedes b in B wird höchstens 1x getroffen (kann also entweder nicht oder getroffen werden, aber nicht 2x)
 d.h. jedes b in B besitzt mindestens 1 Urbild (mindestens einen a aus A oder mehrere)
-(Bild einfügen)
 #### Surjektivität
 Jedes b in B wird mindestens 1x getroffen (muss also getroffen werden, aber kann auch mehr als einmal getroffen werden)
 d.h. jedes b in B besitzt höchstens 1 Urbild (kein a aus A oder eins)
-(Bild einfügen)
 #### Bijektivität
 Wenn die Abbildung injektiv **UND** surjektiv ist, ist die Abbildung auch bijektiv.
 
 **Merkmal:** 
 Es müssen genauso viele Elemente im Definitionsbereich wie im Zielbereich sein (|A| = |B|)
+Bei Bijektivität kann man die Funktion umkehren.
 #### Überblick:
 ![[InjektivSurjektivBijektiv.png]]
 Quelle: https://docs.lucanoahcaprez.ch/books/semester-1/page/funktionen
+### Komposition von Abbildungen (auch Verkettung genannt)
+Wenn es zwei Abbildungen (mit 3 Mengen A, B und C) gibt, die so definiert sind:
+**f: A -> B und g: B -> C**
+Dann ist deren Komposition von f mit g, geschrieben **g ◦ f** ("g nach f") definiert durch:
+**g ◦ f: A -> C, a ↦ (g ◦ f)(a) := g(f(a))**
 
-Bijektivität nötig, um Funktion wie in S.67 beschrieben wird umzukehren!!
+Beispiel aus der Schule mit klassischen Funktionen
+f(x) = x²
+g(x) = 2x + 1
 
-S.69 wichtig!
+(g ◦ f)(x) = 2 \* f(x) + 1 = 2x²+1
+*(g ◦ f)(0) = 2 \* 0² + 1 = 1*
 
-Kapitel II in den Übungen durchmachen ;)
+![[Komposition.jpg]]
+### Umkehrabbildungen
+Wenn f: X -> Y eine bijektive Abbildung ist, gibt es genau eine Abbildung von Y nach X, die Umkehrabbildung von f genannt wird und mit f⁻¹ bezeichnet wird. Es gilt:
+
+**(f⁻¹ ◦ f)(x) = x für alle x ∈ X
+(f ◦ f⁻¹)(y) = y für alle x ∈ Y**
+*d.h. f⁻¹(f(x)) und f(f⁻¹(y))*
+-> Die Umkehrfunktion "hebt" den Effekt von der Funktion auf, und die Funktion "hebt" den Effekt von der Umkehrfunktion auf.
