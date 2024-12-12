@@ -232,3 +232,12 @@ g(x) = 2x + 1
 
 (g ◦ f)(x) = 2 \* f(x) + 1 = 2x²+1
 *(g ◦ f)(0) = 2 \* 0² + 1 = 1*
+
+![[Komposition.jpg]]
+### Umkehrabbildungen
+Wenn f: X -> Y eine bijektive Abbildung ist, gibt es genau eine Abbildung von Y nach X, die Umkehrabbildung von f genannt wird und mit f⁻¹ bezeichnet wird. Es gilt:
+
+**(f⁻¹ ◦ f)(x) = x für alle x ∈ X
+(f ◦ f⁻¹)(y) = y für alle x ∈ Y**
+*d.h. f⁻¹(f(x)) und f(f⁻¹(y))*
+-> Die Umkehrfunktion "hebt" den Effekt von der Funktion auf, und die Funktion "hebt" den Effekt von der Umkehrfunktion auf.
