@@ -57,7 +57,6 @@ Falsch: Nicht möglich
 
 ### Tautologie
 Formel, die in jeder Interpretation wahr ist.
-
 ### Modell
 Eine Interpretation ist ein Modell für eine Formel, wenn sie 1 ist
 I = {A -> 1, B -> 0} ist ein Modell für A v B, aber nicht für A ^ B
@@ -73,8 +72,19 @@ Wenn jede Interpretation beiden Formeln denselben Wahrheitwert zuordner
 Beide müssen gleich sein.
 ### Rechenregeln
 (Rechenregeln aufschreiben insbesondere Distributivgesetze und De Morgan)
-
 ## Schlussfolgerungsverfahren
 **Äquivalenzumformungen** (Reduction ad Absurdum)
 Vom Blatt einfügen :)
 **Wahrheitstabellen**
+### Resolutionsprinzip
+Erfüllbarkeitstest für Formel phi
+Dieser Test entscheidet auch die Gültigkeit, (logische) Implikation
+#### Literale
+Literale sind Aussagenvariablen, die man anstatt von phi nutzen kann
+- Betrachte phi als Konjunktion von Disjunktionen von Literalen
+  -> Und-Verknüpfungen von Oder-Verknüpfungen
+Es wird eine Resolvente C3 erstellt, die durch die Vereinigung von 2 Elternklauseln C1 und C2 entsteht.
+
+### Klausel
+Klauseln sind Disjunkionen (Oder-Verknüpfungen), geschrieben als Mengen.
+Dies ist möglich, da Disjunktionen kommutativ sind und deren doppelten Vorkommen nichts verändert.
