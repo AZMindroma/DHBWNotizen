@@ -79,12 +79,33 @@ Vom Blatt einfügen :)
 ### Resolutionsprinzip
 Erfüllbarkeitstest für Formel phi
 Dieser Test entscheidet auch die Gültigkeit, (logische) Implikation
-#### Literale
-Literale sind Aussagenvariablen, die man anstatt von phi nutzen kann
+Wenn man einen Widerspruch erzeugen kann, ist die Formel unerfüllbar
+Wenn man alle möglichen Kombinationen durchprobiert und trotzdem keinen Widerspruch findet, ist die Formel erfüllbar.
 - Betrachte phi als Konjunktion von Disjunktionen von Literalen
   -> Und-Verknüpfungen von Oder-Verknüpfungen
 Es wird eine Resolvente C3 erstellt, die durch die Vereinigung von 2 Elternklauseln C1 und C2 entsteht.
-
+#### Literale
+Literale sind Aussagenvariablen, die man anstatt von phi nutzen kann
 ### Klausel
 Klauseln sind Disjunkionen (Oder-Verknüpfungen), geschrieben als Mengen.
 Dies ist möglich, da Disjunktionen kommutativ sind und deren doppelten Vorkommen nichts verändert.
+
+Beispiel 3.44 für den Beweis mit Induktion
+Beim Beispiel ist S nicht erfüllbar, weil nicht A1 falsch sein muss, um wahr zu sein, und A2 auch falsch sein muss, aber dann ist A1, A2 nie wahr, also kann es nicht wahr sein.
+
+-> Beispiel ist nur eine Formalisierung von dieser Beschreibung.
+
+Jeder Weg beim Resolutionsprinzip führt zum Ende, da es eine endliche Eingabe gibt, und man eventuell ein Ende findet. Entweder findet man einen Widerspruch oder man findet ihn nicht.
+-> Es gibt keine falschen Wege, aber es kann unterschiedlich lang dauern.
+
+### Übersetzung natürlicher Sprache in Aussagenlogik
+nichtR und E -> M (R - Reise, E - Eingeladen, M - Meeting)
+
+Implizieren die Prämissen 1-5 die Konklusion 6?
+1 und 2 und 3 und 4 und 5 |= 6?
+Umgekehrt: Implizieren die Prämissen 1-5 die Konklusion NICHT 6?
+1 und 2 und 3 und 4 und 5 |= NICHT 6? <- Sehr wichtig!
+
+
+Beim Resolutionsverfahren lieber mit Klauseln mit nur 1 Literal anfangen, da es einfacher ist, dort Widersprüche zu finden.
+
