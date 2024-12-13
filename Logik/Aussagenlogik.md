@@ -109,3 +109,14 @@ Umgekehrt: Implizieren die Prämissen 1-5 die Konklusion NICHT 6?
 
 Beim Resolutionsverfahren lieber mit Klauseln mit nur 1 Literal anfangen, da es einfacher ist, dort Widersprüche zu finden.
 
+#### Nachteile von der Resolution
+Es sagt nur, dass eine Lösung existiert oder nicht, aber gibt die Lösung selber nicht aus!
+-> Anderer Ansatz: Tableau-Verfahren
+
+### Tableau-Verfahren
+Tableau - Tabelle
+Jede Spalte n steht für eine Interpretation
+Jede Zeile einer Spalte enthält eine Formel, die die Interpretation erfüllen muss
+
+Hier ist die **Negations-Normalform** besser:
+Da gibt es nur Und und Oder und Negationen nur vor Aussagenvariablen.
