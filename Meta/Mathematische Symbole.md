@@ -32,3 +32,28 @@
 ⋀ Logisches Und
 ⋁ Logisches Oder
 ¬ Nicht
+
+Α α Alpha
+Β β Beta
+Γ γ Gamma
+Δ δ Delta
+Ε ε Epsilon
+Ζ ζ Zeta
+Η η Eta
+Θ θ Theta
+Ι ι Iota
+Κ κ Kappa
+Λ λ Lambda
+Μ μ My
+Ν ν Ny
+Ξ ξ Xi
+Ο ο Omikron
+Π π Pi
+Ρ ρ Rho
+Σ σ Sigma
+Τ τ Tau
+Υ υ Ypsilon
+Φ φ Phi
+Χ χ Chi
+Ψ ψ Psi
+Ω ω Omega

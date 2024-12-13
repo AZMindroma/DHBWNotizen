@@ -1,60 +1,78 @@
-**Eigenschaften**
-Aussagenvariablen werden durch Großbuchstaben repräsentiert
-Aussagen sind valide, wenn gültige aussagenlogische Formeln und gültige Operationen vorhanden sind.
-### Übung 3.6
+**Eigenschaften von Aussagenvariablen**
+- Aussagenvariablen werden durch Großbuchstaben repräsentiert (A, B, X, Y)
+- Sie drücken Aussagen aus, die wahr oder falsch sein können.
+## 3.1 Syntax
+- Vergleichbar mit der Linguistik in der Sprache; Das Erzeugen von Sätzen aus Wörtern
+- Bei Logik: Regeln zum Erzeugen von Formeln aus vorgegebenen Symbolen
+- Aussagen sind gültig, wenn gültige aussagenlogische Formeln und gültige Operationen vorhanden sind.
+### Aussagenlogische Formeln
+Wenn V eine Menge von Aussagenvariablen ist...
+- Ist jedes X∈V eine aussagenlogische Formel
+- W und F sind aussagenlogische Formeln
+- Wenn φ und ψ aussagenlogische Formeln sind, gelten auch folgende Formeln:
+
+- (¬φ) (Negation (NICHT/NOT))
+- (φ ⋀ ψ) (Konjunktion (UND/AND))
+- (φ ⋁ ψ) (Disjunktion (ODER/OR))
+- (φ -> ψ) (Implikation)
+- (φ <-> ψ) (Äquivalenz)
+#### Übung 3.6
 Gültig:
 1, 2, 4, 7, 8, 9, 11, 13, 14
 
 Nicht gültig:
 3, 5, 6, 10, 12
-
-Vorrang und Assoziativität der Junktoren
+### Vorrang und Assoziativität der Junktoren
+Um Klammern zu sparen, gilt folgendes:
 - Äußerste Klammern um eine Formel können weggelassen werden
-- Gleiche Junktoren werden links-assoziativ gelesen.
-A -> B -> C = (A -> B) -> C
+- Gleiche Junktoren werden links-assoziativ gelesen. z.B. A -> B -> C = (A -> B) -> C 
 
-**Priorität der Junktoren:**
+**Priorität der Junktoren (von oben nach unten):**
 ¬ (Negation) 
 ⋀ (Konjunktion)
 ⋁ (Disjunktion)
 -> (Implikation)
 <-> (Äquivalenz)
-### Übung 3.8
+
+Implikation: Aus A muss B folgen
+0 -> 1 oder 0 -> 0: "Ist mir egal"-Fall (es ist egal, was danach kommt)
+#### Übung 3.8
 1. A ⋀ B ⋁ (C ⋀ D -> A ⋁ C)
 2. (A ⋀ (B ⋁ C) ⋀ D -> A) ⋁ C
 3. A ⋀ (B ⋁ C ⋀ (D -> A ⋁ C))
+## 3.2 Semantik
+**Bedeutung von Ausdrücken**
 
-## Semantik
-Bedeutung von Ausdrücken
+- **Voraussetzung:** Ausdruck ist syntaktisch richtig
+- **In der Linguistik:** Was ein Begriff oder Satz bedeutet
+- **Logik (also hier):** Ob ein Satz wahr oder falsch ist
 
-Voraussetzung: Ausdruck ist syntaktisch richtig
-Linguistik: Was ein Satz bedeutet
-Logik: Ob ein Satz wahr oder falsch ist
-#### Interpretation
-Zuweisung von 1 oder 0 zu Aussagenvariablen (Funktion)
-
-Die in der Vorlesung beinhalteten Wahrheitstabellen können bei Phi mit A und B ersetzt werden, und sind mehrdimensional, aber trotzdem normale Wahrheitstabellen
-
-Implikation: Aus A muss B folgen
-0 -> 1: "Ist mir egal"-Fall
-
-### Übung 3.13
-1
+- **Zuweisung** von 1 oder 0 zu Aussagenvariablen 
+- Dies sorgt dafür, dass eine Formel **wahr** oder **falsch** ist.
+### Interpretation
+Eine Interpretation **Funktion I : V -> 𝔹** mit:
+- Einer Menge von Aussagenvariablen V
+- Der Boole'schen Menge 𝔹 = {0, 1}
+z.B. 
+**I = {A ↦ 0, B ↦ 1} 
+<=> I(A) = 0 und I(B) = 1
+<=> Aⁱ = 0 und Bⁱ = 1**
+#### Übung 3.13
+1)
 Richtig: I = {A ↦ 0, B ↦ 1, C ↦ 0}
-Falsch: I = {A ↦ 1 B ↦ 1 C ↦ 0}
+Falsch: I = {A ↦ 1, B ↦ 1, C ↦ 0}
 
 Alternative korrekte Form: 
 $$
 A^I = 1, B^I = 1, C^I = 1 \ \ \ \ \ \ \varphi^I 1 \land 1 \to 1 = 1
 $$
-2
-Richtig: I = {A ↦ 0 B ↦ 1 C ↦ 1}
-Falsch: I = {A ↦ 1 B ↦ 0 C ↦ 1}
+2)
+Richtig: I = {A ↦ 0, B ↦ 1, C ↦ 1}
+Falsch: I = {A ↦ 1, B ↦ 0, C ↦ 1}
 
-3
-Richtig: I = {A ↦ 1 B ↦ 1}
-Falsch: Nicht möglich
-
+3)
+Richtig: I = {A ↦ 1, B ↦ 1}
+Falsch: Nicht möglich, da es eine **Tautologie** ist.
 ### Tautologie
 Formel, die in jeder Interpretation wahr ist.
 ### Modell
