@@ -235,9 +235,21 @@ g(x) = 2x + 1
 
 ![[Komposition.jpg]]
 ### Umkehrabbildungen
-Wenn f: X -> Y eine bijektive Abbildung ist, gibt es genau eine Abbildung von Y nach X, die Umkehrabbildung von f genannt wird und mit f⁻¹ bezeichnet wird. Es gilt:
+Wenn f: X -> Y eine **bijektive Abbildung** ist, gibt es genau eine Abbildung von Y nach X, die Umkehrabbildung von f genannt wird und mit f⁻¹ bezeichnet wird. Es gilt:
 
 **(f⁻¹ ◦ f)(x) = x für alle x ∈ X
 (f ◦ f⁻¹)(y) = y für alle x ∈ Y**
 *d.h. f⁻¹(f(x)) und f(f⁻¹(y))*
 -> Die Umkehrfunktion "hebt" den Effekt von der Funktion auf, und die Funktion "hebt" den Effekt von der Umkehrfunktion auf.
+
+Wenn f: X -> Y und g: Y -> Z **bijektive Abbildungen** sind, gilt:
+
+$$
+\begin{gather*}
+f(^{-1})^{-1}(x) = f(x) \text{ Für alle x ∈ X} \\
+\text{(d.h. Die Umkehrfunktion einer Umkehrfunktion ist die Funktion selber)} \\
+\\
+(g ◦ f) : X\to Z \text{ ist auch bijektiv und es gilt für alle z ∈ Z} \\
+(g ◦ f)^{-1} : Z \to X, z ↦ (g ◦ f)^{-1}(z) = f^{-1}(g^{-1}(z)) 
+\end{gather*}
+$$
