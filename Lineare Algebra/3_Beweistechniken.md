@@ -52,7 +52,18 @@ Behauptung B: x² + 4 hat keine Nullstellen in ℝ -> Annahme: Behauptung B ist 
 *Evtl mal versuchen, einen Indirekten Beweis mit 2 anstatt von sqrt(2) durchzuführen (keine Aufgabe, von mir selber)
 Indirekten Beweis nochmal selber durchführen.*
 ## 3.3 Vollständige Induktion
-Das Induktionsaxiom ist die Basis, um das Dominoprinzip für die natürlichen Zahlen anzuwenden.
+### Induktionsaxiom
+**Enthält eine Teilmenge A ⊆ ℕ die Zahl 1 und mit jedem k auch k + 1, dann ist A = ℕ.**
+-> Basis, um das **Dominoprinzip** für die natürlichen Zahlen anzuwenden.
+
+**Dominoprinzip:** Wenn eine Aussage A(n) für **alle natürlichen Zahlen richtig** sein soll, dann muss man beweisen, dass die Aussage für den **Startwert 1** richtig ist und denn sie für eine **natürliche Zahl k richtig** ist, **auch für k + 1 richtig** ist.
+### Vorgehensweise
+1. **Induktionsanfang (IA):**
+   Prüfe, ob die Aussage für einen **Startwert n₀** gilt
+2. **Induktionsschritt (IS):**
+   Nehme an, dass die Aussage **für k** gilt, und zeige, dass sie **auch für k + 1** gilt.
+3. **Induktionsende (IE):**
+   Wenn der Induktionsanfang und Induktionsschritt erfüllt sind, dann **gilt die Aussage A(n)** für jede natürliche Zahl n >= n₀
 
 Zeige: Für alle natürlichen Zahlen n ist die Summe der ersten n natürlichen Zahlen gleich (n * (n+1))
 
