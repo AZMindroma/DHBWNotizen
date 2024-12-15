@@ -65,8 +65,4 @@ Indirekten Beweis nochmal selber durchführen.*
 3. **Induktionsende (IE):**
    Wenn der Induktionsanfang und Induktionsschritt erfüllt sind, dann **gilt die Aussage A(n)** für jede natürliche Zahl n >= n₀
 
-Zeige: Für alle natürlichen Zahlen n ist die Summe der ersten n natürlichen Zahlen gleich (n * (n+1))
-
-### Vollständige Induktion intensiv nacharbeiten!!!
-
-Mithilfe von der Diagonalen ist es möglich, alle positiven Rationalen Zahlen abzuzählen.
+![[VollstaendigeInduktion.jpg]]
