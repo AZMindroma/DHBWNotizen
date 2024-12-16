@@ -135,3 +135,20 @@ Jede Zeile einer Spalte enthält eine Formel, die die Interpretation erfüllen m
 
 Hier ist die **Negations-Normalform** besser:
 Da gibt es nur Und und Oder und Negationen nur vor Aussagenvariablen.
+
+Warum funktioniert es?
+Wenn es eine Clash-freie Spalte gibt, ist für keine Variable X und NichtX vorhanden
+Eine Clash-freie Spalte ist vorhanden, wenn phi erfüllbar ist.
+
+Teilformeln: Alle Teile, von denen eine Formel entsteht.
+Terminierung des Tableau-Algorithmus:
+Für JEDE Formel phi nach endlich vielen Schritten
+-> Warum? Da es nur endlich viele Teilformeln von nnf(phi) gibt
+
+don't care-nichtdeterministisch:
+- jede Auswahl führt zur Lösung
+don't know-nichtdeterministisch:
+- Alles muss getestet werden
+
+-> Ein Modell aus einer nicht-clashender Spalte wird gelesen, indem man von unten nach oben liest (z.B. wenn da A ist, ist A = 1 und wenn NICHTB ist, ist B 0)
+
