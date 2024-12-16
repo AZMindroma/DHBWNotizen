@@ -33,6 +33,8 @@
 ⋁ Logisches Oder
 ¬ Nicht
 
+↦
+
 □ Ende des Beweises
 
 Α α Alpha
