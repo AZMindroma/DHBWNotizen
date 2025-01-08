@@ -38,3 +38,7 @@ Prüfungswoche 04.03.25 - 10.03.25
 - Beratung für die Lernmethodik
 - Mit Methoden testen und gucken, was funktioniert
 - Mit anderen in Austausch treten, um die besten Methoden zu finden
+
+Freitag 10.01 C3.02 12:30 - 13:00 Lerntechniken OPTIONAL
+
+Dienstag 22.04 15:00 Klausureinsichten 
