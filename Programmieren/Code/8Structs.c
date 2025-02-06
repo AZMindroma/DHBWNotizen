@@ -18,7 +18,7 @@ int main() {
     struct filecard *ptr, *ptr2;
     
     ptr = person;
-    makeFilecard(ptr, 83117115115121, "Furkan", "Toptas", "Altschauerberg 8", 91448, "Emskirchen");
+    makeFilecard(ptr, 83117115115121, "AZ", "Mindroma", "Altschauerberg 8", 91448, "Emskirchen");
     outputFilecard(ptr);
 
     ptr2 = ptr;
