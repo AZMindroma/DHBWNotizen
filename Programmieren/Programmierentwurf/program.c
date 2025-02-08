@@ -24,7 +24,6 @@ struct comic * create_new_list (struct comic * ptr);
 int fill_element (struct comic * ptr);
 
 int main() {
-    printf("Hello World!");
     ptr = create_new_list(ptr);
     write_to_json(ptr);
     ptr = create_new_list(ptr);
@@ -57,11 +56,11 @@ struct comic * create_new_list (struct comic * ptr) {
     } 
     else {
         ptr = (struct comic *) malloc (sizeof (struct comic));
-        printf("Allocating...");
+        printf("Allocating... ");
         ptr->prev = NULL;
-        printf("Setting prev to NULL...");
+        printf("Setting prev to NULL... ");
         ptr->next = NULL;
-        printf("Setting next to NULL...");
+        printf("Setting next to NULL... ");
         fill_element (ptr);
     }
     return (ptr);
