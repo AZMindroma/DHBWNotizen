@@ -1,5 +1,6 @@
 {
-	"name":	"AZ",
-	"age":	18,
-	"email":	"mail@azmindroma.de"
+	"comicID":	1,
+	"comicSeries":	"Lalal",
+	"comicName":	"SLIS",
+	"pages":	5
 }
