@@ -23,6 +23,7 @@ int menu();
 struct comic * create_new_list(struct comic * ptr);
 struct comic * add_element(struct comic * ptr);
 int fill_element(struct comic * ptr);
+struct comic * remove_element(struct comic * ptr);
 int print_list_to_screen(struct comic * ptr);
 int write_to_json(struct comic * ptr);
 int read_from_json(struct comic **ptr);
@@ -33,7 +34,9 @@ int main() {
 
 int press_enter() {
     printf("Press Enter to continue...");
-    while (getchar() != '\n'); 
+    while (getchar() != '\n') {
+        // This makes sure to clear any possible leftover characters from the input buffer. In case anyone presses something that makes the buffer pass over to this function, which is not wanted!
+    }
     getchar();
 }
 
@@ -41,6 +44,7 @@ int menu() {
     int choice;
 
     system("clear"); // This will likely not work on Windows, but it should work on any Unix-like system (it works on Linux.)
+    // Unlike C#, I cannot seem to be able to make it one printf spread among lines to make it appear more organized. So ultimately, it seems as if having multiple printfs is better for code legibility.
     printf("COMIC MANAGEMENT SYSTEM\nPlease select one option:\n\n");
     printf(" 1. Create new list\n");
     printf(" 2. Add new element to list\n");
@@ -55,37 +59,30 @@ int menu() {
     switch (choice) {
     case 1:
         ptr = create_new_list(ptr);
-        menu();
         break;
     case 2:
         add_element(ptr);
-        menu();
         break;
     case 3:
-        //delete_element(ptr);
-        printf("(Delete Element)");
-        menu();
+        delete_element(ptr);
         break;
     case 4:
         print_list_to_screen(ptr);
-        menu();
         break;
     case 5:
         write_to_json(ptr);
-        menu();
         break;
     case 6:
         read_from_json(&ptr);
-        menu();
         break;
     case 0:
         exit(0);
         break;
     default:
         printf("ERROR");
-        menu();
         break;
     }
+    menu();
 }
 
 struct comic * create_new_list(struct comic * ptr) {
@@ -115,6 +112,7 @@ struct comic * add_element(struct comic * ptr) {
         ptr = ptr->next; // Now point to the new node
         ptr->next = NULL; // Set the next pointer to NULL to signalize that it's the last node.
         fill_element(ptr);
+        printf("Operation complete.");
     }
     press_enter();
     return(ptr);
@@ -129,7 +127,7 @@ int fill_element(struct comic *ptr) {
 
     printf(" comicSeries: ");
     fgets(ptr->comicSeries, sizeof(ptr->comicSeries), stdin);
-    ptr->comicSeries[strcspn(ptr->comicSeries, "\n")] = '\0'; // Makes sure to remove any newlines
+    ptr->comicSeries[strcspn(ptr->comicSeries, "\n")] = '\0'; // Makes sure to remove any newlines by replacing the first occurance of \n with the null terminator.
 
     printf(" comicName: ");
     fgets(ptr->comicName, sizeof(ptr->comicName), stdin);
@@ -137,11 +135,16 @@ int fill_element(struct comic *ptr) {
  
     printf(" pages: ");
     scanf("%d", &ptr->pages);
-    //getchar(); // Consume leftover newline
+    // No getchar(); here, as this is the final operation and the press enter operation consumes leftover newlines already.
 
     return 0;
 }
 
+struct comic * remove_element(struct comic * ptr) {
+    int elementSelection;
+    printf("Enter")
+    scanf("%d", elementSelection);
+}
 
 int write_to_json(struct comic *ptr) {
     if (!ptr) {
@@ -175,6 +178,7 @@ int write_to_json(struct comic *ptr) {
     fputs(json_str, fp);
     fclose(fp);
 
+    // Free memory after writing to JSON
     cJSON_free(json_str);
     cJSON_Delete(json_array);
 
@@ -274,10 +278,10 @@ int print_list_to_screen (struct comic * ptr) {
             printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
             i++;
         }
-    } else {
-        printf(" This is an empty list.\n");
-    }
     printf("\n\n");
+    } else {
+        printf("This is an empty list.\n");
+    }
     press_enter();
     return(i);
 }
