@@ -1,6 +1,11 @@
-{
-	"comicID":	1,
-	"comicSeries":	"Lalal",
-	"comicName":	"SLIS",
-	"pages":	5
-}
+[{
+		"comicID":	2,
+		"comicSeries":	"Lala",
+		"comicName":	"Lili",
+		"pages":	6
+	}, {
+		"comicID":	23,
+		"comicSeries":	"Lala",
+		"comicName":	"Lulul",
+		"pages":	37
+	}]
