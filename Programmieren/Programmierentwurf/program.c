@@ -27,6 +27,7 @@ struct comic * remove_element(struct comic * ptr);
 int print_list_to_screen(struct comic * ptr);
 int write_to_json(struct comic * ptr);
 int read_from_json(struct comic **ptr);
+char get_yes_no();
 
 int main() {
     menu();
@@ -38,6 +39,24 @@ int press_enter() {
         // This makes sure to clear any possible leftover characters from the input buffer. In case anyone presses something that makes the buffer pass over to this function, which is not wanted!
     }
     getchar();
+}
+
+char get_yes_no() {
+    char choice;
+
+    while (1) {  // Keep looping until valid input is given
+        choice = getchar();
+
+        // Clear input buffer (consume any extra characters)
+        while (getchar() != '\n');
+
+        // Check if input is valid
+        if (choice == 'y' || choice == 'n') {
+            return choice;
+        } else {
+            printf("Invalid input. Please enter 'y' or 'n'.\n");
+        }
+    }
 }
 
 int menu() {
@@ -64,7 +83,7 @@ int menu() {
         add_element(ptr);
         break;
     case 3:
-        delete_element(ptr);
+        remove_element(ptr);
         break;
     case 4:
         print_list_to_screen(ptr);
@@ -142,8 +161,47 @@ int fill_element(struct comic *ptr) {
 
 struct comic * remove_element(struct comic * ptr) {
     int elementSelection;
-    printf("Enter")
-    scanf("%d", elementSelection);
+
+    if (!ptr) {
+        printf("This is an empty list.\n");
+    } else {
+        while (1) {
+            struct comic * temp = ptr;
+            int i = 0;
+
+            printf("Enter which element you want to delete");
+            scanf("%d", &elementSelection);
+
+            if (elementSelection < 0) {
+                printf("Cannot select negative numbers!");
+            } else {
+                while (temp && i < elementSelection) { // Combination of while and for in one :)
+                    temp = temp->next;
+                    i++;
+                }
+                if (!temp) {
+                    printf("An element this far doesn't exist! Try again.\n");
+                    press_enter();
+                } else {
+                    break;  // Valid selection, exit loop
+                }
+            }
+        }
+        
+        printf("element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", elementSelection, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
+        printf("Is the following selection correct?: ");
+        char response = get_yes_no();
+        if (response == 'y')
+        {
+            printf("Yes");
+        } 
+        else if (response == 'n')
+        {
+            printf("No");
+        }
+    }
+
+    press_enter();
 }
 
 int write_to_json(struct comic *ptr) {
@@ -268,7 +326,7 @@ int read_from_json(struct comic **ptr) {
 
 
 int print_list_to_screen (struct comic * ptr) {
-    int i = 1;
+    int i = 0;
     printf ("Screen output of list\n\n");
     if (ptr) {
         printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
