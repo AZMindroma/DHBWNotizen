@@ -2,10 +2,10 @@
 #include<stdlib.h>
 #include<string.h>
 #include<cjson/cJSON.h>
-// External dependency. <ADD PACKAGE NAMES FOR APT>
-// Requires adding an extra argument to gcc: -lcjson
-// gcc program.c -lcjson -o program
 #include <curl/curl.h>
+// External dependency. <ADD PACKAGE NAMES FOR APT>
+// Requires adding an extra argument to gcc: -lcjson -lcurl
+// gcc program.c -lcjson -lcurl -o program
 
 struct comic {
     int comicID;
@@ -38,8 +38,8 @@ struct comic * sort_list(struct comic * ptr);
 void free_list(struct comic **ptr);
 
 // JSON File Functions
-int write_to_json(struct comic * ptr);
 int read_from_json(struct comic **ptr, const char *filename);
+int write_to_json(struct comic * ptr);
 
 // Network Functions
 void download_manager();
@@ -50,6 +50,8 @@ int download_json_file(const char *url, const char *filename);
 int main() {
     menu();
 }
+
+// ========== USER INTERACTION FUNCTIONS ==========
 
 int press_enter() {
     printf("Press Enter to continue...");
@@ -78,17 +80,21 @@ int menu() {
 
     system("clear"); // This will likely not work on Windows, but it should work on any Unix-like system (it works on Linux.)
     // Unlike C#, I cannot seem to be able to make it one printf spread among lines to make it appear more organized. So ultimately, it seems as if having multiple printfs is better for code legibility.
-    printf("COMIC MANAGEMENT SYSTEM\nPlease select one option:\n\n");
-    printf(" 1. Create new list\n");
-    printf(" 2. Add new element to list\n");
-    printf(" 3. Delete element from list\n");
-    printf(" 4. Show list on screen\n");
-    printf(" 5. Write list to disk\n"); 
-    printf(" 6. Read list from disk\n");
-    printf(" 7. Sort list\n");
-    printf(" 8. Drop list\n");
-    printf(" 0. End program\n\n");
-    printf(" Your choice: ");
+    printf("\n========================================\n");
+    printf("            Comic Manager Menu          \n");
+    printf("========================================\n");
+    printf(" 1. Create New List\n");
+    printf(" 2. Add Comic to List\n");
+    printf(" 3. Remove Comic from List\n");
+    printf(" 4. Display Comics\n");
+    printf(" 5. Sort Comics\n");
+    printf(" 6. Drop List\n");
+    printf(" 7. Load Comics from JSON\n");
+    printf(" 8. Save Comics to JSON\n");
+    printf(" 9. Load Comics from Online Database\n");
+    printf(" 0. Exit\n");
+    printf("========================================\n");
+    printf("Enter your choice: ");
     
     validationChoice = scanf("%d", &choice);
 
@@ -137,16 +143,7 @@ int menu() {
     menu();
 }
 
-void download_manager() {
-    FILE *fp = fopen("comics.json", "r"); 
-    if (!fp) { 
-        download_json_file("https://azmindroma.de/dhbw/comics.json", "comics.json");
-        read_from_json(&ptr, "comics.json");
-        return;
-    } else {
-        read_from_json(&ptr, "comics.json");
-    }
-}
+// ========== COMIC LIST MANAGEMENT FUNCTIONS ==========
 
 struct comic * create_new_list(struct comic * ptr) {
     if (ptr) {
@@ -201,6 +198,7 @@ int fill_element(struct comic *ptr) {
 struct comic * remove_element_selection(struct comic * ptr) {
     int elementSelection;
     int i = 0;
+    struct comic * selectedNode = NULL;
 
     if (!ptr) {
         printf("This is an empty list.\n");
@@ -223,12 +221,14 @@ struct comic * remove_element_selection(struct comic * ptr) {
                 if (!temp) {
                     printf("An element this far doesn't exist! Try again.\n");
                 } else {
+                    selectedNode = temp;
                     break;  // Valid selection, exit loop
                 }
             }
-        }
-        
-        printf("Selection:\nElement %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", elementSelection, ptr->comicID, ptr->comicSeries, ptr->comicName);
+        } 
+        printf("%-10s %-5s %-50s %-50s\n", "Element", "ID", "Series", "Name");
+        printf("-------------------------------------------------------------------------------------------\n");
+        printf("%-10d %-5d %-50s %-50s\n", elementSelection, selectedNode->comicID, selectedNode->comicSeries, selectedNode->comicName);
         printf("Are you sure you want to delete this element?");
         char response = get_yes_no();  // User enters y/n
         
@@ -267,44 +267,88 @@ void remove_element_execution(struct comic * ptr) {
     printf("Element removed.");
 }
 
-int write_to_json(struct comic *ptr) {
-    if (!ptr) {
+// ========== DISPLAY AND SORTING FUNCTIONS ==========
+
+int print_list_to_screen (struct comic * ptr) {
+    int i = 0;
+    printf ("Screen output of list\n\n");
+    if (ptr) {
+        printf("%-10s %-5s %-50s %-50s\n", "Element", "ID", "Series", "Name");
+        printf("-------------------------------------------------------------------------------------------\n");
+        while (ptr) {
+            printf("%-10d %-5d %-50s %-50s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
+            ptr = ptr->next;
+            i++;
+        }
+        printf("\n");
+    } else {
         printf("This is an empty list.\n");
-        return -1;
     }
-
-    cJSON *json_array = cJSON_CreateArray(); // Create JSON array
-
-    while (ptr) {
-        cJSON *json = cJSON_CreateObject(); // Create JSON object for each comic
-        cJSON_AddNumberToObject(json, "comicID", ptr->comicID);
-        cJSON_AddStringToObject(json, "comicSeries", ptr->comicSeries);
-        cJSON_AddStringToObject(json, "comicName", ptr->comicName);
-
-        cJSON_AddItemToArray(json_array, json); // Add object to array
-        ptr = ptr->next; // Move to next node
-    }
-
-    char *json_str = cJSON_Print(json_array); // Convert array to JSON string
-
-    FILE *fp = fopen("data.json", "w");
-    if (fp == NULL) {
-        printf("ERROR opening file\n");
-        cJSON_Delete(json_array);
-        return -1;
-    }
-
-    fputs(json_str, fp);
-    fclose(fp);
-
-    // Free memory after writing to JSON
-    cJSON_free(json_str);
-    cJSON_Delete(json_array);
-
-    printf("JSON file written successfully!\n");
-
-    return 0;
+    return i;
 }
+
+struct comic *sort_list(struct comic *ptr) {
+    if (ptr == NULL || ptr->next == NULL) {
+        // List is empty or has only one element, no need to sort
+        return ptr;
+    }
+
+    struct comic *sorted = NULL;  // Start with an empty sorted list
+    struct comic *current = ptr;
+
+    while (current != NULL) {
+        struct comic *next = current->next;  // Keep track of the next element
+        current->prev = current->next = NULL; // Isolate current node
+
+        if (sorted == NULL || sorted->comicID >= current->comicID) {
+            // Insert at the beginning if sorted is empty or current has smaller ID
+            current->next = sorted;
+            if (sorted != NULL) {
+                sorted->prev = current;
+            }
+            sorted = current;
+        } else {
+            struct comic *temp = sorted;
+            while (temp->next != NULL && temp->next->comicID < current->comicID) {
+                temp = temp->next;
+            }
+            // Insert current between temp and temp->next
+            current->next = temp->next;
+            if (temp->next != NULL) {
+                temp->next->prev = current;
+            }
+            temp->next = current;
+            current->prev = temp;
+        }
+
+        current = next;  // Move to the next node
+    }
+
+    return sorted;  // Return the new sorted head
+}
+
+// ========== MEMORY MANAGEMENT FUNCTION ==========
+
+void free_list(struct comic **ptr) {
+    struct comic *temp;
+
+    // Check if the list is empty
+    if (*ptr == NULL) {
+        printf("List is already empty.\n");
+        return;
+    }
+
+    // Traverse the list and free each node
+    while (*ptr != NULL) {
+        temp = *ptr;
+        *ptr = (*ptr)->next;  // Move to the next node first
+        free(temp);           // Free the current node
+    }
+
+    printf("List has been successfully freed.\n");
+}
+
+// ========== JSON FILE FUNCTIONS ==========
 
 int read_from_json(struct comic **ptr, const char *filename) { 
     FILE *fp = fopen(filename, "r"); 
@@ -381,82 +425,56 @@ int read_from_json(struct comic **ptr, const char *filename) {
     return 0;
 }
 
-
-int print_list_to_screen (struct comic * ptr) {
-    int i = 0;
-    printf ("Screen output of list\n\n");
-    if (ptr) {
-        printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
-        i++;
-        while (ptr->next) {
-            ptr = ptr->next;
-            printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
-            i++;
-        }
-    printf("\n\n");
-    } else {
+int write_to_json(struct comic *ptr) {
+    if (!ptr) {
         printf("This is an empty list.\n");
+        return -1;
     }
-    return i;
+
+    cJSON *json_array = cJSON_CreateArray(); // Create JSON array
+
+    while (ptr) {
+        cJSON *json = cJSON_CreateObject(); // Create JSON object for each comic
+        cJSON_AddNumberToObject(json, "comicID", ptr->comicID);
+        cJSON_AddStringToObject(json, "comicSeries", ptr->comicSeries);
+        cJSON_AddStringToObject(json, "comicName", ptr->comicName);
+
+        cJSON_AddItemToArray(json_array, json); // Add object to array
+        ptr = ptr->next; // Move to next node
+    }
+
+    char *json_str = cJSON_Print(json_array); // Convert array to JSON string
+
+    FILE *fp = fopen("data.json", "w");
+    if (fp == NULL) {
+        printf("ERROR opening file\n");
+        cJSON_Delete(json_array);
+        return -1;
+    }
+
+    fputs(json_str, fp);
+    fclose(fp);
+
+    // Free memory after writing to JSON
+    cJSON_free(json_str);
+    cJSON_Delete(json_array);
+
+    printf("JSON file written successfully!\n");
+
+    return 0;
 }
 
-void free_list(struct comic **ptr) {
-    struct comic *temp;
+// ========== NETWORK FUNCTIONS ==========
 
-    // Check if the list is empty
-    if (*ptr == NULL) {
-        printf("List is already empty.\n");
+void download_manager() {
+    FILE *fp = fopen("comics.json", "r"); 
+    if (!fp) { 
+        download_json_file("https://azmindroma.de/dhbw/comics.json", "comics.json");
+        read_from_json(&ptr, "comics.json");
         return;
+    } else {
+        read_from_json(&ptr, "comics.json");
     }
-
-    // Traverse the list and free each node
-    while (*ptr != NULL) {
-        temp = *ptr;
-        *ptr = (*ptr)->next;  // Move to the next node first
-        free(temp);           // Free the current node
-    }
-
-    printf("List has been successfully freed.\n");
-}
-
-struct comic *sort_list(struct comic *ptr) {
-    if (ptr == NULL || ptr->next == NULL) {
-        // List is empty or has only one element, no need to sort
-        return ptr;
-    }
-
-    struct comic *sorted = NULL;  // Start with an empty sorted list
-    struct comic *current = ptr;
-
-    while (current != NULL) {
-        struct comic *next = current->next;  // Keep track of the next element
-        current->prev = current->next = NULL; // Isolate current node
-
-        if (sorted == NULL || sorted->comicID >= current->comicID) {
-            // Insert at the beginning if sorted is empty or current has smaller ID
-            current->next = sorted;
-            if (sorted != NULL) {
-                sorted->prev = current;
-            }
-            sorted = current;
-        } else {
-            struct comic *temp = sorted;
-            while (temp->next != NULL && temp->next->comicID < current->comicID) {
-                temp = temp->next;
-            }
-            // Insert current between temp and temp->next
-            current->next = temp->next;
-            if (temp->next != NULL) {
-                temp->next->prev = current;
-            }
-            temp->next = current;
-            current->prev = temp;
-        }
-
-        current = next;  // Move to the next node
-    }
-
-    return sorted;  // Return the new sorted head
 }
 
 size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
