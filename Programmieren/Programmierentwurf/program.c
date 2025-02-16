@@ -116,16 +116,16 @@ int menu() {
                 print_list_to_screen(ptr);
                 break;
             case 5:
-                write_to_json(ptr);
-                break;
-            case 6:
-                read_from_json(&ptr, "data.json");
-                break;
-            case 7:
                 ptr = sort_list(ptr);
                 break;
-            case 8:
+            case 6:
                 free_list(&ptr);
+                break;
+            case 7:
+                read_from_json(&ptr, "data.json");
+                break;
+            case 8:
+                write_to_json(ptr);
                 break;
             case 9:
                 download_manager();
