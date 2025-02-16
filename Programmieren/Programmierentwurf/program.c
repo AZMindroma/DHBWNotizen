@@ -11,7 +11,6 @@ struct comic {
     int comicID;
     char comicSeries[50+1];
     char comicName[50+1];
-    int pages;
     struct comic * prev;
     struct comic * next; 
 };
@@ -28,10 +27,13 @@ struct comic * remove_element_selection(struct comic * ptr);
 void remove_element_execution(struct comic * ptr);
 int print_list_to_screen(struct comic * ptr);
 int write_to_json(struct comic * ptr);
-int read_from_json(struct comic **ptr);
+int read_from_json(struct comic **ptr, const char *filename);
 struct comic * sort_list(struct comic * ptr);
 void free_list(struct comic **ptr);
 char get_yes_no();
+size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream);
+int download_json_file(const char *url, const char *filename);
+void download_manager();
 
 int main() {
     menu();
@@ -100,13 +102,16 @@ int menu() {
                 write_to_json(ptr);
                 break;
             case 6:
-                read_from_json(&ptr);
+                read_from_json(&ptr, "data.json");
                 break;
             case 7:
                 ptr = sort_list(ptr);
                 break;
             case 8:
                 free_list(&ptr);
+                break;
+            case 9:
+                download_manager();
                 break;
             case 0:
                 printf("Goodbye!\n");
@@ -119,6 +124,17 @@ int menu() {
     }
     press_enter();
     menu();
+}
+
+void download_manager() {
+    FILE *fp = fopen("comics.json", "r"); 
+    if (!fp) { 
+        download_json_file("https://azmindroma.de/dhbw/comics.json", "comics.json");
+        read_from_json(&ptr, "comics.json");
+        return;
+    } else {
+        read_from_json(&ptr, "comics.json");
+    }
 }
 
 struct comic * create_new_list(struct comic * ptr) {
@@ -166,9 +182,6 @@ int fill_element(struct comic *ptr) {
     printf(" comicName: ");
     fgets(ptr->comicName, sizeof(ptr->comicName), stdin);
     ptr->comicName[strcspn(ptr->comicName, "\n")] = '\0';
- 
-    printf(" pages: ");
-    scanf("%d", &ptr->pages);
     // No getchar(); here, as this is the final operation and the press enter operation consumes leftover newlines already.
 
     return 0;
@@ -204,7 +217,7 @@ struct comic * remove_element_selection(struct comic * ptr) {
             }
         }
         
-        printf("Selection:\nElement %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", elementSelection, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
+        printf("Selection:\nElement %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", elementSelection, ptr->comicID, ptr->comicSeries, ptr->comicName);
         printf("Are you sure you want to delete this element?");
         char response = get_yes_no();  // User enters y/n
         
@@ -256,7 +269,6 @@ int write_to_json(struct comic *ptr) {
         cJSON_AddNumberToObject(json, "comicID", ptr->comicID);
         cJSON_AddStringToObject(json, "comicSeries", ptr->comicSeries);
         cJSON_AddStringToObject(json, "comicName", ptr->comicName);
-        cJSON_AddNumberToObject(json, "pages", ptr->pages);
 
         cJSON_AddItemToArray(json_array, json); // Add object to array
         ptr = ptr->next; // Move to next node
@@ -283,8 +295,8 @@ int write_to_json(struct comic *ptr) {
     return 0;
 }
 
-int read_from_json(struct comic **ptr) { 
-    FILE *fp = fopen("data.json", "r"); 
+int read_from_json(struct comic **ptr, const char *filename) { 
+    FILE *fp = fopen(filename, "r"); 
     if (!fp) { 
         printf("Error: Unable to open the file.\n"); 
         return 1; 
@@ -340,7 +352,6 @@ int read_from_json(struct comic **ptr) {
         current->comicID = cJSON_GetObjectItem(json_item, "comicID")->valueint;
         strcpy(current->comicSeries, cJSON_GetObjectItem(json_item, "comicSeries")->valuestring);
         strcpy(current->comicName, cJSON_GetObjectItem(json_item, "comicName")->valuestring);
-        current->pages = cJSON_GetObjectItem(json_item, "pages")->valueint;
 
         prev = current;
         current = current->next;
@@ -364,11 +375,11 @@ int print_list_to_screen (struct comic * ptr) {
     int i = 0;
     printf ("Screen output of list\n\n");
     if (ptr) {
-        printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
+        printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
         i++;
         while (ptr->next) {
             ptr = ptr->next;
-            printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
+            printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
             i++;
         }
     printf("\n\n");
@@ -435,4 +446,41 @@ struct comic *sort_list(struct comic *ptr) {
     }
 
     return sorted;  // Return the new sorted head
+}
+
+size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
+    return fwrite(ptr, size, nmemb, stream);
+}
+
+int download_json_file(const char *url, const char *filename) {
+    CURL *curl = curl_easy_init();
+    if (!curl) {
+        printf("Failed to initialize curl.\n");
+        return 0;
+    }
+
+    FILE *file = fopen(filename, "wb");
+    if (!file) {
+        printf("Failed to open file for writing: %s\n", filename);
+        curl_easy_cleanup(curl);
+        return 0;
+    }
+
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_file_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, file);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
+    CURLcode res = curl_easy_perform(curl);
+    fclose(file);
+    curl_easy_cleanup(curl);
+
+    if (res != CURLE_OK) {
+        printf("Failed to download file: %s\n", curl_easy_strerror(res));
+        remove(filename); // Remove incomplete file
+        return 0;
+    }
+
+    printf("Downloaded %s successfully.\n", filename);
+    return 1;
 }
