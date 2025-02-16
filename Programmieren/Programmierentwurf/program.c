@@ -17,30 +17,41 @@ struct comic {
 
 struct comic * ptr = NULL;
 
-// Function prototypes
+// == Function prototypes ==
+// User Interaction Functions
 int press_enter();
+char get_yes_no();
 int menu();
+
+// Comic List Management Functions
 struct comic * create_new_list(struct comic * ptr);
 void add_element(struct comic * ptr);
 int fill_element(struct comic * ptr);
 struct comic * remove_element_selection(struct comic * ptr);
 void remove_element_execution(struct comic * ptr);
+
+// Display and Sorting Functions
 int print_list_to_screen(struct comic * ptr);
+struct comic * sort_list(struct comic * ptr);
+
+// Memory Management Function
+void free_list(struct comic **ptr);
+
+// JSON File Functions
 int write_to_json(struct comic * ptr);
 int read_from_json(struct comic **ptr, const char *filename);
-struct comic * sort_list(struct comic * ptr);
-void free_list(struct comic **ptr);
-char get_yes_no();
+
+// Network Functions
+void download_manager();
 size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream);
 int download_json_file(const char *url, const char *filename);
-void download_manager();
+
 
 int main() {
     menu();
 }
 
 int press_enter() {
-    
     printf("Press Enter to continue...");
     while (getchar() != '\n' && getchar() != EOF);  // Only consume the newline // Clear any leftover input
     getchar(); // Wait for Enter key
