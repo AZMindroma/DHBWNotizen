@@ -1,0 +1,1 @@
+numberinlist(X,Y) :- member(X,Y), number(X).

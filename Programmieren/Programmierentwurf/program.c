@@ -5,6 +5,7 @@
 // External dependency. <ADD PACKAGE NAMES FOR APT>
 // Requires adding an extra argument to gcc: -lcjson
 // gcc program.c -lcjson -o program
+#include <curl/curl.h>
 
 struct comic {
     int comicID;
