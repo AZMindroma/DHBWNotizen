@@ -22,26 +22,49 @@ struct comic * ptr = NULL;
 int press_enter();
 int menu();
 struct comic * create_new_list(struct comic * ptr);
-struct comic * add_element(struct comic * ptr);
+void add_element(struct comic * ptr);
 int fill_element(struct comic * ptr);
+struct comic * remove_element_selection(struct comic * ptr);
+void remove_element_execution(struct comic * ptr);
 int print_list_to_screen(struct comic * ptr);
 int write_to_json(struct comic * ptr);
 int read_from_json(struct comic **ptr);
+struct comic * sort_list(struct comic * ptr);
+void free_list(struct comic **ptr);
+char get_yes_no();
 
 int main() {
     menu();
 }
 
 int press_enter() {
+    
     printf("Press Enter to continue...");
-    while (getchar() != '\n'); 
-    getchar();
+    while (getchar() != '\n' && getchar() != EOF);  // Only consume the newline // Clear any leftover input
+    getchar(); // Wait for Enter key
+}
+
+char get_yes_no() {
+    char choice;
+
+    while (1) {  // Keep looping until valid input is given
+        printf(" (y/n): ");
+        int result = scanf("%c", &choice); // Space before %c eats up newlines
+
+        if (result == 1 && (choice == 'y' || choice == 'n')) {
+            return choice;
+        } else {
+            printf("Invalid input. Please enter 'y' or 'n'.\n");
+        }
+    }
 }
 
 int menu() {
     int choice;
+    int validationChoice;
 
     system("clear"); // This will likely not work on Windows, but it should work on any Unix-like system (it works on Linux.)
+    // Unlike C#, I cannot seem to be able to make it one printf spread among lines to make it appear more organized. So ultimately, it seems as if having multiple printfs is better for code legibility.
     printf("COMIC MANAGEMENT SYSTEM\nPlease select one option:\n\n");
     printf(" 1. Create new list\n");
     printf(" 2. Add new element to list\n");
@@ -49,44 +72,53 @@ int menu() {
     printf(" 4. Show list on screen\n");
     printf(" 5. Write list to disk\n"); 
     printf(" 6. Read list from disk\n");
+    printf(" 7. Sort list\n");
+    printf(" 8. Drop list\n");
     printf(" 0. End program\n\n");
     printf(" Your choice: ");
-    scanf("%d", &choice);
+    
+    validationChoice = scanf("%d", &choice);
 
-    switch (choice) {
-    case 1:
-        ptr = create_new_list(ptr);
-        menu();
-        break;
-    case 2:
-        add_element(ptr);
-        menu();
-        break;
-    case 3:
-        //delete_element(ptr);
-        printf("(Delete Element)");
-        menu();
-        break;
-    case 4:
-        print_list_to_screen(ptr);
-        menu();
-        break;
-    case 5:
-        write_to_json(ptr);
-        menu();
-        break;
-    case 6:
-        read_from_json(&ptr);
-        menu();
-        break;
-    case 0:
-        exit(0);
-        break;
-    default:
-        printf("ERROR");
-        menu();
-        break;
+    if (validationChoice != 1)
+    {
+        printf("Invalid input. Enter a valid number. ");
+    } else {
+        switch (choice) {
+            case 1:
+                ptr = create_new_list(ptr);
+                break;
+            case 2:
+                add_element(ptr);
+                break;
+            case 3:
+                remove_element_selection(ptr);
+                break;
+            case 4:
+                print_list_to_screen(ptr);
+                break;
+            case 5:
+                write_to_json(ptr);
+                break;
+            case 6:
+                read_from_json(&ptr);
+                break;
+            case 7:
+                ptr = sort_list(ptr);
+                break;
+            case 8:
+                free_list(&ptr);
+                break;
+            case 0:
+                printf("Goodbye!\n");
+                exit(0);
+                break;
+            default:
+                printf("Invalid input. Enter a valid number. ");
+                break;
+            }
     }
+    press_enter();
+    menu();
 }
 
 struct comic * create_new_list(struct comic * ptr) {
@@ -99,11 +131,10 @@ struct comic * create_new_list(struct comic * ptr) {
         ptr->next = NULL; // Key characteristic for last node
         fill_element(ptr); // Fill first node
     }
-    press_enter();
-    return(ptr);
+    return ptr;
 }
 
-struct comic * add_element(struct comic * ptr) {
+void add_element(struct comic * ptr) {
     if (!ptr) {
         printf ("List doesn't exist.\n");
     } 
@@ -116,9 +147,9 @@ struct comic * add_element(struct comic * ptr) {
         ptr = ptr->next; // Now point to the new node
         ptr->next = NULL; // Set the next pointer to NULL to signalize that it's the last node.
         fill_element(ptr);
+        printf("Operation complete.");
     }
-    press_enter();
-    return(ptr);
+    return;
 }
 
 int fill_element(struct comic *ptr) {
@@ -130,7 +161,7 @@ int fill_element(struct comic *ptr) {
 
     printf(" comicSeries: ");
     fgets(ptr->comicSeries, sizeof(ptr->comicSeries), stdin);
-    ptr->comicSeries[strcspn(ptr->comicSeries, "\n")] = '\0'; // Makes sure to remove any newlines
+    ptr->comicSeries[strcspn(ptr->comicSeries, "\n")] = '\0'; // Makes sure to remove any newlines by replacing the first occurance of \n with the null terminator.
 
     printf(" comicName: ");
     fgets(ptr->comicName, sizeof(ptr->comicName), stdin);
@@ -138,16 +169,83 @@ int fill_element(struct comic *ptr) {
  
     printf(" pages: ");
     scanf("%d", &ptr->pages);
-    //getchar(); // Consume leftover newline
+    // No getchar(); here, as this is the final operation and the press enter operation consumes leftover newlines already.
 
     return 0;
 }
 
+struct comic * remove_element_selection(struct comic * ptr) {
+    int elementSelection;
+    int i = 0;
+
+    if (!ptr) {
+        printf("This is an empty list.\n");
+    } else {
+        while (1) {
+            struct comic * temp = ptr;
+            i = 0;
+
+            printf("Enter which element you want to delete: ");
+            scanf("%d", &elementSelection);
+            while (getchar() != '\n');  // Clear input buffer
+
+            if (elementSelection < 0) {
+                printf("Cannot select negative numbers!\n");
+            } else {
+                while (temp && i < elementSelection) { // Traverse list
+                    temp = temp->next;
+                    i++;
+                }
+                if (!temp) {
+                    printf("An element this far doesn't exist! Try again.\n");
+                } else {
+                    break;  // Valid selection, exit loop
+                }
+            }
+        }
+        
+        printf("Selection:\nElement %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", elementSelection, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
+        printf("Are you sure you want to delete this element?");
+        char response = get_yes_no();  // User enters y/n
+        
+        if (response == 'y') {
+            i = 0;
+            while (i < elementSelection) {
+                ptr = ptr->next;
+                i++;
+            }
+            remove_element_execution(ptr);
+        } else if (response == 'n') {
+            printf("Process interrupted.\n");
+        }
+    }
+
+}
+
+void remove_element_execution(struct comic * ptr) {
+    if (ptr->prev == NULL) {
+        if (ptr->next != NULL) {
+            ptr->next->prev = NULL; 
+        }
+        free(ptr);
+        printf("Element removed.");
+        return;
+    }
+
+    if (ptr->prev != NULL) {
+        ptr->prev->next = ptr->next;
+    }
+    if (ptr->next != NULL) {
+        ptr->next->prev = ptr->prev;
+    }
+
+    free(ptr);
+    printf("Element removed.");
+}
 
 int write_to_json(struct comic *ptr) {
     if (!ptr) {
         printf("This is an empty list.\n");
-        press_enter();
         return -1;
     }
 
@@ -176,12 +274,12 @@ int write_to_json(struct comic *ptr) {
     fputs(json_str, fp);
     fclose(fp);
 
+    // Free memory after writing to JSON
     cJSON_free(json_str);
     cJSON_Delete(json_array);
 
     printf("JSON file written successfully!\n");
 
-    press_enter();
     return 0;
 }
 
@@ -189,7 +287,6 @@ int read_from_json(struct comic **ptr) {
     FILE *fp = fopen("data.json", "r"); 
     if (!fp) { 
         printf("Error: Unable to open the file.\n"); 
-        press_enter();
         return 1; 
     } 
 
@@ -259,13 +356,12 @@ int read_from_json(struct comic **ptr) {
 
     cJSON_Delete(json_array);
     printf("List successfully overridden from JSON!\n");
-    press_enter();
     return 0;
 }
 
 
 int print_list_to_screen (struct comic * ptr) {
-    int i = 1;
+    int i = 0;
     printf ("Screen output of list\n\n");
     if (ptr) {
         printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
@@ -275,10 +371,68 @@ int print_list_to_screen (struct comic * ptr) {
             printf(" element %d: comicID: %d\tcomicSeries: %s\t comicName: %s \tpages: %d\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName, ptr->pages);
             i++;
         }
-    } else {
-        printf(" This is an empty list.\n");
-    }
     printf("\n\n");
-    press_enter();
-    return(i);
+    } else {
+        printf("This is an empty list.\n");
+    }
+    return i;
+}
+
+void free_list(struct comic **ptr) {
+    struct comic *temp;
+
+    // Check if the list is empty
+    if (*ptr == NULL) {
+        printf("List is already empty.\n");
+        return;
+    }
+
+    // Traverse the list and free each node
+    while (*ptr != NULL) {
+        temp = *ptr;
+        *ptr = (*ptr)->next;  // Move to the next node first
+        free(temp);           // Free the current node
+    }
+
+    printf("List has been successfully freed.\n");
+}
+
+struct comic *sort_list(struct comic *ptr) {
+    if (ptr == NULL || ptr->next == NULL) {
+        // List is empty or has only one element, no need to sort
+        return ptr;
+    }
+
+    struct comic *sorted = NULL;  // Start with an empty sorted list
+    struct comic *current = ptr;
+
+    while (current != NULL) {
+        struct comic *next = current->next;  // Keep track of the next element
+        current->prev = current->next = NULL; // Isolate current node
+
+        if (sorted == NULL || sorted->comicID >= current->comicID) {
+            // Insert at the beginning if sorted is empty or current has smaller ID
+            current->next = sorted;
+            if (sorted != NULL) {
+                sorted->prev = current;
+            }
+            sorted = current;
+        } else {
+            struct comic *temp = sorted;
+            while (temp->next != NULL && temp->next->comicID < current->comicID) {
+                temp = temp->next;
+            }
+            // Insert current between temp and temp->next
+            current->next = temp->next;
+            if (temp->next != NULL) {
+                temp->next->prev = current;
+            }
+            temp->next = current;
+            current->prev = temp;
+        }
+
+        current = next;  // Move to the next node
+    }
+
+    return sorted;  // Return the new sorted head
 }
