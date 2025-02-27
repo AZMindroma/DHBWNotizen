@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<cjson/cJSON.h>
-#include <curl/curl.h>
+#include"dependencies/cJSON.c"
+#include"dependencies/cJSON.h"
+//#include<cjson/cJSON.h> // Add cJSON.c and cJSON.h from Github
+#include<curl/curl.h> // Add files locally
 // External dependency. <ADD PACKAGE NAMES FOR APT>
 // Requires adding an extra argument to gcc: -lcjson -lcurl
 // gcc program.c -lcjson -lcurl -o program
@@ -19,47 +21,51 @@ struct comic * ptr = NULL;
 
 // == Function prototypes ==
 // User Interaction Functions
-int press_enter();
-char get_yes_no();
+int pressEnter();
+char getYesNo();
 int menu();
 
 // Comic List Management Functions
-struct comic * create_new_list(struct comic * ptr);
-void add_element(struct comic * ptr);
-int fill_element(struct comic * ptr);
-struct comic * remove_element_selection(struct comic * ptr);
-void remove_element_execution(struct comic * ptr);
+struct comic * createNewList(struct comic * ptr);
+struct comic * addElement(struct comic * ptr);
+int fillElement(struct comic * ptr);
+struct comic * removeElementSelection(struct comic * ptr);
+void removeElementExecution(struct comic * ptr);
 
 // Display and Sorting Functions
-int print_list_to_screen(struct comic * ptr);
-struct comic * sort_list(struct comic * ptr);
+struct comic * jumpToHead(struct comic * ptr);
+int printListToScreen(struct comic * ptr);
+struct comic * sortList(struct comic * ptr);
 
 // Memory Management Function
-void free_list(struct comic **ptr);
+void freeList(struct comic **ptr);
 
 // JSON File Functions
-int read_from_json(struct comic **ptr, const char *filename);
-int write_to_json(struct comic * ptr);
+int readFromJSON(struct comic **ptr, const char *filename);
+int writeToJSON(struct comic * ptr);
 
 // Network Functions
-void download_manager();
-size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream);
-int download_json_file(const char *url, const char *filename);
+void downloadManager();
+size_t writeFileCallback(void *ptr, size_t size, size_t nmemb, FILE *stream);
+int downloadJSONFile(const char *url, const char *filename);
 
 
 int main() {
     menu();
 }
+// fprintf(stderr, "ERROR opening file\n"); 
+// So macht man coole Errors
 
 // ========== USER INTERACTION FUNCTIONS ==========
 
-int press_enter() {
+int pressEnter() {
     printf("Press Enter to continue...");
-    while (getchar() != '\n' && getchar() != EOF);  // Only consume the newline // Clear any leftover input
+    while (getchar() != '\n');  // Only consume the newline // Clear any leftover input
     getchar(); // Wait for Enter key
+    return 0;
 }
 
-char get_yes_no() {
+char getYesNo() {
     char choice;
 
     while (1) {  // Keep looping until valid input is given
@@ -97,6 +103,7 @@ int menu() {
     printf("Enter your choice: ");
     
     validationChoice = scanf("%d", &choice);
+    getchar();
 
     if (validationChoice != 1)
     {
@@ -104,31 +111,34 @@ int menu() {
     } else {
         switch (choice) {
             case 1:
-                ptr = create_new_list(ptr);
+                ptr = createNewList(ptr);
                 break;
             case 2:
-                add_element(ptr);
+                ptr = addElement(ptr);
                 break;
             case 3:
-                remove_element_selection(ptr);
+                ptr = removeElementSelection(ptr);
                 break;
             case 4:
-                print_list_to_screen(ptr);
+                printListToScreen(ptr);
                 break;
             case 5:
-                ptr = sort_list(ptr);
+                ptr = sortList(ptr);
                 break;
             case 6:
-                free_list(&ptr);
+                freeList(&ptr);
                 break;
             case 7:
-                read_from_json(&ptr, "data.json");
+                readFromJSON(&ptr, "data.json");
                 break;
             case 8:
-                write_to_json(ptr);
+                writeToJSON(ptr);
                 break;
             case 9:
-                download_manager();
+                downloadManager();
+                break;
+            case 10:
+                printf("Pointer is located at Element with the ID %d", ptr->comicID);
                 break;
             case 0:
                 printf("Goodbye!\n");
@@ -139,13 +149,13 @@ int menu() {
                 break;
             }
     }
-    press_enter();
+    pressEnter();
     menu();
 }
 
 // ========== COMIC LIST MANAGEMENT FUNCTIONS ==========
 
-struct comic * create_new_list(struct comic * ptr) {
+struct comic * createNewList(struct comic * ptr) {
     if (ptr) {
         printf("A list already exists.\n");
     } 
@@ -153,12 +163,12 @@ struct comic * create_new_list(struct comic * ptr) {
         ptr = (struct comic *) malloc(sizeof(struct comic)); // Allocates memory with the size of the structure
         ptr->prev = NULL; // Key characteristic for first node
         ptr->next = NULL; // Key characteristic for last node
-        fill_element(ptr); // Fill first node
+        fillElement(ptr); // Fill first node
     }
     return ptr;
 }
 
-void add_element(struct comic * ptr) {
+struct comic * addElement(struct comic * ptr) {
     if (!ptr) {
         printf ("List doesn't exist.\n");
     } 
@@ -170,13 +180,13 @@ void add_element(struct comic * ptr) {
         ptr->next->prev = ptr; // Makes the prev pointer of the new node point to the existing node (in order to be able to go back) 
         ptr = ptr->next; // Now point to the new node
         ptr->next = NULL; // Set the next pointer to NULL to signalize that it's the last node.
-        fill_element(ptr);
+        fillElement(ptr);
         printf("Operation complete.");
     }
-    return;
+    return ptr;
 }
 
-int fill_element(struct comic *ptr) {
+int fillElement(struct comic *ptr) {
     printf(" Please enter the following data:\n\n");
 
     printf(" comicID: ");
@@ -190,12 +200,11 @@ int fill_element(struct comic *ptr) {
     printf(" comicName: ");
     fgets(ptr->comicName, sizeof(ptr->comicName), stdin);
     ptr->comicName[strcspn(ptr->comicName, "\n")] = '\0';
-    // No getchar(); here, as this is the final operation and the press enter operation consumes leftover newlines already.
 
     return 0;
 }
 
-struct comic * remove_element_selection(struct comic * ptr) {
+struct comic * removeElementSelection(struct comic * ptr) {
     int elementSelection;
     int i = 0;
     struct comic * selectedNode = NULL;
@@ -230,32 +239,44 @@ struct comic * remove_element_selection(struct comic * ptr) {
         printf("-------------------------------------------------------------------------------------------\n");
         printf("%-10d %-5d %-50s %-50s\n", elementSelection, selectedNode->comicID, selectedNode->comicSeries, selectedNode->comicName);
         printf("Are you sure you want to delete this element?");
-        char response = get_yes_no();  // User enters y/n
+        char response = getYesNo();  // User enters y/n
         
         if (response == 'y') {
+            ptr = jumpToHead(ptr); // Ensure ptr is at the head of the list
             i = 0;
             while (i < elementSelection) {
                 ptr = ptr->next;
                 i++;
             }
-            remove_element_execution(ptr);
+            removeElementExecution(ptr);
+            ptr = jumpToHead(ptr); // Ensure ptr is at the head of the list after deletion
         } else if (response == 'n') {
             printf("Process interrupted.\n");
         }
     }
-
+    return ptr;
 }
 
-void remove_element_execution(struct comic * ptr) {
-    if (ptr->prev == NULL) {
-        if (ptr->next != NULL) {
-            ptr->next->prev = NULL; 
-        }
-        free(ptr);
-        printf("Element removed.");
+void removeElementExecution(struct comic * ptr) {
+    if (ptr == NULL) {
+        printf("Invalid node.\n");
         return;
     }
 
+    // If the node to be deleted is the head of the list
+    if (ptr->prev == NULL) {
+        if (ptr->next != NULL) {
+            ptr->next->prev = NULL;
+        }
+        // Update the head of the list
+        struct comic * newHead = ptr->next;
+        free(ptr);
+        ptr = newHead;
+        printf("Element removed.\n");
+        return;
+    }
+
+    // If the node to be deleted is not the head of the list
     if (ptr->prev != NULL) {
         ptr->prev->next = ptr->next;
     }
@@ -264,15 +285,24 @@ void remove_element_execution(struct comic * ptr) {
     }
 
     free(ptr);
-    printf("Element removed.");
+    printf("Element removed.\n");
 }
 
 // ========== DISPLAY AND SORTING FUNCTIONS ==========
 
-int print_list_to_screen (struct comic * ptr) {
+struct comic * jumpToHead(struct comic * ptr) {
+    while (ptr->prev != NULL) {
+        ptr = ptr->prev;
+    }
+    return ptr;
+}
+
+int printListToScreen (struct comic * ptr) {
     int i = 0;
     printf ("Screen output of list\n\n");
     if (ptr) {
+        ptr = jumpToHead(ptr);
+        
         printf("%-10s %-5s %-50s %-50s\n", "Element", "ID", "Series", "Name");
         printf("-------------------------------------------------------------------------------------------\n");
         while (ptr) {
@@ -287,7 +317,7 @@ int print_list_to_screen (struct comic * ptr) {
     return i;
 }
 
-struct comic *sort_list(struct comic *ptr) {
+struct comic *sortList(struct comic *ptr) {
     if (ptr == NULL || ptr->next == NULL) {
         // List is empty or has only one element, no need to sort
         return ptr;
@@ -329,7 +359,7 @@ struct comic *sort_list(struct comic *ptr) {
 
 // ========== MEMORY MANAGEMENT FUNCTION ==========
 
-void free_list(struct comic **ptr) {
+void freeList(struct comic **ptr) {
     struct comic *temp;
 
     // Check if the list is empty
@@ -350,8 +380,8 @@ void free_list(struct comic **ptr) {
 
 // ========== JSON FILE FUNCTIONS ==========
 
-int read_from_json(struct comic **ptr, const char *filename) { 
-    FILE *fp = fopen(filename, "r"); 
+int readFromJSON(struct comic **ptr, const char *filename) { 
+    FILE *fp = fopen(filename, "r"); // Read mode
     if (!fp) { 
         printf("Error: Unable to open the file.\n"); 
         return 1; 
@@ -425,7 +455,7 @@ int read_from_json(struct comic **ptr, const char *filename) {
     return 0;
 }
 
-int write_to_json(struct comic *ptr) {
+int writeToJSON(struct comic *ptr) {
     if (!ptr) {
         printf("This is an empty list.\n");
         return -1;
@@ -447,12 +477,12 @@ int write_to_json(struct comic *ptr) {
 
     FILE *fp = fopen("data.json", "w");
     if (fp == NULL) {
-        printf("ERROR opening file\n");
+        fprintf(stderr, "ERROR opening file\n");
         cJSON_Delete(json_array);
         return -1;
     }
 
-    fputs(json_str, fp);
+    fputs(json_str, fp); // Put the json_str into the file pointer
     fclose(fp);
 
     // Free memory after writing to JSON
@@ -466,22 +496,22 @@ int write_to_json(struct comic *ptr) {
 
 // ========== NETWORK FUNCTIONS ==========
 
-void download_manager() {
+void downloadManager() {
     FILE *fp = fopen("comics.json", "r"); 
     if (!fp) { 
-        download_json_file("https://azmindroma.de/dhbw/comics.json", "comics.json");
-        read_from_json(&ptr, "comics.json");
+        downloadJSONFile("https://azmindroma.de/dhbw/comics.json", "comics.json");
+        readFromJSON(&ptr, "comics.json");
         return;
     } else {
-        read_from_json(&ptr, "comics.json");
+        readFromJSON(&ptr, "comics.json");
     }
 }
 
-size_t write_file_callback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
+size_t writeFileCallback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
     return fwrite(ptr, size, nmemb, stream);
 }
 
-int download_json_file(const char *url, const char *filename) {
+int downloadJSONFile(const char *url, const char *filename) {
     CURL *curl = curl_easy_init();
     if (!curl) {
         printf("Failed to initialize curl.\n");
@@ -496,7 +526,7 @@ int download_json_file(const char *url, const char *filename) {
     }
 
     curl_easy_setopt(curl, CURLOPT_URL, url);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_file_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeFileCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, file);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
 
