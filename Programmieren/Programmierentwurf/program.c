@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"dependencies/cJSON.c"
-#include"dependencies/cJSON.h"
+
+#include"dependencies/cJSON/cJSON.c"
+#include"dependencies/cJSON/cJSON.h"
+#include"dependencies/curl/curl.h"
 //#include<cjson/cJSON.h> // Add cJSON.c and cJSON.h from Github
-#include<curl/curl.h> // Add files locally
+//#include<curl/curl.h> // Add files locally
 // External dependency. <ADD PACKAGE NAMES FOR APT>
 // Requires adding an extra argument to gcc: -lcjson -lcurl
 // gcc program.c -lcjson -lcurl -o program
