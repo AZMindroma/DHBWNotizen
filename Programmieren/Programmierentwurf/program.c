@@ -2,17 +2,14 @@
 #include<stdlib.h>
 #include<string.h>
 
-// These dependencies have been included in the project for the reviewer's convenience. This however is not a recommended practice in case of critical updates to the dependencies. As this project does not strive to be of use in the long run, it was done this way anyways. (A better practice would be to uncomment the two includes below the local includes, which requires installing the dependencies and including the arguments to gcc.)
+// This dependency has been installed into the project's directory and does not need to be installed by the reviewer.
 #include"dependencies/cJSON/cJSON.c"
 #include"dependencies/cJSON/cJSON.h"
-#include"dependencies/curl/curl.h"
 
-/*#include<cjson/cJSON.h> // Add cJSON.c and cJSON.h from Github
-#include<curl/curl.h> // Add files locally*/
-
-// External dependencies. <ADD PACKAGE NAMES FOR APT>
-// Requires adding extra arguments to gcc: -lcjson -lcurl
-// gcc program.c -lcjson -lcurl -o program
+// External dependency. <ADD PACKAGE NAMES FOR APT>
+// Requires adding extra arguments to gcc: -lcurl
+// gcc program.c -lcurl -o program
+#include<curl/curl.h>
 
 struct comic {
     int comicID;
