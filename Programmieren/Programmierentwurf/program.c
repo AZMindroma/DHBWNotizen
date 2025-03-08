@@ -30,7 +30,7 @@ struct comic * createNewList(struct comic * ptr);
 struct comic * addElement(struct comic * ptr);
 int fillElement(struct comic * ptr);
 struct comic * removeElementSelection(struct comic * ptr);
-void removeElementExecution(struct comic * ptr);
+struct comic * removeElementExecution(struct comic * ptr);
 
 // Display and Sorting Functions
 struct comic * jumpToHead(struct comic * ptr);
@@ -38,7 +38,7 @@ int printListToScreen(struct comic * ptr);
 struct comic * sortList(struct comic * ptr);
 
 // Memory Management Function
-void freeList(struct comic **ptr);
+struct comic * freeList(struct comic *ptr);
 
 // JSON File Functions
 int readFromJSON(struct comic **ptr, const char *filename);
@@ -126,7 +126,7 @@ int menu() {
                 ptr = sortList(ptr);
                 break;
             case 6:
-                freeList(&ptr);
+                ptr = freeList(ptr);
                 break;
             case 7:
                 readFromJSON(&ptr, "data.json");
@@ -138,7 +138,10 @@ int menu() {
                 downloadManager();
                 break;
             case 10:
-                printf("Pointer is located at Element with the ID %d", ptr->comicID);
+                if (ptr != NULL)
+                {
+                    printf("Pointer is located at Element with the ID %d", ptr->comicID);
+                }
                 break;
             case 0:
                 printf("Goodbye!\n");
@@ -248,8 +251,7 @@ struct comic * removeElementSelection(struct comic * ptr) {
                 ptr = ptr->next;
                 i++;
             }
-            removeElementExecution(ptr);
-            ptr = jumpToHead(ptr); // Ensure ptr is at the head of the list after deletion
+            ptr = removeElementExecution(ptr);
         } else if (response == 'n') {
             printf("Process interrupted.\n");
         }
@@ -257,23 +259,20 @@ struct comic * removeElementSelection(struct comic * ptr) {
     return ptr;
 }
 
-void removeElementExecution(struct comic * ptr) {
+struct comic * removeElementExecution(struct comic * ptr) {
     if (ptr == NULL) {
         printf("Invalid node.\n");
-        return;
+        return ptr;
     }
+
+    struct comic * newHead = ptr; // Assume the head doesn't change
 
     // If the node to be deleted is the head of the list
     if (ptr->prev == NULL) {
-        if (ptr->next != NULL) {
-            ptr->next->prev = NULL;
+        newHead = ptr->next; // New head is the next node
+        if (newHead != NULL) {
+            newHead->prev = NULL;
         }
-        // Update the head of the list
-        struct comic * newHead = ptr->next;
-        free(ptr);
-        ptr = newHead;
-        printf("Element removed.\n");
-        return;
     }
 
     // If the node to be deleted is not the head of the list
@@ -286,6 +285,7 @@ void removeElementExecution(struct comic * ptr) {
 
     free(ptr);
     printf("Element removed.\n");
+    return newHead;
 }
 
 // ========== DISPLAY AND SORTING FUNCTIONS ==========
@@ -317,7 +317,7 @@ int printListToScreen (struct comic * ptr) {
     return i;
 }
 
-struct comic *sortList(struct comic *ptr) {
+struct comic * sortList(struct comic *ptr) {
     if (ptr == NULL || ptr->next == NULL) {
         // List is empty or has only one element, no need to sort
         return ptr;
@@ -359,23 +359,24 @@ struct comic *sortList(struct comic *ptr) {
 
 // ========== MEMORY MANAGEMENT FUNCTION ==========
 
-void freeList(struct comic **ptr) {
+struct comic * freeList(struct comic *ptr) {
     struct comic *temp;
 
     // Check if the list is empty
-    if (*ptr == NULL) {
+    if (ptr == NULL) {
         printf("List is already empty.\n");
-        return;
+        return ptr;
     }
 
     // Traverse the list and free each node
-    while (*ptr != NULL) {
-        temp = *ptr;
-        *ptr = (*ptr)->next;  // Move to the next node first
+    while (ptr != NULL) {
+        temp = ptr;
+        ptr = ptr->next;  // Move to the next node first
         free(temp);           // Free the current node
     }
 
     printf("List has been successfully freed.\n");
+    return ptr;
 }
 
 // ========== JSON FILE FUNCTIONS ==========
