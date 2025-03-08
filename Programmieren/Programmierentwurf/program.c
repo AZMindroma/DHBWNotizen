@@ -2,13 +2,16 @@
 #include<stdlib.h>
 #include<string.h>
 
+// These dependencies have been included in the project for the reviewer's convenience. This however is not a recommended practice in case of critical updates to the dependencies. As this project does not strive to be of use in the long run, it was done this way anyways. (A better practice would be to uncomment the two includes below the local includes, which requires installing the dependencies and including the arguments to gcc.)
 #include"dependencies/cJSON/cJSON.c"
 #include"dependencies/cJSON/cJSON.h"
 #include"dependencies/curl/curl.h"
-//#include<cjson/cJSON.h> // Add cJSON.c and cJSON.h from Github
-//#include<curl/curl.h> // Add files locally
-// External dependency. <ADD PACKAGE NAMES FOR APT>
-// Requires adding an extra argument to gcc: -lcjson -lcurl
+
+/*#include<cjson/cJSON.h> // Add cJSON.c and cJSON.h from Github
+#include<curl/curl.h> // Add files locally*/
+
+// External dependencies. <ADD PACKAGE NAMES FOR APT>
+// Requires adding extra arguments to gcc: -lcjson -lcurl
 // gcc program.c -lcjson -lcurl -o program
 
 struct comic {
@@ -55,8 +58,6 @@ int downloadJSONFile(const char *url, const char *filename);
 int main() {
     menu();
 }
-// fprintf(stderr, "ERROR opening file\n"); 
-// So macht man coole Errors
 
 // ========== USER INTERACTION FUNCTIONS ==========
 
@@ -174,7 +175,7 @@ struct comic * createNewList(struct comic * ptr) {
 
 struct comic * addElement(struct comic * ptr) {
     if (!ptr) {
-        printf ("List doesn't exist.\n");
+        printf("List doesn't exist.\n");
     } 
     else {
         while (ptr->next) { 
@@ -300,7 +301,7 @@ struct comic * jumpToHead(struct comic * ptr) {
     return ptr;
 }
 
-int printListToScreen (struct comic * ptr) {
+int printListToScreen(struct comic * ptr) {
     int i = 0;
     printf ("Screen output of list\n\n");
     if (ptr) {
@@ -481,7 +482,7 @@ int writeToJSON(struct comic *ptr) {
 
     FILE *fp = fopen("data.json", "w");
     if (fp == NULL) {
-        fprintf(stderr, "ERROR opening file\n");
+        fprintf(stderr, "Error opening file.\n");
         cJSON_Delete(json_array);
         return -1;
     }
