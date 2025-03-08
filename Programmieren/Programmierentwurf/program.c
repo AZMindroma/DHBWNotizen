@@ -41,11 +41,11 @@ struct comic * sortList(struct comic * ptr);
 struct comic * freeList(struct comic *ptr);
 
 // JSON File Functions
-int readFromJSON(struct comic **ptr, const char *filename);
+struct comic * readFromJSON(struct comic *ptr, const char *filename);
 int writeToJSON(struct comic * ptr);
 
 // Network Functions
-void downloadManager();
+struct comic * downloadManager(struct comic *ptr);
 size_t writeFileCallback(void *ptr, size_t size, size_t nmemb, FILE *stream);
 int downloadJSONFile(const char *url, const char *filename);
 
@@ -60,7 +60,6 @@ int main() {
 
 int pressEnter() {
     printf("Press Enter to continue...");
-    while (getchar() != '\n');  // Only consume the newline // Clear any leftover input
     getchar(); // Wait for Enter key
     return 0;
 }
@@ -73,6 +72,7 @@ char getYesNo() {
         int result = scanf("%c", &choice); // Space before %c eats up newlines
 
         if (result == 1 && (choice == 'y' || choice == 'n')) {
+            while (getchar() != '\n');
             return choice;
         } else {
             printf("Invalid input. Please enter 'y' or 'n'.\n");
@@ -103,11 +103,11 @@ int menu() {
     printf("Enter your choice: ");
     
     validationChoice = scanf("%d", &choice);
-    getchar();
+    while (getchar() != '\n');
 
     if (validationChoice != 1)
     {
-        printf("Invalid input. Enter a valid number. ");
+        printf("Invalid input. Enter a valid number.\n");
     } else {
         switch (choice) {
             case 1:
@@ -129,17 +129,16 @@ int menu() {
                 ptr = freeList(ptr);
                 break;
             case 7:
-                readFromJSON(&ptr, "data.json");
+                ptr = readFromJSON(ptr, "data.json");
                 break;
             case 8:
                 writeToJSON(ptr);
                 break;
             case 9:
-                downloadManager();
+                ptr = downloadManager(ptr);
                 break;
             case 10:
-                if (ptr != NULL)
-                {
+                if (ptr != NULL) {
                     printf("Pointer is located at Element with the ID %d", ptr->comicID);
                 }
                 break;
@@ -148,7 +147,7 @@ int menu() {
                 exit(0);
                 break;
             default:
-                printf("Invalid input. Enter a valid number. ");
+                printf("Invalid input. Enter a valid number.\n");
                 break;
             }
     }
@@ -184,7 +183,7 @@ struct comic * addElement(struct comic * ptr) {
         ptr = ptr->next; // Now point to the new node
         ptr->next = NULL; // Set the next pointer to NULL to signalize that it's the last node.
         fillElement(ptr);
-        printf("Operation complete.");
+        printf("Operation complete.\n");
     }
     return ptr;
 }
@@ -216,6 +215,8 @@ struct comic * removeElementSelection(struct comic * ptr) {
         printf("This is an empty list.\n");
     } else {
         while (1) {
+            ptr = jumpToHead(ptr);
+
             struct comic * temp = ptr;
             i = 0;
 
@@ -381,11 +382,11 @@ struct comic * freeList(struct comic *ptr) {
 
 // ========== JSON FILE FUNCTIONS ==========
 
-int readFromJSON(struct comic **ptr, const char *filename) { 
+struct comic * readFromJSON(struct comic *ptr, const char *filename) { 
     FILE *fp = fopen(filename, "r"); // Read mode
     if (!fp) { 
         printf("Error: Unable to open the file.\n"); 
-        return 1; 
+        return ptr; 
     } 
 
     // Determine file size
@@ -398,7 +399,7 @@ int readFromJSON(struct comic **ptr, const char *filename) {
     if (!json_data) {
         printf("Memory allocation failed.\n");
         fclose(fp);
-        return 1;
+        return ptr;
     }
 
     // Read file into allocated memory
@@ -412,10 +413,10 @@ int readFromJSON(struct comic **ptr, const char *filename) {
     if (!json_array || !cJSON_IsArray(json_array)) {
         printf("Error parsing JSON: %s\n", cJSON_GetErrorPtr());
         cJSON_Delete(json_array);
-        return 1;
+        return ptr;
     }
 
-    struct comic *current = *ptr, *prev = NULL;
+    struct comic *current = ptr, *prev = NULL;
     cJSON *json_item = NULL;
 
     // Iterate over JSON and update existing nodes
@@ -426,12 +427,12 @@ int readFromJSON(struct comic **ptr, const char *filename) {
             if (!current) {
                 printf("Memory allocation failed\n");
                 cJSON_Delete(json_array);
-                return 1;
+                return ptr;
             }
             current->prev = prev;
             current->next = NULL;
             if (prev) prev->next = current;
-            else *ptr = current;  // Update head pointer
+            else ptr = current;  // Update head pointer
         }
 
         // Update values
@@ -453,7 +454,7 @@ int readFromJSON(struct comic **ptr, const char *filename) {
 
     cJSON_Delete(json_array);
     printf("List successfully overridden from JSON!\n");
-    return 0;
+    return ptr;
 }
 
 int writeToJSON(struct comic *ptr) {
@@ -497,15 +498,13 @@ int writeToJSON(struct comic *ptr) {
 
 // ========== NETWORK FUNCTIONS ==========
 
-void downloadManager() {
+struct comic * downloadManager(struct comic *ptr) {
     FILE *fp = fopen("comics.json", "r"); 
     if (!fp) { 
         downloadJSONFile("https://azmindroma.de/dhbw/comics.json", "comics.json");
-        readFromJSON(&ptr, "comics.json");
-        return;
-    } else {
-        readFromJSON(&ptr, "comics.json");
     }
+    ptr = readFromJSON(ptr, "comics.json");
+    return ptr;
 }
 
 size_t writeFileCallback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
