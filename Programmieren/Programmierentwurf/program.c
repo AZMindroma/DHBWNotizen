@@ -31,10 +31,10 @@ int menu();
 
 // Comic List Management Functions
 struct comic * createNewList(struct comic * ptr);
-struct comic * addElement(struct comic * ptr);
-int fillElement(struct comic * ptr);
-struct comic * removeElementSelection(struct comic * ptr);
-struct comic * removeElementExecution(struct comic * ptr);
+struct comic * addNode(struct comic * ptr);
+int fillNode(struct comic * ptr);
+struct comic * removeNodeSelection(struct comic * ptr);
+struct comic * removeNodeExecution(struct comic * ptr);
 
 // Display and Sorting Functions
 struct comic * jumpToHead(struct comic * ptr);
@@ -115,10 +115,10 @@ int menu() {
                 ptr = createNewList(ptr);
                 break;
             case 2:
-                ptr = addElement(ptr);
+                ptr = addNode(ptr);
                 break;
             case 3:
-                ptr = removeElementSelection(ptr);
+                ptr = removeNodeSelection(ptr);
                 break;
             case 4:
                 printListToScreen(ptr);
@@ -153,7 +153,7 @@ int menu() {
 
 // ========== COMIC LIST MANAGEMENT FUNCTIONS ==========
 
-// Creates a list if one doesn't exist yet and prompts the user to add an element to the list.
+// Creates a list if one doesn't exist yet and prompts the user to add an node to the list.
 struct comic * createNewList(struct comic * ptr) {
     if (ptr) {
         printf("A list already exists.\n");
@@ -162,13 +162,13 @@ struct comic * createNewList(struct comic * ptr) {
         ptr = (struct comic *) malloc(sizeof(struct comic));
         ptr->prev = NULL; // Key characteristic for first node
         ptr->next = NULL; // Key characteristic for last node
-        fillElement(ptr);
+        fillNode(ptr);
     }
     return ptr;
 }
 
-// If a list exists, the function traverses it until the end, adds an element there and lets the user fill it.
-struct comic * addElement(struct comic * ptr) {
+// If a list exists, the function traverses it until the end, adds an node there and lets the user fill it.
+struct comic * addNode(struct comic * ptr) {
     if (!ptr) {
         printf("List doesn't exist.\n");
     } 
@@ -180,16 +180,16 @@ struct comic * addElement(struct comic * ptr) {
         ptr->next->prev = ptr; // Makes the prev pointer of the new node point to the existing node (in order to be able to go back) 
         ptr = ptr->next; // Now point to the new node
         ptr->next = NULL; // Set the next pointer to NULL to signalize that it's the last node.
-        fillElement(ptr);
+        fillNode(ptr);
         printf("Operation complete.\n");
     }
     return ptr;
 }
 
-// Lets the user fill in data for the currently selected node. Only in use in combination with adding a new element.
-int fillElement(struct comic *ptr) {
+// Lets the user fill in data for the currently selected node. Only in use in combination with adding a new node.
+int fillNode(struct comic *ptr) {
     if (ptr == NULL) {
-        printf("Error: Null pointer passed to fillElement.\n");
+        printf("Error: Null pointer passed to fillNode.\n");
         return -1;
     }
 
@@ -247,8 +247,8 @@ int fillElement(struct comic *ptr) {
 }
 
 // Allows the user to select and review the node they wish to delete and asks for confirmation before executing the deletion function
-struct comic * removeElementSelection(struct comic * ptr) {
-    int elementSelection;
+struct comic * removeNodeSelection(struct comic * ptr) {
+    int nodeSelection;
     int i = 0;
     struct comic * selectedNode = NULL;
 
@@ -262,38 +262,38 @@ struct comic * removeElementSelection(struct comic * ptr) {
             i = 0;
 
             printf("Enter which node you want to delete: ");
-            scanf("%d", &elementSelection);
+            scanf("%d", &nodeSelection);
             while (getchar() != '\n');  // Clear input buffer
 
-            if (elementSelection < 0) {
+            if (nodeSelection < 0) {
                 printf("Cannot select negative numbers!\n");
             } else {
-                while (temp && i < elementSelection) { // Traverse list
+                while (temp && i < nodeSelection) { // Traverse list
                     temp = temp->next;
                     i++;
                 }
                 if (!temp) {
-                    printf("An element this far doesn't exist! Try again.\n");
+                    printf("An node this far doesn't exist! Try again.\n");
                 } else {
                     selectedNode = temp;
                     break;  // Valid selection, exit loop
                 }
             }
         } 
-        printf("%-10s %-5s %-50s %-50s\n", "Element", "ID", "Series", "Name");
+        printf("%-10s %-5s %-50s %-50s\n", "Node", "ID", "Series", "Name");
         printf("-------------------------------------------------------------------------------------------\n");
-        printf("%-10d %-5d %-50s %-50s\n", elementSelection, selectedNode->comicID, selectedNode->comicSeries, selectedNode->comicName);
-        printf("Are you sure you want to delete this element?");
+        printf("%-10d %-5d %-50s %-50s\n", nodeSelection, selectedNode->comicID, selectedNode->comicSeries, selectedNode->comicName);
+        printf("Are you sure you want to delete this node?");
         char response = getYesNo();
         
         if (response == 'y') {
             ptr = jumpToHead(ptr); // Ensure ptr is at the head of the list
             i = 0;
-            while (i < elementSelection) {
+            while (i < nodeSelection) {
                 ptr = ptr->next;
                 i++;
             }
-            ptr = removeElementExecution(ptr);
+            ptr = removeNodeExecution(ptr);
         } else if (response == 'n') {
             printf("Process interrupted.\n");
         }
@@ -301,8 +301,8 @@ struct comic * removeElementSelection(struct comic * ptr) {
     return ptr;
 }
 
-// Deletes the selected node. Depending on the position of the element, the deletion process differs.
-struct comic * removeElementExecution(struct comic * ptr) {
+// Deletes the selected node. Depending on the position of the node, the deletion process differs.
+struct comic * removeNodeExecution(struct comic * ptr) {
     if (ptr == NULL) {
         printf("Invalid node.\n");
         return ptr;
@@ -328,7 +328,7 @@ struct comic * removeElementExecution(struct comic * ptr) {
     }
 
     free(ptr);
-    printf("Element removed.\n");
+    printf("Node removed.\n");
     return newHead;
 }
 
@@ -348,7 +348,7 @@ int printListToScreen(struct comic * ptr) {
     if (ptr) {
         ptr = jumpToHead(ptr);
         
-        printf("%-10s %-5s %-50s %-50s\n", "Element", "ID", "Series", "Name");
+        printf("%-10s %-5s %-50s %-50s\n", "Node", "ID", "Series", "Name");
         printf("-------------------------------------------------------------------------------------------\n");
         while (ptr) {
             printf("%-10d %-5d %-50s %-50s\n", i, ptr->comicID, ptr->comicSeries, ptr->comicName);
@@ -370,7 +370,7 @@ struct comic * sortList(struct comic *ptr) {
     }
     ptr = jumpToHead(ptr);
     if (ptr->next == NULL) {
-        printf("The list has less than 2 elements. Nothing to sort.\n");
+        printf("The list has less than 2 nodes. Nothing to sort.\n");
         return ptr;
     }
 
@@ -378,7 +378,7 @@ struct comic * sortList(struct comic *ptr) {
     struct comic *current = ptr;
 
     while (current != NULL) {
-        struct comic *next = current->next;  // Keep track of the next element
+        struct comic *next = current->next;  // Keep track of the next node
         current->prev = current->next = NULL; // Isolates current node from the rest of the list
 
         if (sorted == NULL || sorted->comicID >= current->comicID) {
@@ -403,7 +403,7 @@ struct comic * sortList(struct comic *ptr) {
         }
         current = next;  // Move to the next node
     }
-    printf("List was successfully sorted.");
+    printf("List was successfully sorted.\n");
     return sorted;  // Return the new sorted list
 }
 
@@ -451,7 +451,7 @@ struct comic * readFromJSON(struct comic *ptr, const char *filename) {
         return ptr;
     }
 
-    // Read file into allocated memory: json_data is where we store the data, 1 means that we read the file byte-by-byte, file_size is the number of elements to be read and fp is what we read from.
+    // Read file into allocated memory: json_data is where we store the data, 1 means that we read the file byte-by-byte, file_size is the number of nodes to be read and fp is what we read from.
     fread(json_data, 1, file_size, fp);
     json_data[file_size] = '\0';  // Null-terminate
     fclose(fp);
