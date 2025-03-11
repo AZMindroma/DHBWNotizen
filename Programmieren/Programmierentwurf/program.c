@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<limits.h>
+#include<limits.h> // Purpose: Defining int value limits flexibly for input protection
 
 // This dependency has been installed into the project's directory and does not need to be installed by the reviewer.
 #include"dependencies/cJSON/cJSON.c"
@@ -70,7 +70,7 @@ char getYesNo() {
 
     while (1) {  // Keep looping until valid input is given
         printf(" (y/n): ");
-        int result = scanf("%c", &choice); // Space before %c eats up newlines
+        int result = scanf("%c", &choice);
 
         if (result == 1 && (choice == 'y' || choice == 'n')) {
             while (getchar() != '\n');
@@ -137,11 +137,6 @@ int menu() {
                 break;
             case 9:
                 ptr = downloadManager(ptr);
-                break;
-            case 10:
-                if (ptr != NULL) {
-                    printf("Pointer is located at Element with the ID %d", ptr->comicID);
-                }
                 break;
             case 0:
                 printf("Goodbye!\n");
@@ -266,7 +261,7 @@ struct comic * removeElementSelection(struct comic * ptr) {
             struct comic * temp = ptr;
             i = 0;
 
-            printf("Enter which element you want to delete: ");
+            printf("Enter which node you want to delete: ");
             scanf("%d", &elementSelection);
             while (getchar() != '\n');  // Clear input buffer
 
