@@ -1,0 +1,128 @@
+.definition {
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: black;
+  border-radius: 2px;
+
+  color: #000000;
+  background-color: #c8d9eb;
+  border-color: #000000;
+}
+
+.definition h3{
+  color: #000000;
+}
+
+.definition h3:before{
+  content: 'Definition: ';
+}
+
+.satz {
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: black;
+  border-radius: 2px;
+
+  color: #000000;
+  background-color: #b4eeb4;
+  border-color: #000000;
+}
+
+.satz h3{
+  color: #000000;
+}
+
+.satz h3:before{
+  content: 'Satz: ';
+}
+
+.aufgabe {
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: black;
+  border-radius: 2px;
+
+  color: #000000;
+  background-color: #f9ecec;
+  border-color: #000000;
+}
+
+.aufgabe h3{
+  color: #000000;
+}
+
+.aufgabe h3:before{
+  content: 'Aufgabe: ';
+}
+
+
+.remark {
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: black;
+  border-radius: 2px;
+
+  color: #000000;
+  background-color: #eedd66;
+  border-color: #000000;
+}
+
+.remark h3{
+  color: #000000;
+}
+
+.remark h3:before{
+  content: '';
+}
+
+
+
+.hint {
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: black;
+  border-radius: 2px;
+
+  color: #000000;
+  background-color: #F6EACB;
+  border-color: #000000;
+}
+
+.hint summary{
+  color: #000000;
+}
+
+.hint summary:before{
+  content: '💡 Tipp: hier klicken';
+}
+
+.nexthint {
+  padding: 15px;
+  margin-bottom: 18px;
+  color: #000000;
+  background-color: #F6EACB;
+}
+
+.nexthint summary:before{
+  content: '💡 Nächster Tipp';
+}
