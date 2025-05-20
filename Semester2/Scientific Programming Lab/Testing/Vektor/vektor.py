@@ -44,13 +44,37 @@ class VectorError(Exception):
     """
     pass
 
+# Notes:
+# print(0.0 == 0) -> True
+# print(vector.__len__()) for Vector([1,2,3]) -> 3
+# print(repr(vector)) für repr
 
-# Platz für Ihren Code
+# Variablen aus NumPy Array:
+# variables = [val for i, val in enumerate(self.vec)]
+
+# Simples printing:
+# for value in self.vec:
+# print(value)
+
+# technical_str returns:
+# [np.int64(-1), np.int64(2), np.int64(3)]
+
 
 # YOUR CODE HERE
 class Vector:
     def __init__(self, vec):
         self.vec = np.array(vec)
+
+    def check_dims(self, other):
+        if not isinstance(self, Vector):
+            raise VectorError("No Vector")
+        if not isinstance(other, Vector):
+            raise VectorError("No Vector")
+        if self.vec.size != other.vec.size:
+            raise VectorError("Vectors aren't the same size!")
+
+    def technical_str(self):
+        return [val for i, val in enumerate(self.vec)]
 
     def __str__(self):
         return f"<{', '.join(str(x) for x in self.vec)}>"
@@ -58,12 +82,67 @@ class Vector:
     def __repr__(self):
         return f"Vector({self.vec})"
 
-    #def __bool__(self):
     def __eq__(self, other):
+        print(self, other)
+        self.check_dims(other)
         return (self.vec == other.vec).all()
 
     def __len__(self):
         return self.vec.size
 
-vector = Vector([1,2,3])
-vector2 = Vector([1,2,3])
+    def __bool__(self):
+        for value in self.vec:
+            if value != 0:
+                return True
+        return False
+    # Better solution (thx AI): return np.any(self.vec != 0)
+
+    def __neg__(self):
+        return Vector(-self.vec)
+
+    def __add__(self, other):
+        self.check_dims(other)
+        return Vector(self.vec + other.vec)
+
+    def __sub__(self, other):
+        self.check_dims(other)
+        return Vector(self.vec - other.vec)
+
+    def __mul__(self, other):
+        if isinstance(other, Vector):
+            raise VectorError("Its a Vector")
+        return Vector(self.vec * other)
+
+    def __rmul__(self, other):
+        if isinstance(self, Vector):
+            raise VectorError("Its a Vector")
+        return Vector(other * self.vec)
+
+    def is_zero(self):
+        return np.all(self.vec == 0)
+
+    def norm(self):
+        # norm = 0
+        #
+        # for value in self.vec:
+        #     norm += value*value
+        #
+        # return math.sqrt(norm)
+
+        return np.linalg.norm(self.vec)
+
+    def euclid_dist(self, other):
+        self.check_dims(other)
+        return np.linalg.norm(self.vec - other.vec)
+
+    def manhattan_dist(self, other):
+        self.check_dims(other)
+        return np.linalg.norm(self.vec - other.vec, ord=1)
+
+    def cosine_similarity(self, other):
+        self.check_dims(other)
+        return np.dot(self.vec, other.vec) / (np.linalg.norm(self.vec) * np.linalg.norm(other.vec))
+
+
+
+print( Vector( [0, 0, 1] ) == Vector ( [0, 1, 0] ) )
