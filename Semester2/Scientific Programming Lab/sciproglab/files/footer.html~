@@ -1,0 +1,119 @@
+<p>Version 1.0.2 vom 08.12.2024</p>
+
+<h2>Quellen</h2>
+
+</div><!-- insert bibtex2hteml output here -->
+
+	<p><a name="pythondocs"></a>
+
+	Python Software Foundation.
+	 Python 3.13.0 documentation.
+	[&nbsp;<a href="https://docs.python.org/3/index.html">https://docs.python.org/3/index.html</a>&nbsp;]
+
+	</p>
+
+	<p><a name="officialpythontutorial"></a>
+
+	Python Software Foundation.
+	 The Python Tutorial.
+	[&nbsp;<a href="https://docs.python.org/3/tutorial/index.html">https://docs.python.org/3/tutorial/index.html</a>&nbsp;]
+
+	</p>
+
+	<p><a name="unistuttgartpythonkurs"></a>
+
+	Dominik Göddeke.
+	 Programmierkurs Python.
+	[&nbsp;<a href="https://www.oerbw.de/edu-sharing/components/collections?id=4dc12ce9-58f8-452e-9093-7d13aa758240">https://www.oerbw.de/edu-sharing/components/collections?id=4dc12ce9-58f8-452e-9093-7d13aa758240</a>&nbsp;]
+
+	</p>
+
+	<p><a name="w3schoolspythontutorial"></a>
+
+	W3Schools .
+	 Python Tutorial.
+	[&nbsp;<a href="https://www.w3schools.com/python/">https://www.w3schools.com/python/</a>&nbsp;]
+
+	</p>
+
+	<p><a name="sundnes2020introduction"></a>
+
+	Joakim Sundnes.
+	 <em>Introduction to scientific programming with Python</em>.
+	 Springer Nature, 2020.
+	[&nbsp;<a href="https://library.oapen.org/handle/20.500.12657/39979">https://library.oapen.org/handle/20.500.12657/39979</a>&nbsp;]
+
+	</p>
+
+	<p><a name="linge2020programming"></a>
+
+	Svein Linge and Hans&nbsp;Petter Langtangen.
+	 <em>Programming for computations-Python: A gentle introduction to
+	  numerical simulations with Python 3.6</em>.
+	 Springer Nature, 2020.
+	[&nbsp;<a href="https://library.oapen.org/handle/20.500.12657/23103">https://library.oapen.org/handle/20.500.12657/23103</a>&nbsp;]
+
+	</p>
+
+	<p><a name="weitz2021konkrete"></a>
+
+	Edmund Weitz.
+	 <em>Konkrete Mathematik (nicht nur) f&uuml;r Informatiker</em>.
+	 Springer, 2021.
+	[&nbsp;<a href="https://link.springer.com/book/10.1007/978-3-662-62618-4">https://link.springer.com/book/10.1007/978-3-662-62618-4</a>&nbsp;]
+
+	</p>
+	
+	
+	<p><a name="arensMathematik2022"></a>
+
+	Tilo Arens, Frank Hettlich, Christian Karpfinger, Ulrich Kockelkorn, Klaus
+	  Lichtenegger, and Hellmuth Stachel.
+	 <em>Mathematik</em>.
+	 Springer Spektrum Berlin, Heidelberg, Heidelberg, 5 edition, October
+	  2022.
+	[&nbsp;<a href="https://link.springer.com/book/10.1007/978-3-662-64389-1">https://link.springer.com/book/10.1007/978-3-662-64389-1</a>&nbsp;]
+	</p>
+
+	<p><a name="papulaMathematikFuerIngenieure2024BdIII"></a>
+
+	Lothar Papula.
+	 <em>Mathematik für Ingenieure und Naturwissenschaftler Band
+	  3: Vektoranalysis, Wahrscheinlichkeitsrechnung, Mathematische
+	  Statistik, Fehler- und Ausgleichsrechnung</em>, volume&nbsp;3 of <em>Mathematik
+	  für Ingenieure und Naturwissenschaftler</em>.
+	 Springer Vieweg Wiesbaden, Wiesbaden, October 2024.
+	[&nbsp;<a href="https://link.springer.com/book/10.1007/978-3-658-45804-1">https://link.springer.com/book/10.1007/978-3-658-45804-1</a>&nbsp;]
+
+	</p>
+	
+<p><a name="arensMathematik2022"></a>
+
+Tilo Arens, Frank Hettlich, Christian Karpfinger, Ulrich Kockelkorn, Klaus
+  Lichtenegger, and Hellmuth Stachel.
+ <em>Mathematik</em>.
+ Springer Spektrum Berlin, Heidelberg, Heidelberg, 5 edition, October
+  2022.
+[&nbsp;<a href="https://link.springer.com/book/10.1007/978-3-662-64389-1">https://link.springer.com/book/10.1007/978-3-662-64389-1</a>&nbsp;]
+
+</p>
+
+<p><a name="papulaMathematikFuerIngenieure2024BdIII"></a>
+
+Lothar Papula.
+ <em>Mathematik für Ingenieure und Naturwissenschaftler Band
+  3: Vektoranalysis, Wahrscheinlichkeitsrechnung, Mathematische
+  Statistik, Fehler- und Ausgleichsrechnung</em>, volume&nbsp;3 of <em>Mathematik
+  für Ingenieure und Naturwissenschaftler</em>.
+ Springer Vieweg Wiesbaden, Wiesbaden, October 2024.
+[&nbsp;<a href="https://link.springer.com/book/10.1007/978-3-658-45804-1">https://link.springer.com/book/10.1007/978-3-658-45804-1</a>&nbsp;]
+
+</p>
+	
+</div>
+
+<h2>Autoren und Lizenz</h2>
+
+<p>&copy; Ivan Bogicevic, Janko Dietzsch, Falko Kötter, und Stephan Schulz</p>
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Scientific Programming Lab</span> von <span property="cc:attributionName">DHBW Stuttgart</span> ist lizensiert unter <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p> 
