@@ -83,9 +83,7 @@ class Vector:
         return f"Vector({self.vec})"
 
     def __eq__(self, other):
-        print(self, other)
-        self.check_dims(other)
-        return (self.vec == other.vec).all()
+        return np.all(self.vec == other.vec)
 
     def __len__(self):
         return self.vec.size
