@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9b533e8-0b07-4bae-b54b-a9dffaef514c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Vektor/vektor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vektor/vektor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sciproglab/SciProLab_4_Vektoren_cleaned.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../sciproglab/SciProLab_4_Vektoren_cleaned.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Algorithmen &amp; Komplexität/findinarray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Algorithmen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Algorithmen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/Bruchzahl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/Bruchzahl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/BruchzahlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/BruchzahlTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,26 +47,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests in brueche.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_brueche.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_vektor.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.brueche.executor&quot;: &quot;Run&quot;,
-    &quot;Python.normalize.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vektor.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mindroma/Documents/DHBWNotizen/Semester2/Algorithmen&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in brueche.py.executor": "Run",
+    "Python tests.Python tests in test_brueche.py.executor": "Run",
+    "Python tests.Python tests in test_vektor.py.executor": "Run",
+    "Python.brueche.executor": "Run",
+    "Python.normalize.executor": "Run",
+    "Python.vektor.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/mindroma/Documents/DHBWNotizen/Semester2/Scientific Programming Lab/Separate Code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Brueche" />
@@ -97,6 +100,8 @@
       <workItem from="1747730400042" duration="39000" />
       <workItem from="1747916684610" duration="17000" />
       <workItem from="1747917421229" duration="1796000" />
+      <workItem from="1748449321951" duration="11000" />
+      <workItem from="1748449334031" duration="14000" />
     </task>
     <servers />
   </component>

@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21f9d367-53ea-44dd-9968-7da018b93570" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dynamicprogramming.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fibonacci.py" beforeDir="false" afterPath="$PROJECT_DIR$/fibonacci.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scientific Programming Lab/Testing/Vektor/vektor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Scientific Programming Lab/Testing/Vektor/vektor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scientific Programming Lab/sciproglab/SciProLab_4_Vektoren_cleaned.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Scientific Programming Lab/sciproglab/SciProLab_4_Vektoren_cleaned.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Algorithmen &amp; Komplexität/findinarray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/Bruchzahl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/Bruchzahl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/BruchzahlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Programmieren II/Code/src/Block3/Aufgabe2_Bruchzahlen/BruchzahlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mindroma/Documents/DHBWNotizen/Semester2/Algorithmen&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mindroma/Documents/DHBWNotizen/Semester2/Algorithmen &amp; Komplexität&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,6 +107,8 @@
       <workItem from="1747916670599" duration="13000" />
       <workItem from="1748241328451" duration="3468000" />
       <workItem from="1748245571680" duration="1213000" />
+      <workItem from="1748435190794" duration="30000" />
+      <workItem from="1748441430955" duration="26000" />
     </task>
     <servers />
   </component>
