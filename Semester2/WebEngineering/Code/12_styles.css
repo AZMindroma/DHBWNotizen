@@ -1,0 +1,13 @@
+a[href^="https://"] {
+    color: red;
+}
+
+::selection {
+    color: white;
+    background: red;
+}
+
+::-moz-selection {
+    color: black;
+    background: blue;
+}

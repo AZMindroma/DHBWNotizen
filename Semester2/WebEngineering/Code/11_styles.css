@@ -1,0 +1,17 @@
+body {
+    counter-reset: sectionh1;
+}
+
+h1::before {
+    counter-increment: sectionh1;
+    content: "Section " counter(sectionh1) ": ";
+}
+
+h1 {
+    counter-reset: sectionh2;
+}
+
+h2::before {
+    counter-increment: sectionh2;
+    content: counter(sectionh1) "." counter(sectionh2) " ";
+}

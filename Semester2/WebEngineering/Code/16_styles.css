@@ -1,0 +1,9 @@
+@font-face {
+    font-family: tangerine;
+    src: url(fonts/Tangerine-Regular.ttf);
+}
+
+body {
+    font-family: tangerine, cursive;
+    font-size: 50px;
+}
