@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @keyframes blink
+        {
+            0%   { opacity: 0; }
+            50%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes move
+        {
+            0% { position: absolute; left: 0}
+            50% { position: absolute; left: 200px}
+            100% { position: absolute; left: 0}
+        }
+
+        @keyframes rotate
+        {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes resize
+        {
+            0% { width: 200px; height: 100px; }
+            50% { width: 100%; height: 20px; }
+            100% { width: 200px; height: 100px; }
+        }
+
+        #blinkendertext1 {
+            font-weight: bold;
+            animation: blink 1000ms infinite;
+        }
+
+        #blinkendertext2 {
+            font-weight: bold;
+            animation: blink 500ms infinite;
+        }
+
+        #boxlinksrechts {
+            animation: move 2000ms infinite;
+            border: 15px solid red;
+            background: red;
+            font-weight: bold;
+        }
+
+        #drehendertext {
+            font-weight: bold;
+            animation: rotate 1000ms infinite;
+        }
+
+        #moose {
+            animation: resize 2s infinite;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="blinkendertext1">Blinkender Text</div>
+    <div id="blinkendertext2">Blinkender Text</div>
+    <div id="boxlinksrechts">Diese Box läuft von links nach rechts</div>
+    <div id="drehendertext">Drehender Text</div>
+    <br><br>
+    <img id="moose" src="images/Mooses.png" alt="Moose" />
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation Example</title>
+</head>
+<body>
+    <h2>Find Your Location</h2>
+    <button id="getLocationBtn">Get Current Location</button>
+    <div id="result"></div>
+    <button id="copyBtn" style="display:none;">Copy Coordinates</button>
+    <script>
+        let coords = '';
+        document.getElementById('getLocationBtn').onclick = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+            } else {
+                document.getElementById('result').textContent = 'Geolocation is not supported.';
+            }
+        };
+
+        function success(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            coords = `${lat},${lon}`;
+            document.getElementById('result').innerHTML =
+                `<p>Latitude: ${lat}</p><p>Longitude: ${lon}</p>`;
+            document.getElementById('copyBtn').style.display = 'inline-block';
+        }
+
+        function error() {
+            document.getElementById('result').textContent = 'Unable to retrieve your location.';
+        }
+
+        document.getElementById('copyBtn').onclick = function() {
+            navigator.clipboard.writeText(coords);
+        };
+    </script>
+</body>
+</html>

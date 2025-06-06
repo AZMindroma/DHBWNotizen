@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        <input type="number" id="number1" name="number1"/>
+    </p>
+
+    <p>
+        <select name="operation" id="operation">
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+            <option value="power">^</option>
+            <option value="sin">sin (uses num1 only)</option>
+            <option value="tan">tan (uses num1 only)</option>
+        </select>
+    </p>
+
+    <p>
+        <input type="number" id="number2" name="number2"/>
+    </p>
+
+    <p>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </p>
+
+    <h2 id="result">The result is </h2>
+
+</body>
+</html>
+
+<script type="text/javascript" src="18_calculator.js"></script>

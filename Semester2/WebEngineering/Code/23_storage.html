@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visit Counter</title>
+</head>
+<body>
+    <h2>Visit Counter</h2>
+    <p>Anzahl Besuche insgesamt: <span id="totalVisits">0</span> / Anzahl Besuche diese Sitzung: <span id="sessionVisits">0</span></p>
+    <button id="incrementBtn">Erhoehen</button>
+    <script>
+        // Initialize counts if not present
+        if (!localStorage.getItem('totalVisits')) {
+            localStorage.setItem('totalVisits', '0');
+        }
+        if (!sessionStorage.getItem('sessionVisits')) {
+            sessionStorage.setItem('sessionVisits', '0');
+        }
+
+        function updateDisplay() {
+            document.getElementById('totalVisits').textContent = localStorage.getItem('totalVisits');
+            document.getElementById('sessionVisits').textContent = sessionStorage.getItem('sessionVisits');
+        }
+
+        document.getElementById('incrementBtn').addEventListener('click', function() {
+            let total = parseInt(localStorage.getItem('totalVisits')) + 1;
+            let session = parseInt(sessionStorage.getItem('sessionVisits')) + 1;
+            localStorage.setItem('totalVisits', total);
+            sessionStorage.setItem('sessionVisits', session);
+            updateDisplay();
+        });
+
+        updateDisplay();
+    </script>
+</body>
+</html>

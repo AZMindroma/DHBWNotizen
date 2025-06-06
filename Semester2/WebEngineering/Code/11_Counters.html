@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" media="all">
+        body {
+            counter-reset: sectionh1;
+        }
+
+        h1::before {
+            counter-increment: sectionh1;
+            content: "Section " counter(sectionh1) ": ";
+        }
+
+        h1 {
+            counter-reset: sectionh2;
+        }
+
+        h2::before {
+            counter-increment: sectionh2;
+            content: counter(sectionh1) "." counter(sectionh2) " ";
+        }
+    </style>
+
+    <style type="text/css" media="print">
+        h1 {
+            color: red;
+            font-size: 20px;
+        }
+
+        h2 {
+            color: blue;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Tutorials</h1>
+    <h2>HTML Tutorial</h2>
+    <h2>XHTML Tutorial</h2>
+    <h2>CSS Tutorial</h2>
+
+    <h1>Scripting tutorials</h1>
+    <h2>JavaScript</h2>
+    <h2>VBScript</h2>
+
+    <h1>XML Tutorials</h1>
+    <h2>XML</h2>
+    <h2>XSL</h2>
+</body>
+</html>

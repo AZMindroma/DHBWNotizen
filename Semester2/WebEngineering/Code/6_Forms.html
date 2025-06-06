@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <p> Anrede:
+            <select name="anrede" size="1" autofocus="herr">
+                <option value="herr">Herr</option>
+                <option value="frau">Frau</option>
+            </select>
+        </p>
+
+        <p> Vorname:
+            <input type="text" name="vorname" placeholder="(Vorname)" required="required"/>
+        (erforderlich)</p>
+
+        <p> Name:
+            <input type="text" name="nachname" required="required"/>
+        (erforderlich)</p>
+
+        <p> Land:
+            <input type="text" name="land" required="required" pattern="^[A-Z]{2}$" title="2 Stellen, nur Großbuchstaben"/>
+        (erforderlich)</p>
+
+        <p> Passwort:
+            <input type="password" name="password" placeholder="••••••"/>
+        </p>
+
+        <p> Ihre Nachricht:
+            <textarea name="nachricht" rows="4" cols="30"></textarea>
+        </p>
+
+        <p> Alter:
+            <input type="number" name="alter" min="18" max="65" required="required"/>
+        (erforderlich) (18-65)</p>
+
+        <p> E-Mail:
+            <input type="email" name="email" required="required"/>
+        (erforderlich)</p>
+
+        <p> Autofarbe:
+            <input type="color" name="Farbe"/>
+        (erforderlich)</p>
+
+        <p> Geburtsdatum:
+            <input type="date" name="geburtsdatum" required="required"/>
+        (erforderlich)</p>
+
+        <p> Aktuelle Uhrzeit:
+            <input type="time" name="aktuelleUhrzeit" required="required" value="00:13"/>
+        (erforderlich)</p>
+
+        <p> Kategorie (alle passenden wählen):
+            <select name="kategorie" size="4">
+                <option value="geraet">Gerät</option>
+                <option value="maschine">Maschine</option>
+                <option value="pkw">PKW</option>
+                <option value="pc">PC</option>
+            </select>
+        </p>
+
+        <p> Sprache:
+            <input type="checkbox" name="sprache" value="de">Deutsch</input>
+            <input type="checkbox" name="sprache" value="en" checked="checked">Englisch</input>
+        </p>
+
+        <p> Wohnort:
+            <input type="radio" name="wohnort" value="de">Deutschland</input>
+            <input type="radio" name="wohnort" value="us" checked="checked">USA</input>
+        </p>
+
+        <p> Flugziel:
+            <select name="flugziel">
+                <optgroup label="Europe">
+                    <option value="deutschland">Deutschland</option>
+                    <option value="england">England</option>
+                </optgroup>
+                <optgroup label="Afrika">
+                    <option value="kongo">Kongo</option>
+                    <option value="sudan">Sudan</option>
+                </optgroup>
+                <optgroup label="Amerika">
+                    <option value="brasilien">Brasilien</option>
+                    <option value="kanada">Kanada</option>
+                </optgroup>
+                <optgroup label="Asien">
+                    <option value="kambodscha">Kambodscha</option>
+                    <option value="thailand">Thailand</option>
+                </optgroup>
+            </select>
+        </p>
+
+        <p> Lebenslauf:
+            <input type="file" name="lebenslauf"/>
+        </p>
+
+        <input type="submit" value="Weg damit"/>
+        <input type="reset" value="Werte löschen"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid;
+        }
+
+        #disc {
+            list-style-type: disc;
+        }
+
+        #circle {
+            list-style-type: circle;
+        }
+
+        #square {
+            list-style-type: square;
+        }
+
+        #none {
+            list-style-type: none;
+        }
+
+        #decimal {
+            list-style-type: decimal;
+        }
+
+        #lower-roman {
+            list-style-type: lower-roman;
+        }
+
+        #upper-latin {
+            list-style-type: upper-latin;
+        }
+
+        #upper-latin :first-child {
+            color: red;
+        }
+
+        #upper-latin :last-child {
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Aufzählungen</td>
+            <td>Nummerierungen</td>
+        </tr>
+        <tr>
+            <td class="aufzaehlungen">
+              <ul id="disc">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+              <ul id="circle">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+              <ul id="square">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+              <ul id="none">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+            </td>
+
+            <td class="nummerierungen">
+              <ol id="decimal">
+                <li>AA</li>
+                <li>BB</li>
+                <li>CC</li>
+                <li>DD</li>
+              </ol>
+              <ol id="lower-roman">
+                <li>AA</li>
+                <li>BB</li>
+                <li>CC</li>
+                <li>DD</li>
+              </ol>
+              <ol id="upper-latin">
+                <li>AA</li>
+                <li>BB</li>
+                <li>CC</li>
+                <li>DD</li>
+              </ol>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

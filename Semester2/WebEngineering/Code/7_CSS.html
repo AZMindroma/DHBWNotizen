@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        h1 {
+            color: red;
+            font-family: sans-serif;
+            text-decoration: underline;
+        }
+
+        .inhalt {
+            font-family: sans-serif;
+        }
+
+        #einleitungstext {
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        #lorem {
+            line-height: 2em;
+            text-align: center;
+        }
+
+        #lorem::first-line {
+            color: blue;
+        }
+
+        #lorem::first-letter {
+            color: red;
+            font-size: larger;
+        }
+
+        :visited {
+            color: green;
+        }
+
+        :hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>SEITENTITEL</h1>
+    <div class="inhalt">
+        <p id="einleitungstext">Das ist ein fetter, kursiver Einleitungstext</p>
+        <p>Zentrierter Absatz mit doppeltem Zeilenabstand</p>
+        <p id="lorem">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <p class="links">
+            <a href="https://azmindroma.de/">Visited Link</a> <br>
+            <a href="https://azmindroma.de/">Link</a> <br>
+            <a href="https://azmindroma.de/">Visited Link</a>
+        </p>
+    </div>
+</body>
+</html>
