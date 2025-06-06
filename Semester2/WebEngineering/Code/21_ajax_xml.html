@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Table</title>
+</head>
+<body>
+<button id="loadData">Load Data</button>
+<div id="dataContainer"></div>
+<script>
+    document.getElementById('loadData').addEventListener('click', () => {
+        fetch('https://dhbw.radicalsimplicity.com/test.xml')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                const books = data.getElementsByTagName('book');
+                let table = '<table border="1"><thead><tr><th>Author</th><th>Title</th><th>Description</th></tr></thead><tbody>';
+                Array.from(books).forEach(book => {
+                    const author = book.getAttribute('author') || '';
+                    const title = book.getAttribute('title') || '';
+                    const description = book.getElementsByTagName('description')[0]?.textContent.trim() || '';
+                    table += `<tr><td>${author}</td><td>${title}</td><td>${description}</td></tr>`;
+                });
+                table += '</tbody></table>';
+                document.getElementById('dataContainer').innerHTML = table;
+            })
+            .catch(error => {
+                document.getElementById('dataContainer').innerHTML = 'Error loading data.';
+                console.error('Error:', error);
+            });
+    });
+</script>
+</body>
+</html>

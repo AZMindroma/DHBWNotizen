@@ -1,7 +1,0 @@
-li:nth-child(5) {
-    color:red;
-}
-
-li:nth-last-child(3) {
-    color:blue;
-}

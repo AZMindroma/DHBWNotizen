@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="12_styles.css">
+    <style type="text/css">
+        a[href^="https://"] {
+            color: red;
+        }
+
+        ::selection {
+            color: white;
+            background: red;
+        }
+
+        ::-moz-selection {
+            color: black;
+            background: blue;
+        }
+    </style>
 </head>
 <body>
     <div>

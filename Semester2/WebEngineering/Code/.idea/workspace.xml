@@ -5,41 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad0c4f15-2560-411f-8117-667d9c190574" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Start.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/10_Blocks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/10_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/11_Counters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/11_print.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/11_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12_css3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/13_child.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/13_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_roundedcorners.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/15_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/15_textshadow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/16_fonts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/16_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/17_animation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/17_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1_Beginning.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2_Lists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3_Hyperlinks_Anchors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4_1_LinksAndLists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4_2_Lists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/5_Tables.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/6_Forms.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/7_CSS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/7_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8_ListsCSS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/9_TablesCSS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/9_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/AZMindroma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Mooses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20_ajax.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21_ajax_xml.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/22_ajax_json.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23_storage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/24_geolocation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.obsidian/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ScientificProgrammingLab/sciproglab/SciProLab_6_Vererbung_cleaned.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ScientificProgrammingLab/sciproglab/SciProLab_6_Vererbung_cleaned.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/10_Blocks.html" beforeDir="false" afterPath="$PROJECT_DIR$/10_Blocks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/10_styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/11_Counters.html" beforeDir="false" afterPath="$PROJECT_DIR$/11_Counters.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/11_print.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/11_styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/12_css3.html" beforeDir="false" afterPath="$PROJECT_DIR$/12_css3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12_styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7_CSS.html" beforeDir="false" afterPath="$PROJECT_DIR$/7_CSS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7_styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/8_ListsCSS.html" beforeDir="false" afterPath="$PROJECT_DIR$/8_ListsCSS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8_styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/9_TablesCSS.html" beforeDir="false" afterPath="$PROJECT_DIR$/9_TablesCSS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9_styles.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,14 +36,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AZMindroma&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AZMindroma/DHBWNotizen.git&quot;,
+    &quot;accountId&quot;: &quot;d25ad357-6510-4b1d-b2ec-ba1068b79c07&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -65,29 +64,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.4_1_LinksAndLists.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.6_Forms.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mindroma/WebstormProjects/Start/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.4_1_LinksAndLists.html.executor": "Run",
+    "JavaScript Debug.6_Forms.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.index.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/mindroma/Documents/DHBWNotizen/Semester2/WebEngineering/Code",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
@@ -118,10 +118,19 @@
       <workItem from="1748450324400" duration="40000" />
       <workItem from="1748453542845" duration="1000" />
       <workItem from="1748610222184" duration="3000" />
+      <workItem from="1749191796839" duration="2518000" />
+      <workItem from="1749194544470" duration="715000" />
+      <workItem from="1749195302251" duration="1257000" />
+      <workItem from="1749196583865" duration="7086000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
 </project>
