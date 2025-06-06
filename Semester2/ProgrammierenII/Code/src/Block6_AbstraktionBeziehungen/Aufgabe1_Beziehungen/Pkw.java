@@ -3,8 +3,8 @@ package Block6_AbstraktionBeziehungen.Aufgabe1_Beziehungen;
 public class Pkw extends Fahrzeug {
     private int anzahlTueren;
 
-    public Pkw(int anzahlRaeder, int anzahlTueren) {
-        super("Pkw", anzahlRaeder);
+    public Pkw(Fahrzeughalter halter, int anzahlRaeder, int anzahlTueren) {
+        super(halter,"Pkw", anzahlRaeder);
         this.anzahlTueren = anzahlTueren;
     }
 
@@ -13,6 +13,6 @@ public class Pkw extends Fahrzeug {
     }
 
     public String toString() {
-        return super.toString() + String.format(" Der %s hat %d Türen.", this.gibFahrzeugart(), this.anzahlTueren);
+        return String.format("Dieses Fahrzeug ist ein %s mit %d Rädern und %d Türen. Es gehört %s.", this.gibFahrzeugart(), this.gibAnzahlRaeder(), this.gibAnzahlTueren(), this.getHalter());
     }
 }

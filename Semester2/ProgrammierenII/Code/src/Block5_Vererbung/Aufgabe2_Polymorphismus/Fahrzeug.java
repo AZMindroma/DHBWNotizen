@@ -4,8 +4,9 @@ public class Fahrzeug {
     private String fahrzeugart;
     private int anzahlRaeder;
 
-    public Fahrzeug(String fahrzeugart) {
-        this.fahrzeugart = fahrzeugart;
+    public Fahrzeug(int anzahlRaeder) {
+        this.anzahlRaeder = anzahlRaeder;
+        this.fahrzeugart = "allgemeines Fahrzeug";
     }
 
     public Fahrzeug(String fahrzeugart, int anzahlRaeder) {
@@ -19,5 +20,9 @@ public class Fahrzeug {
 
     public int gibAnzahlRaeder() {
         return anzahlRaeder;
+    }
+
+    public String toString() {
+        return String.format("Das Fahrzeug ist ein %s mit %d Rädern.", this.fahrzeugart, this.anzahlRaeder);
     }
 }

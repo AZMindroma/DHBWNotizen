@@ -11,4 +11,8 @@ public class Pkw extends Fahrzeug {
     public int gibAnzahlTueren() {
         return anzahlTueren;
     }
+
+    public String toString() {
+        return super.toString() + String.format(" Der %s hat %d Türen.", this.gibFahrzeugart(), this.anzahlTueren);
+    }
 }

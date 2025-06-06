@@ -2,21 +2,15 @@ package Block6_AbstraktionBeziehungen.Aufgabe1_Beziehungen;
 
 public class Aufrufe {
     public static void main(String[] args) {
-        Fahrzeug fahrzeug = new Fahrzeug(16);
-        Pkw pkw = new Pkw(4, 5);
-        Motorrad motorrad = new Motorrad();
+        Fahrzeughalter halter = new Fahrzeughalter("AZMindroma");
+        Fahrzeug fahrzeug = new Fahrzeug(halter, 16);
+        Motorrad motorrad = new Motorrad(halter);
+        Pkw pkw = new Pkw(halter, 4, 6);
 
         System.out.println(fahrzeug);
-        System.out.println(pkw);
         System.out.println(motorrad);
+        System.out.println(pkw);
 
-        System.out.println();
-
-        Fahrzeug[] fahrzeuge = new Fahrzeug[] {
-                new Fahrzeug(16), new Pkw(4, 5), new Motorrad() };
-        for (Fahrzeug f : fahrzeuge)
-        {
-            System.out.println(f);
-        }
+        halter.setFahrzeug(fahrzeug);
     }
 }

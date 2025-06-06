@@ -10,8 +10,12 @@ public class Bruchzahl {
         normiere();
     }
 
-    public String zeigeAn() {
+    public String toString() {
         return String.format("(%d, %d)", this.zaehler, this.nenner);
+    }
+
+    public boolean equals(Bruchzahl q) {
+        return (this.zaehler == q.zaehler) && (this.nenner == q.nenner);
     }
 
     // 1/2 + 7/9
