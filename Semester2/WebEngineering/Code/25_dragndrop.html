@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop Blocks</title>
+    <style>
+        .block {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            display: inline-block;
+            background: #EEEEEE;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2em;
+            border: 2px solid;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+        }
+        .dragging {
+            background: #ffd966;
+            border: 2px solid #f1c232;
+        }
+        .over {
+            background: #b6d7a8;
+            border: 2px solid #38761d;
+        }
+    </style>
+</head>
+<body>
+<div id="block1" class="block" draggable="true">Block A</div>
+<div id="block2" class="block" draggable="true">Block B</div>
+<div id="block3" class="block" draggable="true">Block C</div>
+
+<script>
+    let dragged = null;
+
+    document.querySelectorAll('.block').forEach(block => {
+        block.addEventListener('dragstart', function (e) {
+            dragged = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        });
+
+        block.addEventListener('dragend', function () {
+            this.classList.remove('dragging');
+        });
+
+        block.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+
+        block.addEventListener('dragenter', function (e) {
+            if (this !== dragged) {
+                this.classList.add('over');
+            }
+        });
+
+        block.addEventListener('dragleave', function () {
+            this.classList.remove('over');
+        });
+
+        block.addEventListener('drop', function (e) {
+            e.preventDefault();
+            this.classList.remove('over');
+            if (dragged && this !== dragged) {
+                const temp = this.innerHTML;
+                this.innerHTML = dragged.innerHTML;
+                dragged.innerHTML = temp;
+            }
+        });
+    });
+</script>
+</body>
+</html>
